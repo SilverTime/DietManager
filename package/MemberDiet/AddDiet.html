@@ -1,0 +1,167 @@
+<div ms-controller="AddDiet">
+    <strong>选择已有食谱</strong>
+    <br/><br/>
+
+    <button class="btn btn-default pull-right" ms-click="showAteLog" style="margin-left: 20px">从就餐记录创建</button>
+    <a class="btn btn-success pull-right" ms-attr-href="#!/EditDiet/4&&{{UID}}&&{{date}}">创建新食谱</a>
+    <input type="text" class="form-control pull-left" style="width: 300px ;margin-right: 30px" ms-duplex="w.Keyword" placeholder="输入食谱名称关键词或目标能量"/>
+    <tsy:select config="$select"></tsy:select>
+
+    <br/><br/>
+    <div class="hr-block" ms-repeat="list" style="margin:20px 0px;border-color:#a3a3a3">
+        <div class="hr-panel-body" style="padding:10px">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="hr-block">
+                        <div class="hr-panel-title">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>{{targetName[el.Target-1]}}食谱&nbsp;</strong>
+                                    <span style="color:#e14045;font-size: 18px">{{Number(el.TotalSale)}}</span>
+                                    次够买
+                                </div>
+                                <div class="col-sm-4 text-center">
+                                    创建人：
+                                    <a ms-attr-href="#!/Home/{{el.CUser.User.UID}}">
+                                        {{el.CUser.User.Name}}
+                                    </a>
+                                    <small ms-if="el.CUID==cache.go('UID')">（我自己）</small>
+
+
+                                </div>
+                                <div class="col-sm-4 text-right">
+                                    {{el.CTime*1000|date("yyyy-MM-dd")}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-panel-body" style="padding:10px;;height: 80px;overflow: auto;">
+                            <strong>{{el.Title}}</strong><br>
+                            {{el.Introduce}}
+                            <span ms-if="el.Introduce==''||el.Introduce==null" style="color:#dddddd">暂时没有介绍……</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="hr-block">
+                        <div class="hr-panel-title">
+                            能量统计(单位：kcal)
+                        </div>
+                        <div class="hr-panel-body" style="padding:10px">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    目标：{{Number(el.REI).toFixed(2)}}<br/>
+                                    实际：{{Number(el.Energy).toFixed(2)}}<br/>
+                                    差距：{{Number(el.REI-el.Energy).toFixed(2)}}<br/>
+                                </div>
+                                <div class="col-sm-6">
+                                    早餐：{{Number(el.BreakfastEnergy).toFixed(2)}}<br>
+                                    午餐：{{Number(el.LunchEnergy).toFixed(2)}}<br>
+                                    晚餐：{{Number(el.DinnerEnergy).toFixed(2)}}<br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <div ms-if="el.Has||el.CUID==cache.go('UID')" class="row">
+                <div class="col-sm-4">
+                    <div class="hr-block">
+                        <div class="hr-panel-title">
+                            早餐
+                        </div>
+                        <div class="hr-panel-body diet-list-meal">
+                            <div ms-repeat-al="el.Details">
+                                <div ms-if="al.MealID==1" style="clear: both">
+                                    <div class="food-type" ms-class="food-type-{{al.Food.TypeID}}"></div>
+                                    {{al.Food.Name}}
+                                    <span class='pull-right'>
+                                        ×
+                                    <strong style="font-size: 18px">{{Number(al.Weight)}}</strong>
+                                    g {{mealSignName[al.MealSign]}} &nbsp;&nbsp;&nbsp;
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="hr-block">
+                        <div class="hr-panel-title">
+                            午餐
+                        </div>
+                        <div class="hr-panel-body diet-list-meal">
+                            <div ms-repeat-al="el.Details">
+                                <div ms-if="al.MealID==2" style="clear: both">
+                                    <div class="food-type" ms-class="food-type-{{al.Food.TypeID}}"></div>
+                                    {{al.Food.Name}}
+                                    <span class='pull-right'>
+                                        ×
+                                    <strong style="font-size: 18px">{{Number(al.Weight)}}</strong>
+                                    g {{mealSignName[al.MealSign]}} &nbsp;&nbsp;&nbsp;
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="hr-block">
+                        <div class="hr-panel-title">
+                            晚餐
+                        </div>
+                        <div class="hr-panel-body diet-list-meal">
+                            <div ms-repeat-al="el.Details">
+                                <div ms-if="al.MealID==3" style="clear: both">
+                                    <div class="food-type" ms-class="food-type-{{al.Food.TypeID}}"></div>
+                                    {{al.Food.Name}}
+                                    <span class='pull-right'>
+                                        ×
+                                    <strong style="font-size: 18px">{{Number(al.Weight)}}</strong>
+                                    g {{mealSignName[al.MealSign]}} &nbsp;&nbsp;&nbsp;
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <!--操作按钮-->
+            <div>
+
+
+                <button class="btn btn-success btn-sm" ms-if="el.Has||el.CUID==cache.go('UID')" ms-click="addDiet(el.DietID)">选定</button>&nbsp;
+                <a ms-attr-href="#!/EditDiet/5&&{{UID}}&&{{date}}&&{{el.DietID}}" ms-if="el.Has||el.CUID==cache.go('UID')" class="btn btn-default btn-sm">复制并编辑</a>
+
+                <button class="btn btn-info btn-sm" ms-if="!el.Has&&el.CUID!=cache.go('UID')" ms-click="buy(el.DietID,$index)"
+                        style="width: 120px">
+                    获取
+                </button>
+                <span style="color:#b2b2b2" ms-if="!el.Has&&el.CUID!=cache.go('UID')">
+                    获取之后可查看完整的食谱信息，并能使用食谱
+                </span>
+                <a ms-attr-href="#!/EditDiet/1&&{{el.DietID}}"
+                   class="btn btn-info btn-sm" style="width: 120px"
+                   ms-if="el.CUID==cache.go('UID')">
+                    编辑
+                </a>
+
+                <a class="btn btn-default btn-sm pull-right" target="_blank" ms-attr-href="#!/DietDetails/{{el.DietID}}">食谱详情</a>
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <tsy:pager config="$pager"></tsy:pager>
+</div>

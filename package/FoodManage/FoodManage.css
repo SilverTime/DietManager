@@ -1,0 +1,215 @@
+/*
+食材列表 外在肌肤，水嫩丝滑
+生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+*/
+@media (min-width: 768px) {
+    .fl-container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .fl-container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .fl-container {
+        width: 1170px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fl-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#fl-header {
+    width: 100%;
+    height: 68px;
+    border-bottom: 1px solid;
+    padding-top: 20px;
+    color: #0076b0;
+    margin-bottom: 35px;
+}
+#fl-header a{
+    cursor: pointer!important;
+}
+
+.fl-font-h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.fl-btn {
+    font-size: 14px !important;
+    margin-left: 10px !important;
+    margin-bottom: 8px !important;
+    padding: 2px 12px !important;
+    border: 1px solid #676767 !important;
+    background: #dedede;
+    color: #444;
+}
+.fl-tr{
+    cursor: pointer;
+}
+.fl-tr:hover{
+    background-color: #d2ffac !important;
+}
+.fl-tr-active{
+    background-color: #c2ff98 !important;
+    color: #00ad3d;
+}
+
+.fl-tr td{
+    /*text-align: center!important;*/
+    padding-left: 3px!important;
+    padding-right: 3px!important;
+}
+
+.fl-tr>td:first-child{
+    text-align: left;
+}
+
+
+
+.fl-add{
+    margin-left: 5px;
+    width: 75px;
+    height: 26px;
+    font-size: 10px!important;
+    background: linear-gradient(to right, #c9c9c9, #e0e0e0); /* 标准的语法 */
+}
+
+.fl-add-change{
+    position: absolute;
+    left: 142px;
+    top: 30px;
+    width: 75px;
+    height: 34px;
+    color: #a2a39f;
+    background-color: white;
+    border-top: 2px #cbcbcb solid;
+    border-left: 1px #cbcbcb solid;
+    border-right: 1px #cbcbcb solid;
+    font-size: 11px;
+    display: inline-block;
+    padding: 6px 12px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    margin-left: 5px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    float: left;
+}
+.FoodList-addBox{
+    border: 1px darkgrey solid;
+    border-radius: 4px;
+    /*margin-top: 5px;*/
+}
+.FoodList-addBox-row{
+    padding: 8px 20px 0px 20px;
+}
+.FoodList-addBox-text{
+    float: left;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+.FoodList-input-height{
+    height: 30px;
+    float: left;
+}
+
+
+.Food-col{
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+}
+
+
+.FoodList-confirm-btn{
+    width: 80px;
+    height: 30px;
+    float: right;
+    position: absolute;
+    right: 170px;
+    bottom: 10px;
+}
+.FoodList-delete-btn{
+    width: 80px;
+    height: 30px;
+    float: right;
+    margin-top: 20px;
+    position: relative;
+    right: 50px;
+    bottom: 10px;
+}
+
+.FoodList-Sex{
+    float: left;
+    width: 72px;
+    margin-top: -16px;
+}
+.FoodList-dropdown{
+    width: 70px;
+    height: 30px;
+    float: left;
+    border-radius: 4px;
+    border-color: #cbcbcb;
+    color: #989898;
+    box-shadow:inset 0 1px 1px;
+}
+.FoodList-dropdown-club{
+    width: 230px;
+    height: 35px;
+    float: left;
+    border-radius: 4px;
+    border-color: #cbcbcb;
+    color: #989898;
+    box-shadow:inset 0 1px 1px;
+}
+.FoodList-pop-btn{
+    width: 100px;
+    height: 35px;
+    position: relative;
+    left: 260px;
+}
+
+.FoodList-status{
+    position: absolute;
+    left: -44px;
+    top: 5px;
+    width: 60px;
+}
+.FoodList-s-ing{
+    color: #2CA149;;
+}
+
+/*重写的添加用户表单样式*/
+.fc-input{
+    position: relative;
+    margin-top: 15px;
+}
+.fc-input label {
+    position: absolute;
+    display: block;
+    width: auto;
+    padding: 0px 5px;
+    background-color: #ffffff;
+    top: -15px;
+    left: 10px;
+
+    height: 20px;
+    overflow: hidden;
+}

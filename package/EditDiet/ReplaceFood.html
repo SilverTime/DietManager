@@ -1,0 +1,19 @@
+<div ms-controller="ReplaceFood">
+    <strong>
+        食物替换
+    </strong>
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-3" ms-repeat="list">
+            <div class="food-search-item" ms-click="setFood(el)">
+                <div>
+                    <span class="pull-right" ><strong>{{Number(el.Weight)}}</strong> g</span>
+                    <div class="food-type" ms-class="food-type-{{el.TypeID}}"></div>
+                    <span>{{el.Name}}</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

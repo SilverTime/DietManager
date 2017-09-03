@@ -1,0 +1,37 @@
+.tsy-pager>div{
+    float: left;
+    margin:5px;
+    cursor: pointer;
+}
+
+.tsy-pager-now{
+    color: #ffffff!important;
+    background-color: #98d648;
+}
+.tsy-pager-list,.tsy-pager-pre{
+    padding: 3px 10px;
+}
+.tsy-pager-pre{
+    color:#98d648
+}
+
+.tsy-pager-list{
+    color:#98d648;
+    border: 1px solid ;
+    text-align: center;
+    min-width: 20px;
+}
+.tsy-pager-list:hover,.tsy-pager-pre:hover{
+    color: #ffffff!important;
+    background-color: #98d648;
+}
+
+ .tsy-pager-now{
+     border-color: transparent;!important;
+}
+
+ .tsy-pager-t{
+     color: #aaa;
+     font-size: small;
+     line-height: 25px;
+ }

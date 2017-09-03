@@ -1,0 +1,74 @@
+/*
+switch 外在肌肤，水嫩丝滑
+生成时间：Wed Sep 28 2016   破门狂人R2-D2为您服务！
+*/
+
+.switch-box{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.switch-box>div{
+    transition: all 0.2s ease;
+}
+.sw-label,.sw-btn-box{
+    float: left;
+
+}
+.sw-label{
+    /*height: 100%;*/
+    /*line-height: 200%;*/
+    color:#ddd
+}
+
+.sw-on-left{
+    color:#5eb40b;
+    text-shadow: 0px 2px 1px #D9D9D9;
+}
+
+.sw-on-right{
+    color: #363636;
+    text-shadow: 0px 2px 1px #D9D9D9;
+}
+
+.sw-btn-box{
+    margin:0px 5px ;
+    width: 80px;
+    height: 25px;
+    padding:4px;
+    background-color: #dddddd;
+    border-radius: 5px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+.sw-btn{
+    width: 50%;
+    height: 100%;
+    background: -webkit-linear-gradient(#ffffff, #f6f6f6); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#ffffff, #f6f6f6); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#ffffff, #f6f6f6); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#ffffff, #f6f6f6); /* 标准的语法 */
+
+    border-radius: 3px;
+    transition: all 0.15s cubic-bezier(0.33, 0.04, 0.51, 1.41);
+    box-shadow: 0px 2px 4px #959595;
+}
+.sw-left{
+    background-color: #7bd028;
+    box-shadow: inset 0px 0px 4px #5eb40b;
+}
+.sw-right{
+    background-color: #bbbbbb;
+    box-shadow: inset 0px 0px 4px #a4a4a4;
+}
+
+.sw-left>.sw-btn{
+    margin-left: 0;
+}
+.sw-right>.sw-btn{
+    margin-left: 50%;
+}

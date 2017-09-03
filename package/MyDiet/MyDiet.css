@@ -1,0 +1,25 @@
+/*
+我的食谱 外在肌肤，水嫩丝滑
+生成时间：Mon Mar 21 2016   破门狂人R2-D2为您服务！
+*/
+.MyDiet{
+
+}
+
+.md-meal {
+    border-top: 1px #dddddd solid;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.md-meal-title {
+    margin-top: -15px;
+    margin-left: 30px;
+    font-size: 20px;
+    background-color: #ffffff;
+    padding:0px 10px;
+    width: auto;
+    display: table;
+}

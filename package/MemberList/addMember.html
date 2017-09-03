@@ -1,0 +1,69 @@
+<div ms-controller="addMember">
+    <button ms-click="reset" class="btn btn-default  btn-sm pull-right">重置</button>
+    <button ms-click="addMumInfo" class="btn btn-info btn-sm pull-right" style="margin-right: 20px">保存</button>
+    <strong>会员添加</strong>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-3">
+            姓名：
+            <input ms-duplex="Name" maxlength="50" type="text" class="form-control"/>
+        </div>
+        <div class="col-sm-2">
+        <br>
+        <tsy:select config="$opt" style="display:none"></tsy:select>
+        <tsy:select config="$selectSex">
+            <div class="btn-group btn-group-xs" role="group">
+                <button class="btn btn-default ">
+                    女士
+                </button>
+                <button class="btn btn-default btn-primary">
+                    先生
+                </button>
+            </div>
+        </tsy:select>
+    </div>
+        <div class="col-sm-3">
+        生日：
+        <input ms-duplex="Birthday" type="date" class="form-control">
+
+    </div>
+        <div class="col-sm-3">
+            服务期限至：
+            <input ms-duplex="Deadline" type="date" class="form-control">
+        </div>
+
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-sm-2" style="position: relative">
+            <span style="position: absolute;top:26px;left: 120px;">kg</span>
+            体重：
+            <input ms-duplex="CurrentWeight" maxlength="6" style="padding: 0 30px 0 10px;" type="text" class="form-control"
+                   placeholder="当前体重">
+        </div>
+        <div class="col-sm-2" style="position: relative">
+            <br>
+            <span style="position: absolute;top:26px;left: 120px;">kg</span>
+            <input ms-duplex="TargetWeight" maxlength="6" style="padding: 0 30px 0 10px;" type="text" class="form-control"
+                   placeholder="目标体重">
+        </div>
+        <span class="col-sm-1"></span>
+        <div class="col-sm-3">
+            联系方式：
+            <input ms-duplex="Tel" maxlength="20" type="text" class="form-control">
+        </div>
+
+        <div class="col-sm-3">
+            健身目的：
+            <select  class="form-control" ms-duplex="Target">
+                <option value="0">请选择</option>
+                <option value="1">减脂</option>
+                <option value="2">增肌</option>
+                <option value="3">塑形</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>

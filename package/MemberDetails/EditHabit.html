@@ -1,0 +1,17 @@
+<div ms-controller="EditHabit">
+    <button class="btn btn-default  btn-sm pull-right" ms-click="reset">重置</button>
+    <button class="btn btn-info btn-sm pull-right" ms-click="save" style="margin-right: 20px">保存</button>
+    <strong>疾病历史&生活习惯：</strong>
+    <hr/>
+    疾病历史：
+    <textarea rows="4" class="form-control" ms-duplex="Habit.History"></textarea>
+    <br/>
+    生活习惯：
+    <textarea rows="4" class="form-control" ms-duplex="Habit.Living"></textarea>
+    <br/>
+    膳食问卷分:
+    <input type="text" class="form-control" ms-duplex="Habit.Survey" style="display: inline-block;width: 100px"/>
+
+
+
+</div>

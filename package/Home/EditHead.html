@@ -1,0 +1,22 @@
+<div ms-controller="EditHead">
+    <strong>
+        修改头像
+    </strong>
+
+    <hr>
+    <img ms-if="BackgrondImgURL!=''" ms-attr-src="HeadImgURL" style="max-width: 100%" alt="">
+    选择网络图片：
+    <input type="text" class="form-control" placeholder="输入图片URL地址" ms-duplex="HeadImgURL">
+    <br>
+
+    上传图片：
+    <br>
+    <tsy:fileuploader config="$EditHead_uploader"></tsy:fileuploader>
+    <br>
+    <span>
+    推荐分辨率：189*176
+    </span>
+    <button class="btn btn-block btn-success" ms-click="save">
+        保存头像
+    </button>
+</div>

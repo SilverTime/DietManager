@@ -1,0 +1,37 @@
+<!--
+    switch 核心骨架，百折不挠
+    生成时间：Wed Sep 28 2016   破门狂人R2-D2为您服务！
+
+
+
+
+    ms-class="sw-ac-now:nowSide=='left'"
+
+
+    ms-class="sw-ac-now:nowSide=='right'"
+
+
+
+-->
+
+<!--开关-->
+
+<div class="switch-box" ms-on-click="toggle('auto')"  ms-css-line-height="height">
+    <!--左边文字-->
+    <div class="sw-label" ms-class="sw-on-left:nowSide=='left'" ms-css-height="height">
+        {{left.label}}
+    </div>
+
+    <!--中间按钮-->
+    <div ms-class="sw-{{nowSide}}" class="sw-btn-box" ms-css-height="height">
+        <!--移动块-->
+        <div class="sw-btn">
+
+        </div>
+    </div>
+
+    <!--右边文字-->
+    <div class="sw-label" ms-class="sw-on-right:nowSide=='right'" ms-css-height="height">
+        {{right.label}}
+    </div>
+</div>

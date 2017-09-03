@@ -1,0 +1,60 @@
+<div ms-controller="EditAteLog" class="eal">
+    <strong>{{Name}}(<span ms-if="Sex==0">女士</span><span ms-if="Sex==1">先生</span>)饮食记录：</strong>
+    <hr/>
+    <div>
+        <button class="btn btn-default  btn-sm pull-right" ms-click="reset">重置</button>
+        <button class="btn btn-info btn-sm pull-right" ms-click="save" style="margin-right: 20px">保存</button>
+        日期：
+        <input type="date" class="form-control"  style="width: 200px" ms-duplex="Date"/>
+    </div>
+    <br/>
+    <div class="panel panel-body" style="position: relative" ms-repeat="foods"
+         ms-class="panel-success:$index==0"
+         ms-class-2="panel-danger:$index==1"
+         ms-class-3="panel-info:$index==2">
+        <div class="meal-title">
+            <span ms-if="$index==0" class="text-success">早餐</span>
+            <span ms-if="$index==1" class="text-danger">午餐</span>
+            <span ms-if="$index==2" class="text-info">晚餐</span>
+        </div>
+        <div ms-repeat-al="el" class="row" style="margin-bottom: 10px">
+            <div class="col-sm-10">
+                <button class="btn btn-danger btn-xs" ms-click="delFoodInput(el,$index)">删除</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                食物：
+                <input type="text"
+                       maxlength="50" style="width: 300px"
+                       class="form-control foodSearchInput"
+                       onkeyup="goInput_eal.posePanel(this)"
+                       onfocus="goInput_eal.show(true);goInput_eal.posePanel(this)"
+                       onblur="goInput_eal.show(false)"
+                       ms-on-focus="MemberDetails.foodFocus($outer.$index,$index,this)"
+                       ms-on-blur="MemberDetails.foodblur($outer.$index,$index)"
+                       ms-duplex="al.Name"
+                       placeholder="输入食物名称或类型"/>
+                &nbsp;
+                ×
+                &nbsp;
+                <input type="text" class="form-control"
+                       ms-attr-id="foodWeightInput_{{$outer.$index}}_{{$index}}_eal"
+                       style="max-width: 150px" ms-duplex="al.Weight"/>
+                g
+            </div>
+
+            <div class="col-sm-2">
+                <select name="" id="" ms-duplex="al.MealSign" class="form-control">
+                <option value="1">正餐</option>
+                <option value="2">加餐</option>
+                <option value="3">训练前</option>
+                <option value="4">训练中</option>
+                <option value="5">训练后</option>
+            </select>
+            </div>
+        </div>
+        <button class="btn btn-default btn-add-row btn-block" ms-click="addFoodInput($index)">
+            添加食物
+        </button>
+    </div>
+
+
+</div>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>上传组件2</title>
+    <script src="../../src/js/avalon.modern.1.5.min.js"></script>
+    <script src="../../plugins/cache/cache.js"></script>
+</head>
+<body ms-controller="demo">
+
+<div style="width: 450px;margin:100px auto">
+    <tsy:fileuploader config="$opt"></tsy:fileuploader>
+</div>
+
+
+</body>
+<script>
+    var apiURL = 'http://picc.weixin.tansuyun.cn/index.php?i=';
+    avalon.ready(function () {
+        require(['../../lib/fileuploader/fileuploader.js'], function () {
+            var vm=avalon.define({
+                $id:"demo",
+                $opt:{
+                    //组件编号，必须传入！
+                    id:"fileuploader",
+
+                    /*配置项 非必须*/
+                    //文件格式
+                    accept: {
+                        title: 'Images',                // {String} 文字描述
+                        extensions: 'jpg,jpeg,bmp,png', //{String} 允许的文件后缀，不带点，多个用逗号分割。
+                        mimeTypes: 'image/*'            //{String} 多个用逗号分割。
+                    },
+                    //所有文件大小
+                    fileSizeLimit: 200 * 1024 * 1024,    // 200 M
+                    //单个文件大小
+                    fileSingleSizeLimit: 50 * 1024 * 1024 ,   // 50 M
+                    //文件个数限制
+                    fileNumLimit: 3,
+                    //选中即上传
+                    auto:false,
+                    //获取上传验证的函数
+                    getSign: function (callback) {
+                       //将在组件的$ready()中调用,
+                        //todo 必须在callback中传入sign（上传签名）
+                        callback(0)
+                    },
+
+                    /*回调函数 必须*/
+                    //上传成功的回调函数
+                    success: function (res) {
+
+                    },
+                    //上传失败的回调函数
+                    err: function (res) {
+
+                    },
+
+                },
+
+            })
+            avalon.scan()
+        })
+    })
+</script>
+
+</html>

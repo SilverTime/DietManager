@@ -1,0 +1,64 @@
+<!--
+    食物替换表 核心骨架，百折不挠
+    生成时间：Thu Nov 17 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="FoodReplace" class="container">
+    <h2>食物替换表管理</h2>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="hr-panel">
+                <div class="hr-panel-title">
+                    替换表目录
+                </div>
+                <div class="hr-panel-body" >
+                    <button class="btn btn-block btn-default" ms-class="btn-success:nowTable==$index"
+                            ms-repeat="list" ms-click="getFoodReplace(Number($index)+1)">
+                        {{el}}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="hr-panel">
+                <div class="hr-panel-title">
+                    <strong>
+                        {{list[nowTable]}}
+                    </strong>
+
+                    <button class="btn btn-success pull-right" ms-click="addFoodToTable()">添加到表中</button>
+                    <div class="pull-right" style="margin-right: 10px">
+                        <input id="fr_weight_input" type="text" class="form-control" ms-duplex="Weight" placeholder="食物重量（g）">
+                    </div>
+                    <div class="pull-right" style="margin-right: 10px">
+                        <tsy:find config="$findFood" ms-data-id="'frff'"></tsy:find>
+                    </div>
+                    <div class="clearfix">
+
+                    </div>
+
+                </div>
+                <div class="hr-panel-body" >
+                    <!--todo 渲染食物列表-->
+                    <div class="row">
+                        <div class="col-sm-4" ms-repeat="info">
+                            <div class="food-box">
+                                <div class="food-type" ms-class="food-type-{{el.TypeID}}"></div>
+                                {{el.Name}} × {{Number(el.Weight)}}g
+                                <div class="del">
+                                    <i class="icon icon-2x icon-remove-sign" ms-click="delFoodFromTable(el.LID)"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <h2 style="color: #dddddd;text-align: center" ms-if="info.length==0" >
+                        等待添加可替换的食物
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

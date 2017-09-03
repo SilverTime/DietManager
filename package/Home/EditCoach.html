@@ -1,0 +1,53 @@
+<div ms-controller="EditCoach">
+    <div class="row">
+        <!--姓名-->
+        <div class="col-sm-4">
+            姓名
+            <input type="text" class="form-control" ms-duplex="data.Name">
+            <br>
+        </div>
+        <!--性别-->
+        <div class="col-sm-4">
+            性别
+            <select type="text" class="form-control"  ms-duplex="data.Sex">
+                <option value="1">男</option>
+                <option value="0">女</option>
+            </select>
+            <br>
+        </div>
+
+        <!--地址-->
+        <div class="col-sm-4">
+            地址
+            <input type="text" class="form-control"  ms-duplex="data.Address">
+            <br>
+        </div>
+        <!--任教时间-->
+        <div class="col-sm-4">
+            任教时间
+            <input type="date" class="form-control"  ms-duplex="data.StartTime">
+            <br>
+        </div>
+        <!--联系电话-->
+        <div class="col-sm-4">
+            联系电话
+            <input type="tel" class="form-control"  ms-duplex="data.Tel" disabled>
+            <br>
+        </div>
+        <!--电子邮箱-->
+
+        <div class="col-sm-4">
+            电子邮箱
+            <input type="email" class="form-control"  ms-duplex="data.Email" >
+            <br>
+        </div>
+        <!--介绍-->
+        <div class="col-sm-12">
+            介绍
+            <textarea type="text" class="form-control"  ms-duplex="data.Introduce"></textarea>
+            <br>
+        </div>
+    </div>
+    <button class="btn btn-success " ms-click="save">保存修改</button>
+    <div class="clearfix"></div>
+</div>

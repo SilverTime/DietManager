@@ -1,0 +1,222 @@
+<!--
+    登录 核心骨架，百折不挠
+    生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="Login">
+    <div class="login-logo-1">
+        <img src="./src/images/HRJK-LOGO.png" alt=""/>
+    </div>
+    <div class="user" style="z-index: 10;">
+        <!--<span style="font-size:20px"><strong>运动营养评估与配餐系统</strong></span>-->
+        <!--<input ms-duplex="info.Account" type="text" class="form-control input-sm"  placeholder="用户名"/>-->
+        <!--<input ms-duplex="info.PWD" type="password" class="form-control input-sm"  placeholder="密码"/>-->
+        <!--<button class="btn" ms-click="login">登陆</button>-->
+        <div class="pull-left left-big-box" ms-css-background="{{images[now].color}}">
+            <div ms-repeat="images" class="left-big"
+                 ms-class-1="left-big-img-{{images.length-$index}}"
+                 ms-class-2="now-img:now==images.length-1-$index">
+                <div class="top-mask" ms-if="direction=='up'&&now==images.length-1-$index"
+                     ms-css-background="{{images[now].color}}">
+
+                </div>
+                <div class="botton-mask" ms-if="direction=='down'&&now==images.length-1-$index"
+                     ms-css-background="{{images[now].color}}">
+
+                </div>
+
+            </div>
+        </div>
+        <div class="pull-right right-big" ms-css-background="{{images[now].color}}">
+            <div class="ui " ms-class="now-img:now==0">
+                <div class="ui-bg-1"></div>
+                <div class="ui-block">
+                    <div class="login-block">
+                        <h2>
+                            私教营养助手
+                            <br/>
+                            <!--Nutri-Pro-->
+                        </h2>
+
+                        <div class="login-form">
+                            <!-- 彩条-->
+                            <div class="color-head">
+                                <!-- 本处五个div为颜色块-->
+                                <div>&nbsp;</div>
+                                <div>&nbsp;</div>
+                                <div>&nbsp;</div>
+                                <div>&nbsp;</div>
+                                <div>&nbsp;</div>
+                            </div>
+                            <!-- 顶块-->
+                            <div class="login-form-head">
+                                &nbsp;
+                            </div>
+                            <!-- 块主要内容-->
+                            <div class="login-form-body">
+                                <input class="login-form-input ipt-focus-not" ms-duplex="info.Account" type="text"
+                                       placeholder="用户名"/>
+                                <input id="login_PWD" class="login-form-input ipt-focus-not" ms-duplex="info.PWD" type="password"
+                                       placeholder="密码"/>
+
+                                <div class="login-form-choose">
+                                    <a href="#!/FindAccount/0">忘记了密码？点我找回</a>
+
+                                    <button class="pull-right btn-login-blue login-btn-default" ms-click="login">登陆
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="login-bottom-text">
+                                <!--还没有账户？&nbsp;<a ms-click="changeNow(3)">我要加入</a>-->
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="login-signature hidden-sm">
+                    <img src="./src/images/1/1-signature.png" alt=""/>
+                </div>
+            </div>
+            <div class="ui " ms-class="now-img:now==1">
+                <div class="ui-bg-2"></div>
+
+                <div class="ui-block" style="margin-top: 11%">
+                    <h2 class="text-center">智能评估</h2>
+
+                    <p class="text-center login-info-p">
+                        全面评估健身人群营养状况与需求，<br>
+                        根据会员基本信息和就餐记录自动生成专业运动营养评估报告，<br>
+                        并可打印或分享至会员手机端；
+                    </p>
+
+                    <h2 class="text-center">
+                        食谱库
+                    </h2>
+
+                    <p class="text-center login-info-p">
+                        建立强大的共享食谱库，根据热量和健身目的自动查找匹配食谱，<br>
+                        可直接套用或复制编辑后生成新食谱，也可从零开始建立全新食谱，<br>
+                        最终打印或分享至会员手机端，为会员呈现一周的课程表式食谱。
+                    </p>
+                </div>
+            </div>
+            <div class="ui" ms-class="now-img:now==2">
+                <div class="ui-bg-1"></div>
+                <div class="ui-block" style="margin-top: 11%">
+                    <h2 class="text-center">习惯配餐</h2>
+
+                    <p class="text-center login-info-p">
+                        提供自动基于会员膳食调查结果进行配餐的功能，<br>
+                        最大限度匹配会员现有饮食习惯，提高食谱的可行性与会员依从性；
+                    </p>
+
+                    <h2 class="text-center">
+                        动态计算
+                    </h2>
+
+                    <p class="text-center login-info-p">
+                        实时自动计算和显示各餐次及全天推荐热量、营养素及实际热量与营养素汇总结果，<br>
+                        助您快速实现配餐目的。
+
+                    </p>
+                </div>
+            </div>
+            <div class="ui " ms-class="now-img:now==3">
+                <div class="ui-bg-2"></div>
+                <div class="ui-block">
+                    <h2 class="text-center">了解更多</h2>
+
+                    <div class="login-ui4-info">
+                        <!-- 本处二维码要换成实际的二维码-->
+                        <img src="./src/images/qrcode_for_gh_bd155a2588fd_430.jpg" alt=""/>
+
+                        <div>——拿出微信扫一扫——</div>
+                    </div>
+                    <!--<h2 class="text-center">-->
+                        <!--注册流程-->
+                    <!--</h2>-->
+
+                    <!--<div style="width:650px;margin:0 auto">-->
+                        <!--<div class="login-ui4-ul">-->
+                            <!--<p>（1）扫描“惠若运动健康与私教营养”二维码，关注我们的微信服务号</p>-->
+
+                            <!--<p>（2）进入微信服务号官方商城，选择“惠若私教营养助手”中适合自己的营养服务时长套餐</p>-->
+
+                            <!--<p>（3）下单后在联系方式栏填写手机号，并进行在线支付</p>-->
+
+                            <!--<p>（4）支付成功后，我们将在一个工作日内与您取得联系为您开通服务账号，收到账号后即可登录使用</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+                <div class="login-share-box">
+
+                    <!--<a class="pull-right">-->
+                        <!--<img src="./src/images/4/LOGO_share.png" alt=""/>-->
+                    <!--</a>-->
+                    <!--<a  class="pull-right">-->
+                        <!--<img src="./src/images/4/LOGO_wechat.png" alt=""/>-->
+                    <!--</a>-->
+                    <!--<a  class="pull-right">-->
+                        <!--<img src="./src/images/4/LOGO_vblog.png" alt=""/>-->
+                    <!--</a>-->
+                    <!--<a  class="pull-right">-->
+                        <!--<img src="./src/images/4/LOGO_qq.png" alt=""/>-->
+                    <!--</a>-->
+
+                    <div style="color:#ffffff;clear: both" class="text-center">
+                        <a target="_blank"
+                           href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51070002999999"
+                           style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="http://www.beian.gov.cn/portal/download"/>
+                                    <span style="color:#dbdbdb;">
+                                        川公网安备 51070002999999号
+                                    </span>
+                        </a>
+                        ICP备案号：蜀ICP备14010152号-1
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="dot-nav">
+            <div ms-repeat="images" style="position: relative">
+                <div class="dot" ms-class="now-dot:now==$index" ms-click="changeNow($index)">
+
+                </div>
+                <div class="gun" ms-if="!$last">
+
+                </div>
+                <div class="dot-name" ms-click="changeNow($index)" ms-if="now==$index">
+                    {{el.name}}
+                </div>
+            </div>
+        </div>
+        <div class="logo">
+            <div>
+                <div ms-repeat="images" class="left-big" ms-css-background="{{images[images.length-1-$index].color}}"
+
+                     ms-class-2="now-img:now==images.length-1-$index">
+                </div>
+            </div>
+            <img src="./src/images/LOGO.png" alt=""/>
+        </div>
+
+        <div class="title text-center">
+            — 私教营养助手 —
+        </div>
+        <div class="next-page">
+            <div ms-css-background="{{images[now].color}}">
+                <div class="next-button" ms-click="changeNow(now+1)">
+                    <i class="icon-angle-down"></i>
+                </div>
+            </div>
+
+        </div>
+        <!--<div class="clearfix"></div>-->
+    </div>
+</div>

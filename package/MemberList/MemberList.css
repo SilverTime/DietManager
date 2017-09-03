@@ -1,0 +1,148 @@
+/*
+会员列表 外在肌肤，水嫩丝滑
+生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+*/
+@media (min-width: 768px) {
+    .ml-container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .ml-container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .ml-container {
+        width: 1170px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.ml-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+#ml-header a {
+    cursor: pointer !important;
+
+}
+
+.status-btn > li > a {
+    color: #dedede
+}
+
+.nowS > a {
+    color: #98d648 !important;
+}
+
+.ml-font-h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.ml-btn {
+    font-size: 14px !important;
+    margin-left: 10px !important;
+    margin-bottom: 8px !important;
+    padding: 2px 12px !important;
+    border: 1px solid #676767 !important;
+    background: #dedede;
+    color: #444;
+}
+
+#ml-main {
+    width: 100%;
+    padding-top: 50px;
+}
+
+.ml-list {
+    border: 1px solid #c1c1c1;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 50px !important;
+}
+
+.ml-name {
+    position: absolute;
+    top: -25px;
+    left: 17px;
+    background: #fff;
+    padding: 0 4px;
+    font-size: 14px;
+    color: #979797;
+}
+
+.ml-status-default {
+    position: absolute;
+    top: -16px;
+    right: 20px;
+    padding: 0 4px;
+    font-size: 14px;
+    border-radius: 5px;
+    line-height: 24px;
+    color: #fff;
+    width: 50px;
+    text-align: center;
+}
+
+.ml-status-ing {
+    background: #98d648
+}
+
+.ml-status-stop {
+    background: #dedede
+}
+
+.ml-table {
+    margin: 9px 3px 0 3px;
+}
+
+.ml-table td {
+    height: 25px;
+    width: 52%;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.ml-btn-detail {
+    padding: 3px 10px !important;
+    border-radius: 4px !important;
+    margin: 0 3px;
+    border-color: #00ad3d !important;
+    background-color: #ffffff;
+    color: #00ac3d
+}
+
+.ml-btn-detail:hover {
+    border-color: #97d548 !important;
+    background-color: #98d648;
+    color: #ffffff !important;
+}
+
+.ml-name > span {
+    max-width: 104px;
+    display: inline-block;
+    margin: 0 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 20px;
+    color: #5d5d5d;
+
+}
+.ml-name>small{
+
+}

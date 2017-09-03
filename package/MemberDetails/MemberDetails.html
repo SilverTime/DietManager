@@ -1,0 +1,900 @@
+<!--
+    会员资料详情 核心骨架，百折不挠
+    生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="MemberDetails" class="MemberDetails container">
+    <!--打印标题-->
+    <h2 class="visible-print">会员体质健康评估与膳食调查报告</h2>
+
+    <br/>
+    <div>
+        <button class="btn btn-default pull-right hidden-print" style="margin-left: 20px" onclick="print()"
+                ms-if="nowUID==BaseInfo.Coach.UID">打印评估报告
+        </button>
+        <button class="btn btn-info pull-right hidden-print" ms-click="ShareReport" ms-if="nowUID==BaseInfo.Coach.UID">
+            分享评估报告给会员
+        </button>
+        <div style="clear: both"></div>
+        <br/>
+    </div>
+
+    <!-- 基本资料-->
+    <div class="row hidden-print">
+        <div class="col-md-7">
+            <div class="hr-panel">
+                <div class="hr-panel-title">
+                    <span class="md-base-info">{{BaseInfo.Name}}</span>
+                    <span class="md-base-info">
+                        (
+                        <span ms-if="BaseInfo.Sex==1">先生</span>
+                        <span ms-if="BaseInfo.Sex==0">女士</span>
+                        )
+                    </span>
+                    <button class="btn btn-xs btn-info pull-right hidden-print" ms-click="EditBase"
+                            ms-if="nowUID==BaseInfo.Coach.UID">编辑
+                    </button>
+                </div>
+                <div class="hr-panel-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-4">
+                            <span class="md-base-info ">所属俱乐部：{{BaseInfo.Coach.Club.Name}}</span>
+
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <span class="md-base-info text-info">教练（营养师）：{{BaseInfo.Coach.User.Name}}</span><br/>
+
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <span class="md-base-info">生日：{{BaseInfo.Birthday*1000|date("yyyy-MM-dd")}}</span>
+
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <span class="md-base-info">服务期限至：{{(BaseInfo.EndTime*1000)|date("yyyy-MM-dd")}}</span>
+
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <span class="md-base-info">联系电话：{{BaseInfo.Tel}}</span><br/>
+
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <span class="md-base-info">健身目的：
+                                <span ms-if="BaseInfo.Target==1">减脂</span>
+                                <span ms-if="BaseInfo.Target==2">增肌</span>
+                                <span ms-if="BaseInfo.Target==3">塑形</span>
+                            </span>
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <span class="md-base-info">目标体重：{{Number(BaseInfo.TargetWeight)}} kg</span>
+
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <span class="md-base-info" ms-if="HealthLogs.length>0">基础代谢：{{Number(HealthLogs[0].BMR).toFixed(2)}}Kcal</span>
+
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <span class="md-base-info" ms-if="HealthLogs.length>0">
+                                能量消耗：{{Number(HealthLogs[0].DTEC).toFixed(2)}}
+
+                                Kcal/日</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <span class="md-base-info">推荐能量摄入：
+                                <span ms-if="BaseInfo.Target!=3">
+                                     {{Number(BaseInfo.goodEnergy).toFixed(2)}}
+                                </span>
+                               <span ms-if="BaseInfo.Target==3">
+                                   {{info.HealthLogs[0].DTEC}}
+                               </span>
+
+                                Kcal/日</span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="col-md-5">
+            <!-- 疾病历史&生活习惯-->
+            <div class="hr-panel " ms-if="!mobile">
+                <div class="hr-panel-title">
+                    疾病历史&生活习惯
+                    <button class="btn btn-xs btn-info pull-right hidden-print" ms-click="EditHabit"
+                            ms-if="nowUID==BaseInfo.Coach.UID">编辑
+                    </button>
+                </div>
+                <div class="hr-panel-body">
+                    <div>
+                        {{BaseInfo.History}}
+                    </div>
+                    <div>
+                        {{BaseInfo.Living}}
+                    </div>
+                    <div>
+                        <a class="btn btn-xs btn-default hidden-print pull-right" href="./src/膳食习惯问卷.xlsx"
+                           target="_blank">下载膳食问卷</a>
+                        膳食习惯问卷分：{{BaseInfo.Survey}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--基本资料-print-->
+    <div class=" visible-print">
+        <table class="table table-bordered table-responsive">
+            <tbody>
+            <tr>
+                <td>会员姓名</td>
+                <td>{{BaseInfo.Name}}</td>
+                <td>性别</td>
+                <td>
+                    <span ms-if="BaseInfo.Sex==1">男</span>
+                    <span ms-if="BaseInfo.Sex==0">女</span>
+                </td>
+                <td>年龄</td>
+                <td>{{BaseInfo.age}}</td>
+            </tr>
+            <tr>
+                <td>健身目的</td>
+                <td>
+                    <span ms-if="BaseInfo.Target==1">减脂</span>
+                    <span ms-if="BaseInfo.Target==2">增肌</span>
+                    <span ms-if="BaseInfo.Target==3">塑形</span>
+                </td>
+                <td>教练姓名</td>
+                <TD>{{BaseInfo.Coach.User.Name}}</TD>
+                <td>日期</td>
+                <td>{{new Date().getTime|date("yyyy-MM-dd")}}</td>
+            </tr>
+            <tr>
+                <td>教练电话</td>
+                <td>{{BaseInfo.Coach.Tel}}</td>
+                <td>俱乐部</td>
+                <td colspan="3">{{BaseInfo.Coach.Club.Name}}</td>
+            </tr>
+            </tbody>
+
+        </table>
+        <br>
+
+        <table class="table table-bordered table-responsive">
+            <thead>
+            <tr>
+                <td>疾病史</td>
+                <td>生活习惯</td>
+                <td>膳食习惯问卷分</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    {{BaseInfo.History}}&nbsp;
+                </td>
+                <td>
+                    {{BaseInfo.Living}}&nbsp;
+                </td>
+                <td>
+                    {{BaseInfo.Survey}}&nbsp;
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <!-- 体质评估-->
+    <div class="hr-panel hidden-print" ms-if="!mobile">
+        <div class="hr-panel-title">
+            体质评估
+        </div>
+        <div class="hr-panel-body" style="/*max-height: 300px;overflow-y: scroll*/">
+            <table class="table table-bordered table-responsive ">
+                <thead>
+                <tr>
+                    <td>
+                        评估时间
+                    </td>
+                    <td>
+                        BMI
+                    </td>
+                    <td>
+                        评价
+                    </td>
+                    <td>
+                        体脂率
+                    </td>
+                    <td>
+                        评价
+                    </td>
+                    <td>
+                        腰臀比
+                    </td>
+                    <td>
+                        评价
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-repeat="HealthLogs">
+                    <td>
+                        {{el.Date*1000|date('yyyy年MM月dd日')}}
+                    </td>
+                    <td>
+                        {{Number(el.BMI).toFixed(2)}}%
+                    </td>
+                    <td>
+                        <span ms-if="el.BMI<18.5">偏瘦</span>
+                        <span ms-if="el.BMI>=18.5&&el.BMI<24">正常</span>
+                        <span ms-if="el.BMI>=24&&el.BMI<28">超重</span>
+                        <span ms-if="el.BMI>=28">肥胖</span>
+                    </td>
+                    <td>
+                        {{Number(el.BFR).toFixed(2)}}
+                    </td>
+                    <td>
+                        <div ms-if="BaseInfo.Sex==0">
+                            <span ms-if="el.BFR>=14&&el.BFR<17">体脂
+                                很低</span>
+                            <span ms-if="el.BFR>=17&&el.BFR<20">低体脂</span>
+                            <span ms-if="el.BFR>=20&&el.BFR<24">正常体脂</span>
+                            <span ms-if="el.BFR>=24&&el.BFR<27">体脂偏高</span>
+                            <span ms-if="el.BFR>=27&el.BFR<30">体脂很高</span>
+                            <span ms-if="el.BFR>=30">肥胖症</span>
+                        </div>
+                        <div ms-if="BaseInfo.Sex==1">
+                            <span ms-if="el.BFR>=7&&el.BFR<10">体脂很低</span>
+                            <span ms-if="el.BFR>=10&&el.BFR<13">低体脂</span>
+                            <span ms-if="el.BFR>=13&&el.BFR<17">正常体脂</span>
+                            <span ms-if="el.BFR>=17&&el.BFR<20">体脂偏高</span>
+                            <span ms-if="el.BFR>=20&&el.BFR<25">体脂很高</span>
+                            <span ms-if="el.BFR>=25">肥胖症</span>
+                        </div>
+                    </td>
+                    <td>
+                        {{Number(el.WHR).toFixed(2)}}
+                    </td>
+                    <td>
+                        <div ms-if="BaseInfo.Sex==0">
+                            <span ms-if="el.WHR<0.9">正常</span>
+                            <span ms-if="el.WHR>=0.9">肥胖</span>
+
+                        </div>
+                        <div ms-if="BaseInfo.Sex==1">
+                            <span ms-if="el.WHR<0.85">正常</span>
+                            <span ms-if="el.WHR>=0.85">肥胖</span>
+
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <!--体质评估-print-->
+    <br class="visible-print">
+    <div class="visible-print">
+        <br>
+        <table class="table table-bordered table-responsive ">
+            <thead>
+            <tr>
+                <td>
+                    评估时间
+                </td>
+                <td>
+                    BMI
+                </td>
+                <td>
+                    评价
+                </td>
+                <td>
+                    体脂率
+                </td>
+                <td>
+                    评价
+                </td>
+                <td>
+                    腰臀比
+                </td>
+                <td>
+                    评价
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ms-repeat="HealthLogs">
+                <td>
+                    {{el.Date*1000|date('yyyy年MM月dd日')}}
+                </td>
+                <td>
+                    {{Number(el.BMI).toFixed(2)}}%
+                </td>
+                <td>
+                    <span ms-if="el.BMI<18.5">偏瘦</span>
+                    <span ms-if="el.BMI>=18.5&&el.BMI<24">正常</span>
+                    <span ms-if="el.BMI>=24&&el.BMI<28">超重</span>
+                    <span ms-if="el.BMI>=28">肥胖</span>
+                </td>
+                <td>
+                    {{Number(el.BFR).toFixed(2)}}
+                </td>
+                <td>
+                    <div ms-if="BaseInfo.Sex==0">
+                            <span ms-if="el.BFR>=14&&el.BFR<17">体脂
+                                很低</span>
+                        <span ms-if="el.BFR>=17&&el.BFR<20">低体脂</span>
+                        <span ms-if="el.BFR>=20&&el.BFR<24">正常体脂</span>
+                        <span ms-if="el.BFR>=24&&el.BFR<27">体脂偏高</span>
+                        <span ms-if="el.BFR>=27&el.BFR<30">体脂很高</span>
+                        <span ms-if="el.BFR>=30">肥胖症</span>
+                    </div>
+                    <div ms-if="BaseInfo.Sex==1">
+                        <span ms-if="el.BFR>=7&&el.BFR<10">体脂很低</span>
+                        <span ms-if="el.BFR>=10&&el.BFR<13">低体脂</span>
+                        <span ms-if="el.BFR>=13&&el.BFR<17">正常体脂</span>
+                        <span ms-if="el.BFR>=17&&el.BFR<20">体脂偏高</span>
+                        <span ms-if="el.BFR>=20&&el.BFR<25">体脂很高</span>
+                        <span ms-if="el.BFR>=25">肥胖症</span>
+                    </div>
+                </td>
+                <td>
+                    {{Number(el.WHR).toFixed(2)}}
+                </td>
+                <td>
+                    <div ms-if="BaseInfo.Sex==0">
+                        <span ms-if="el.WHR<0.9">正常</span>
+                        <span ms-if="el.WHR>=0.9">肥胖</span>
+
+                    </div>
+                    <div ms-if="BaseInfo.Sex==1">
+                        <span ms-if="el.WHR<0.85">正常</span>
+                        <span ms-if="el.WHR>=0.85">肥胖</span>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br class=" hidden-print" ms-if="!mobile">
+    <!--身体检查-->
+    <div class="hr-panel hidden-print" ms-if="!mobile">
+        <div class="hr-panel-title">
+            身体检查
+            <button class="btn btn-xs btn-info pull-right hidden-print" ms-click="EditCheck"
+                    ms-if="nowUID==BaseInfo.Coach.UID">编辑
+            </button>
+        </div>
+        <div class="hr-panel-body">
+            <table class="table table-bordered table-responsive ">
+                <thead>
+                <tr>
+                    <td>
+                        身体部位
+                    </td>
+                    <td>
+                        临床表现
+                    </td>
+                    <td>
+                        可能的营养素缺乏
+                    </td>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-repeat="BodyCheck">
+                    <td>
+                        {{el.Part}}
+                    </td>
+                    <td>
+                        {{el.ClinicalFeature}}
+                    </td>
+                    <td>
+                        {{el.NutritionalDeficiency}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br  class="visible-print">
+    <!--身体检查-print-->
+    <div class="visible-print">
+        <br>
+        <table class="table table-bordered table-responsive ">
+            <thead>
+            <tr>
+                <td colspan="3">
+                    身体检查与营养素缺乏症
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    身体部位
+                </td>
+                <td>
+                    临床表现
+                </td>
+                <td>
+                    可能的营养素缺乏
+                </td>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ms-repeat="info.Check">
+                <td>
+                    {{el.Part}}
+                </td>
+                <td>
+                    {{el.ClinicalFeature}}
+                </td>
+                <td>
+                    {{el.NutritionalDeficiency}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <!-- 饮食记录-->
+    <div class="hr-panel hidden-print" ms-if="!mobile">
+        <div class="hr-panel-title">
+            <button class="btn btn-info btn-xs pull-right" ms-click="EditAteLog" ms-if="nowUID==BaseInfo.Coach.UID">添加
+            </button>
+            饮食记录
+        </div>
+        <div class="hr-panel-body">
+            <table class="table table-bordered table-responsive table-ate-log">
+
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="ate-log-title">
+
+                        </div>
+                        <div class="ate-log-body">
+                            就餐
+                        </div>
+                        <div class="ate-log-footer">
+                            总计
+                        </div>
+
+                    </td>
+                    <td ms-repeat="AteLogWeek" style="min-width: 128px">
+                        <div class="ate-log-title ">
+                            {{weekName[$index]}}<br/>
+                            {{el.Date*1000|date("yyyy-MM-dd")}}
+                        </div>
+                        <div class="ate-log-body" ms-if="!el.null">
+                            <div ms-repeat-al="el.Details" class="md-meal" ms-class="{{mealClass[$key-1]}}">
+                                <div class="md-meal-title">{{mealName[$key-1]}}</div>
+                                <div ms-repeat-cl="$val">
+                                    {{cl.Food.Name}}×<strong style="font-size: 18px">{{Number(cl.Weight)}}</strong>g
+                                </div>
+                            </div>
+
+                            <button class="btn btn-default btn-block"
+                                    ms-click="EditAteLog(el.Date*1000,$index)"
+                                    ms-if="nowUID==BaseInfo.Coach.UID">
+                                修改
+                            </button>
+                            <!--<a ms-attr-href="#!/EditDiet/3&&{{el.LogID}}&&{{info.UID}}" class="btn btn-default btn-block">-->
+                            <!--创建食谱-->
+                            <!--</a>-->
+                        </div>
+                        <div ms-if="nowUID==BaseInfo.Coach.UID" ms-click="EditAteLog(el.Date*1000,$index)"
+                             ms-visible="el.null" class="ate-log-body ate-log-add">
+                            <span>+</span><br/>
+                            添加记录
+                        </div>
+                        <div class="ate-log-body ate-log-add" ms-if="nowUID!=BaseInfo.Coach.UID" ms-visible="el.null">
+                            尚未记录
+                        </div>
+                        <div class="ate-log-footer">
+                            推荐：<span>{{BaseInfo.goodEnergy}}<small>Kcal</small></span><br/>
+                            实际：<span>{{Number(el.TotalEnergy).toFixed(2)}}<small>kcal</small></span><br/>
+                            差距：<span>{{(BaseInfo.goodEnergy-el.TotalEnergy).toFixed(2)}}<small>kcal</small></span>
+
+                        </div>
+                    </td>
+
+
+                </tr>
+
+                </tbody>
+
+            </table>
+            <br/>
+            <div class="pull-right">
+                <button class="btn btn-default " ms-click="getAteLog(week-1)">上一周</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-default " ms-click="getAteLog(week+1)">下一周</button>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <!-- 餐次能量分布-->
+    <div class="new-page">
+        <div class="hidden-print">
+            <br/>
+            <h2 class="text-center ">餐次能量分布</h2>
+        </div>
+        <div class="visible-print">
+            <h3 class="text-center">
+                餐次能量分布
+            </h3>
+        </div>
+
+        <div class="text-center" ms-if="noneLog">
+            尚未记录本周饮食
+        </div>
+
+        <div class="row" ms-if="!noneLog">
+            <div class="col-xs-6 ">
+                <tsy:chart config="$mealPie"></tsy:chart>
+            </div>
+            <div class="col-xs-6">
+                <tsy:chart config="$mealDF"></tsy:chart>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <!-- 能量来源分布-->
+    <div>
+        <br/>
+        <div class="hidden-print">
+
+            <h2 class="text-center">能量来源分布</h2>
+        </div>
+        <div class="visible-print">
+            <h3 class="text-center">
+                能量来源分布
+            </h3>
+        </div>
+
+        <div class="text-center" ms-if="noneLog">
+            尚未记录本周饮食
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        <div class="row" ms-if="!noneLog">
+            <div class="col-xs-6">
+                <tsy:chart config="$NEPie"></tsy:chart>
+            </div>
+            <div class="col-xs-6">
+                <tsy:chart config="$NEDF"></tsy:chart>
+            </div>
+
+        </div>
+    </div>
+
+    <br class="hidden-print" ms-if="!mobile">
+    <!-- 食物选择评估-->
+    <div class="hr-panel hidden-print" ms-if="!mobile">
+        <div class="hr-panel-title">
+            食物选择评估
+        </div>
+        <div class="hr-panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <table class="table table-responsive table-bordered ">
+                        <thead>
+                        <tr>
+                            <td>食物类别</td>
+                            <td>每日平均摄入量</td>
+                            <td>推荐摄入量</td>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ms-repeat="foodTypes">
+                            <td>
+                                {{el.Name}}
+                            </td>
+                            <td ms-class="attention:(el.TargetWeightMin-el.foodTotal)>el.foodTotal/10||(el.foodTotal-el.TargetWeightMax)>el.foodTotal/10">
+                                {{el.foodTotal}}
+                                <span class="text-danger pull-right"
+                                      ms-if="(el.TargetWeightMin-el.foodTotal)>el.foodTotal/10">缺乏</span>
+                                <span class="text-danger pull-right"
+                                      ms-if="(el.foodTotal-el.TargetWeightMax)>el.foodTotal/10">过量</span>
+                            </td>
+                            <td>{{el.TargetWeightMin}}-{{el.TargetWeightMax}}g</td>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <table class="table table-responsive table-bordered ">
+                        <thead>
+                        <tr>
+                            <td>微量元素</td>
+                            <td>实际摄入量</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ms-repeat="TE">
+                            <td>
+                                {{el.name}}
+                            </td>
+                            <td>
+                                {{el.sum}}
+
+                            </td>
+
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <br class="visible-print">
+    <!--食物选择评估-print-->
+    <div class="visible-print row new-page">
+        <div class="col-xs-7">
+            <table class="table table-responsive table-bordered ">
+                <thead>
+                <tr>
+                    <td colspan="3" class="text-center">
+                        食物选择评估
+                    </td>
+                </tr>
+                <tr>
+                    <td>食物类别</td>
+                    <td>每日平均摄入量</td>
+                    <td>推荐摄入量</td>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-repeat="foodTypes">
+                    <td>
+                        {{el.Name}}
+                    </td>
+                    <td ms-class="attention:(el.TargetWeightMin-el.foodTotal)>el.foodTotal/10||(el.foodTotal-el.TargetWeightMax)>el.foodTotal/10">
+                        {{el.foodTotal}}
+                        <span class="text-danger pull-right" ms-if="(el.TargetWeightMin-el.foodTotal)>el.foodTotal/10">缺乏</span>
+                        <span class="text-danger pull-right" ms-if="(el.foodTotal-el.TargetWeightMax)>el.foodTotal/10">过量</span>
+                    </td>
+                    <td>{{el.TargetWeightMin}}-{{el.TargetWeightMax}}g</td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-5">
+            <table class="table table-responsive table-bordered ">
+                <thead>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        其他营养素摄入量
+                    </td>
+                </tr>
+                <tr>
+                    <td>微量元素</td>
+                    <td>实际摄入量</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-repeat="TE">
+                    <td>
+                        {{el.name}}
+                    </td>
+                    <td>
+                        {{el.sum}}
+
+                    </td>
+
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br  class="hidden-print">
+    <!-- 问题及建议-->
+    <div class="hr-panel hidden-print">
+        <div class="hr-panel-title">
+            问题及建议
+            <button class="btn btn-xs btn-info pull-right hidden-print" ms-click="EditSuggest"
+                    ms-if="nowUID==BaseInfo.Coach.UID">编辑
+            </button>
+        </div>
+        <div class="hr-panel-body">
+            <table class="table table-responsive table-bordered">
+                <thead>
+                <tr>
+                    <td>
+                        序号
+                    </td>
+                    <td>
+                        问题
+                    </td>
+                    <td>
+                        建议
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-repeat="Suggestion">
+                    <td>
+                        {{$index+1}}
+                    </td>
+                    <td>
+                        {{el.Problem}}
+                    </td>
+                    <td>
+                        {{el.Suggestion}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br  class="visible-print">
+    <!--问题及建议-print-->
+    <div class="visible-print">
+        <br>
+        <table class="table table-responsive table-bordered">
+            <thead>
+            <tr>
+                <td class="text-center" colspan="3">
+                    会员运动营养总体评估问题与建议
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    序号
+                </td>
+                <td>
+                    问题
+                </td>
+                <td>
+                    建议
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ms-repeat="Suggestion">
+                <td>
+                    {{$index+1}}
+                </td>
+                <td>
+                    {{el.Problem}}
+                </td>
+                <td>
+                    {{el.Suggestion}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br class="visible-print">
+    <!--会员个性化饮食建议-->
+    <div class="visible-print new-page">
+        <br>
+        <table class="table table-responsive table-bordered">
+            <thead>
+            <tr>
+                <td colspan="4" class="text-center">
+                    会员个性化饮食建议
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>目前体重</td>
+                <td>
+                    {{HealthLogs[0].Weight}} kg
+                </td>
+                <td>体脂率</td>
+                <td>
+                    {{HealthLogs[0].BFR}}
+                </td>
+            </tr>
+            <tr>
+                <td>目标体重</td>
+                <td>
+                    {{Number(BaseInfo.TargetWeight)}} kg
+                </td>
+                <td>基础代谢</td>
+                <td>
+                    {{HealthLogs[0].BMR}} Kcal
+                </td>
+            </tr>
+            <tr>
+                <td>每日总能量消耗</td>
+                <td>
+                    {{HealthLogs[0].DTEC}} Kcal/日
+                </td>
+                <td>推荐总能量摄入（天）</td>
+                <td>
+                    <span ms-if="BaseInfo.Target!=3">
+                         {{BaseInfo.goodEnergy}}
+                    </span>
+                   <span ms-if="BaseInfo.Target==3">
+                       {{HealthLogs[0].DTEC}}
+                   </span>
+
+                    Kcal/日
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!--三餐能量与宏量营养素摄入推荐量-->
+        <table class="table table-bordered table-responsive" style="margin-top: -1px">
+            <thead>
+            <tr>
+                <td colspan="5" class="text-center">
+                    三餐能量与宏量营养素摄入推荐量
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    餐次
+                </td>
+                <td>
+                    能量（Kcal）
+                </td>
+                <td>
+                    碳水化合物（g）
+                </td>
+                <td>
+                    蛋白质（g）
+                </td>
+                <td>
+                    脂肪（g）
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <!--todo 渲染计算结果-->
+            <tr ms-repeat="TMOE">
+                <td>
+                    {{mealName[$index]}}
+                </td>
+                <td>
+                    {{el.energy}}
+                </td>
+                <td>
+                    {{el.CHO}}
+                </td>
+                <td>
+                    {{el.protein}}
+                </td>
+                <td>
+                    {{el.fat}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <br class="visible-print">
+    <!--膳食建议-->
+    <div class="visible-print">
+        <!--<img style="width: 100%" src="./src/images/11385343fbf2b211c624b8a6cd8065380dd78ecb.jpg" alt="">-->
+        <img style="width: 100%" src="./src/images/20160518024242_52143.jpg" alt="">
+    </div>
+
+    <tsy:fs config="$optFoodSearch"></tsy:fs>
+
+</div>

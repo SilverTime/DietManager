@@ -1,0 +1,35 @@
+<div ms-controller="ptest">
+    <div class="content" ms-controller="ptest">
+        <h2>测试</h2>
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button ms-click="startp">开始/继续</button>
+        <button ms-click="pausep">暂停</button>
+        <button ms-click="endp">成功</button>
+        <button ms-click="resetp">重置</button>
+        <br/><br/>
+        <div ms-widget="progressbar,progressbar,$opt"></div>
+    </div>
+</div>
+<script>
+    //引入组件
+    require(["../../ui/progressbar/progressbar.js"],function(){
+        //父元素VM
+        var ptest = avalon.define({
+            $id:"ptest",
+            $opt:{},
+            startp:function(){
+                progressbar.startT();
+            },
+            pausep:function(){
+                progressbar.pauseT();
+            },
+            endp:function(){
+                progressbar.endT();
+            },
+            resetp:function(){
+                progressbar.resetT();
+            }
+        });
+        avalon.scan();
+    });
+</script>

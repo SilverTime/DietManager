@@ -1,0 +1,372 @@
+<!--
+    食谱详情 核心骨架，百折不挠
+    生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="DietDetails" class="DietDetails container">
+
+    <div class="row">
+        <div class="col-sm-9">
+
+            <!--基本信息-->
+            <div class="hr-panel">
+                <div class="hr-panel-title">
+                    {{DetailsInfo.Title}}
+
+                    <span ms-if="!DetailsInfo.Title.length>0">
+                        食谱详情
+                    </span>
+
+                    <strong class="pull-right">
+                        {{targetName[DetailsInfo.Target]}}食谱
+                    </strong>
+                </div>
+                <div class="hr-panel-body">
+                    食谱介绍：
+                    <hr class="hr-line">
+                    {{DetailsInfo.Introduce}}
+                    <span ms-if="!DetailsInfo.Introduce.length>0" style="color:#ddd">暂无食谱介绍……</span>
+                    <br><br>
+                    <!--食物清单-->
+                    <div class="row" ms-if="DetailsInfo.Has||DetailsInfo.CUID==cache.go('UID')">
+                        <div class="col-sm-4" ms-repeat="mealList">
+                            <div class="hr-block">
+                                <div class="hr-panel-title">
+                                    {{el}}
+                                </div>
+                                <div class="hr-panel-body ">
+                                    <div ms-repeat-al="DetailsInfo.Details" style="margin-bottom: 5px">
+                                        <div ms-if="al.MealID==Number($outer.$index)+1" style="clear: both">
+                                            <div class="food-type" ms-class="food-type-{{al.Food.TypeID}}"></div>
+                                            {{al.Food.Name}}
+                                    <span class='pull-right'>
+                                        ×
+                                    <strong style="font-size: 18px">{{Number(al.Weight)}}</strong>
+                                    g {{mealSignList[al.MealSign]}}
+                                    </span>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <div ms-if="DetailsInfo.Has&&DetailsInfo.CUID!=cache.go('UID')">
+                        注意事项：
+                        <hr class="hr-line">
+                        {{DetailsInfo.Attention}}
+                        <span ms-if="!DetailsInfo.Attention.length>0" style="color:#ddd">暂无注意事项……</span>
+                    </div>
+                    <div ms-if="!DetailsInfo.Has&&DetailsInfo.CUID!=cache.go('UID')">
+                        <button class="diet-d-buy" ms-click="buy(DetailsInfo.DietID)">
+                            <i class="icon iconfont icon-goumai"></i>
+                            <br>
+                            获取食谱以查看食物清单及注意事项
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!--统计信息-->
+            <div class="hr-panel">
+                <div class="hr-panel-title">
+                    食谱统计
+                </div>
+                <div class="hr-panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="hr-block">
+                                <div class="hr-panel-title">
+                                    能量统计（单位：kcal）
+                                </div>
+                                <div class="hr-panel-body">
+                                    <div class="shiguan-box pull-left">
+
+                                        <div class="shiguan-fill">
+                                            <div class="shiguan-fill-empyt"
+                                                 ms-css-height="16-95*(DetailsInfo.Energy-DetailsInfo.REI)/DetailsInfo.REI"></div>
+
+                                        </div>
+                                        <i class="icon iconfont icon-shiguan" style=""></i>
+
+
+                                    </div>
+                                    <div class="pull-right">
+                                        推荐能量：{{Number(DetailsInfo.REI).toFixed(2)}}<br/>
+                                        实际能量：{{Number(DetailsInfo.Energy).toFixed(2)}}<br/>
+                                        <span ms-if="Number(DetailsInfo.REI)>Number(DetailsInfo.Energy)">
+                                            差距：
+                                        </span>
+                                        <span ms-if="Number(DetailsInfo.REI)<Number(DetailsInfo.Energy)">
+                                            多出：
+                                        </span>
+                                        <span ms-if="Number(DetailsInfo.REI)!=Number(DetailsInfo.Energy)">
+                                            {{Math.abs(DetailsInfo.REI-DetailsInfo.Energy).toFixed(2)}}
+                                        </span>
+
+                                        <br/>
+                                    </div>
+                                    <div class="clearfix">
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="hr-block">
+                                <div class="hr-panel-title">
+                                    三餐能量统计（单位：kcal）
+                                </div>
+                                <div class="hr-panel-body">
+                                    <tsy:chart config="$D_mealPie"></tsy:chart>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="hr-block">
+                                <div class="hr-panel-title">
+                                    三大营养素能量统计
+                                </div>
+                                <div class="hr-panel-body">
+                                    <tsy:chart config="$D_NEPie"></tsy:chart>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <table class="table table-responsive table-bordered ">
+                                <thead>
+                                <tr>
+                                    <td>食物类别</td>
+                                    <td>实际摄入量</td>
+                                    <td>推荐摄入量</td>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ms-repeat="foodTypes">
+                                    <td>
+                                        <div class="food-type select-food-type pull-left" style="display: block"
+                                             ms-class="food-type-{{el.TypeID}}:el.foodTotal>0"
+                                             ms-class-2="now-food:foodType===el.TypeID">
+                                            <span ms-if="el.foodTotal==0">
+                                                 {{el.icon}}
+                                            </span>
+
+                                        </div>
+                                        &nbsp;
+                                        {{el.Name}}
+                                    </td>
+                                    <td ms-class="attention:(el.TargetWeightMin-el.foodTotal)>el.foodTotal/10||(el.foodTotal-el.TargetWeightMax)>el.foodTotal/10">
+                                        {{el.foodTotal}}
+                                        <span class="text-danger pull-right"
+                                              ms-if="(el.TargetWeightMin-el.foodTotal)>el.foodTotal/10">缺乏</span>
+                                        <span class="text-danger pull-right"
+                                              ms-if="(el.foodTotal-el.TargetWeightMax)>el.foodTotal/10">过量</span>
+                                    </td>
+                                    <td>{{el.TargetWeightMin}}-{{el.TargetWeightMax}}g</td>
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-5">
+                            <table class="table table-responsive table-bordered ">
+                                <thead>
+                                <tr>
+                                    <td>微量元素</td>
+                                    <td>实际摄入量</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ms-repeat="TE">
+                                    <td>
+                                        {{$val.name}}
+                                    </td>
+                                    <td>
+                                        {{$val.sum}}
+
+                                    </td>
+
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <!--作者信息-->
+            <div class="hr-panel">
+                <div class="hr-panel-title">
+                    作者
+                </div>
+                <div class="hr-panel-body" >
+
+                    <!--头像-->
+                    <div class="pull-left user-head"
+
+                         ms-css-background-image="url({{DetailsInfo.CUser.HeadImgURL}})">
+                    </div>
+
+                    <div style="margin-left: 70px">
+                        <h3 style="margin: 0px;">
+                            <a ms-attr-href="#!/Home/{{DetailsInfo.CUser.User.UID}}">
+                                {{DetailsInfo.CUser.User.Name}}
+                            </a>
+                            <small>教练</small>
+                        </h3>
+                        所属俱乐部：{{DetailsInfo.CUser.Club.Name}}<br>
+                        现居住地：{{DetailsInfo.CUser.Address}}
+
+                    </div>
+                </div>
+                <div class="hr-panel-footer">
+                    <div class="row" style="  text-align: center;color: #6E6E6E;font-size: 16px;">
+
+                        <div class="col-sm-4" style="padding:5px 0px">
+                            <strong>{{DetailsInfo.CUser.DietAmount}}</strong><br>
+                            <i class="icon iconfont icon-shipu"></i>
+                            创建
+
+                        </div>
+                        <div class="col-sm-4" style="padding:5px 0px">
+                            <strong>{{DetailsInfo.CUser.SaleAmount}}</strong><br>
+                            <i class="icon iconfont icon-temai"></i>
+                            售出
+
+                        </div>
+                        <div class="col-sm-4" style="padding:5px 0px">
+                            <strong>{{DetailsInfo.CUser.MemberAmount}}</strong><br>
+                            <i class="icon iconfont icon-qianzaixueyuan"></i>
+                            学员
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--出售信息-->
+            <div class="hr-panel">
+                <div class="hr-panel-title">
+                    该食谱已售出 <strong>{{DetailsInfo.TotalSale}}</strong> 份
+                </div>
+                <div class="hr-panel-body" style="padding: 0px">
+
+                    <!--作者看到的-->
+                    <div class="DD-btn-group box-row ver-same hor-ends"
+                         ms-if="DetailsInfo.CUID==cache.go('UID')">
+                        <a ms-attr-href="#!/EditDiet/1&&{{DetailsInfo.DietID}}" style="border-right: 1px solid #dddddd">
+                            <i class="icon iconfont icon-bianji"></i>
+                            编辑
+                        </a>
+                        <a ms-attr-href="#!/EditDiet/2&&{{DetailsInfo.DietID}}">
+                            <i class="icon iconfont icon-fuzhi"></i>
+                            复制
+                        </a>
+                    </div>
+
+                    <!--未获取者看到的-->
+                    <div class="DD-btn-group box-row ver-same hor-ends"
+                         ms-if="!DetailsInfo.Has&&DetailsInfo.CUID!=cache.go('UID')">
+                        <button style="width: 100%" ms-click="buy(DetailsInfo.DietID)">
+                            <i class="icon iconfont icon-goumai"></i>
+
+                            获取
+                        </button>
+                    </div>
+
+
+                    <!--获取者看到的-->
+                    <div class="DD-btn-group box-row ver-same hor-ends" ms-if="DetailsInfo.Has">
+                        <button style="border-right: 1px solid #dddddd">
+                            <i class="icon iconfont icon-shoucang1"></i>
+                            已获取
+                        </button>
+                        <a ms-attr-href="#!/EditDiet/2&&{{DetailsInfo.DietID}}">
+                            <i class="icon iconfont icon-fuzhi"></i>
+                            复制
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--评论信息-->
+            <div class="hr-panel">
+                <div class="hr-panel-title">
+                    <span class="pull-left">
+                        好评：
+                        <strong>
+                            {{Number(DetailsInfo.Praise)}}
+                        </strong>
+                    </span>
+                    <span class="pull-right">
+                        差评：
+                        <strong>
+                            {{Number(DetailsInfo.Bad)}}
+                        </strong>
+                    </span>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="hr-panel-body">
+                    评论：
+                    <div style="border-bottom: 1px solid #dddddd;margin-bottom: 5px;padding: 5px 0px;" ms-repeat="CList" class="clearfix">
+                        <!--头像-->
+                        <div class="pull-left user-head"
+                             style="width:30px;height: 30px;margin-right: 5px"
+                             ms-css-background-image="url({{el.User.HeadImgURL}})">
+                        </div>
+                        <div>
+                            <span ms-if="el.Level==1">好评！</span>
+                            <span ms-if="el.Level==0">差评！</span>
+                            {{el.Content}}
+                        </div>
+
+                    </div>
+
+                    <button ms-if='CT>CP*CN' class="btn btn-block btn-link"
+                            style="outline: none"
+                            ms-click="pullComment(CP+1)" >更多评论</button>
+
+                </div>
+                <div class="hr-panel-footer" style="padding: 10px;" ms-if="!DetailsInfo.IsCommented&&DetailsInfo.Has">
+                    <!--输入框-->
+                    <textarea class="form-control" placeholder="输入食谱评价" ms-duplex="Content">
+
+                    </textarea>
+                    <!--获取者看到的-->
+                    <div class="DD-btn-group box-row ver-same hor-ends" style="margin:10px -10px -10px -10px;border-top: 1px solid #dddddd;">
+                        <button style="border-right: 1px solid #dddddd;background-color: transparent" ms-click="Comment(0)">
+                            <i class="icon iconfont icon-shoucang1"></i>
+                            差评
+                        </button>
+                        <button style=";background-color: transparent" ms-click="Comment(1)">
+                            <i class="icon iconfont icon-shoucang1" ></i>
+                            好评
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

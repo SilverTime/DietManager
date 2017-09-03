@@ -1,0 +1,23 @@
+<!--
+    pop 核心骨架，百折不挠
+    生成时间：Fri Mar 11 2016   破门狂人R2-D2为您服务！
+-->
+<div class="pop-bg" ms-visible="Status>0" ms-class="on-the-way:Status==1">
+    <div class="pop-panel" ms-css-width="width" ms-class="state-{{Status}}">
+        <div class="pop-close" ms-click="close">
+            ×
+        </div>
+        <div>
+            {{html|html}}
+        </div>
+    </div>
+    <div style="display: none">
+        <audio controls ms-attr-id="{{id}}open">
+            <source src="./lib/pop/open.wav" type="audio/wav">
+        </audio>
+        <audio controls ms-attr-id="{{id}}close">
+            <source src="./lib/pop/close.wav" type="audio/wav">
+        </audio>
+    </div>
+
+</div>

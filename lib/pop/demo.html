@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹出框组件实例</title>
+    <script src="../../src/js/avalon.modern.1.5.min.js"></script>
+</head>
+<body ms-controller="popDemo">
+
+<tsy:pop config="$optpop"></tsy:pop>
+<button onclick="pop.open()">开启</button>
+<script>
+    avalon.ready(function () {
+        require(['../../lib/pop/popAlert'], function () {
+            var vm=avalon.define({
+                $id:'popDemo',
+                ready: function () {
+                    avalon.scan()
+                    setTimeout(testPop,500)
+                },
+                $optpop:{
+                    id:'pop',
+                    width:"960",
+                },
+                openPop: function () {
+                    require(["text!../../package.json"], function (json) {
+                        pop.open(json)
+                    })
+                }
+            })
+
+            window[vm.$id]=vm
+            vm.ready()
+        })
+    })
+
+    //测试popAlert组件的韩素
+    function testPop(){
+        pop.open('233')
+        setTimeout(function () {
+            if(document.querySelector('.state-2')){
+                console.log(document.querySelector('.pop-bg'))
+                setTimeout(function () {
+                    window.location.reload()
+                },100)
+
+            }else{
+                alert('出错啦')
+            }
+        },300)
+
+    }
+</script>
+</body>
+</html>

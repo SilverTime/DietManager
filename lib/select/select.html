@@ -1,0 +1,10 @@
+<div class="btn-group btn-group-xs" role="group" >
+    <button type="button" class="btn btn-default" ms-click="select('all')" ms-class="btn-success:allChecked" ms-if="!radioBox">
+        <span ms-visible="!allChecked">全选</span>
+        <span ms-visible="allChecked">反选</span>
+    </button>
+    <button ms-repeat="list" ms-click="select($index)" ms-class="btn-success:el.checked"
+            class="btn btn-default ">
+        {{el.name}}
+    </button>
+</div>

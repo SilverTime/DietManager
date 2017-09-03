@@ -1,0 +1,13 @@
+{
+  "name":"DietManager",
+  "description":"",
+  "version":"",
+  "author":"mooshroom <mooshroom@tansuyun.cn>",
+  "contributors":[],
+  "dependencies":{
+    "gulp":"3.9.0",
+    "gulp-rename":"1.2.2",
+    "gulp-compile-handlebars":"0.6.1"
+  },
+  "newLib":""
+}

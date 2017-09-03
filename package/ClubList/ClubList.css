@@ -1,0 +1,347 @@
+/*
+俱乐部列表 外在肌肤，水嫩丝滑
+生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+*/
+
+@media (min-width: 768px) {
+    .cl-container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .cl-container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cl-container {
+        width: 1170px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.cl-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#cl-header {
+    width: 100%;
+    /*height: 68px;*/
+    min-height: 68px;
+    /*border-bottom: 1px solid;*/
+    padding-top: 20px;
+    /*padding-bottom: 15px;*/
+    /*color: #0076b0;*/
+}
+
+.status-btn>li>a{
+    color:#dedede
+}
+
+.nowS>a{
+    color: #97d548 !important;
+}
+
+#cl-header a {
+    cursor: pointer !important;
+}
+
+.cl-font-h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: -15px;
+}
+
+.cl-btn {
+    /*font-size: 14px !important;*/
+    /*margin-left: 10px !important;*/
+    /*margin-bottom: 8px !important;*/
+    /*padding: 2px 12px !important;*/
+    border: 1px solid #676767 !important;
+    background: #ededed;
+    color: #666;
+}
+
+
+#cl-main {
+    width: 100%;
+    padding-top: 50px;
+}
+
+.cl-list {
+    border: 1px solid #c6c6c6;
+    border-radius: 11px;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 50px !important;
+}
+
+.cl-name {
+    position: absolute;
+    top: -20px;
+    left: 17px;
+    background: #fff;
+    padding: 0 4px;
+    font-size: 19px;
+}
+
+.cl-status-default {
+    position: absolute;
+    top: -16px;
+    right: 20px;
+    padding: 0 4px;
+    font-size: 14px;
+    border-radius: 5px;
+    line-height: 24px;
+    color: #fff;
+    width: 50px;
+    text-align: center;
+}
+.cl-status-ing{
+    background: #98D648;
+}
+.cl-status-stop{background:#dedede}
+
+.cl-table {
+    margin: 9px 3px 0 3px;
+}
+
+.cl-table td {
+    height: 25px;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.cl-btn-detail {
+    padding: 3px 10px !important;
+    border-radius: 4px !important;
+    width: 65px;
+    margin: 0 3px;
+}
+
+.cl-btn-add {
+    margin-left: 14px !important;
+    border: 1px solid #BFBBBB !important;
+    background: #fff;
+    color: #676767;
+    position: absolute;
+    top: 32px;
+    height: 32px;
+    border-bottom: none!important;
+    border-radius: 4px 4px 0 0!important;
+    padding-top: 0!important;
+}
+
+
+.cl-addDiv{
+    height: 56px;
+    border: 1px solid #BFBBBB;
+    background: #fff;
+    line-height: 56px;
+    clear: both;
+    color: #333;
+}
+
+.cl-col{
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+}
+
+
+.cl-nameInput{
+    display: inline-block!important;
+    height: 25px!important;
+    width: 68%!important;
+}
+.cl-addressInput{
+   display: inline-block!important;
+    height: 25px!important;
+    width: 76%!important;
+}
+
+
+.cl-linkmanInput{
+    display: inline-block!important;
+    height: 25px!important;
+    width: 57%!important;
+
+}
+
+.cl-phoneInput{
+    display: inline-block!important;
+    height: 25px!important;
+    width: 70%!important;
+
+}
+
+.cl-on{
+    border: 1px solid #333;
+    border-bottom: 1px solid white;
+}
+
+.cl-hide{
+    display: none;
+}
+
+
+.cl-td{
+    max-width: 140px;
+    width: 140px;
+    margin: 0 6px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.cl-status{
+    position: absolute;
+    left: 26px;
+    top: 27px;
+    width: 60px;
+}
+.cl-s-ing{
+    color: #2CA149;;
+}
+
+
+
+/*复选框旋钮样式*/
+input[type="checkbox"]
+{
+    position: absolute;
+    opacity: 0;
+}
+
+/* Normal Track */
+input[type="checkbox"].cl-switch + div
+{
+    vertical-align: middle;
+    width: 40px;
+    height: 20px;
+    border: 1px solid rgba(0,0,0,.4);
+    border-radius: 999px;
+    background-color: rgba(0, 0, 0, 0.1);
+    -webkit-transition-duration: .4s;
+    -webkit-transition-property: background-color, box-shadow;
+    box-shadow: inset 0 0 0 0px rgba(0,0,0,0.4);
+    margin: 15px 1.2em 15px 2.5em;
+}
+
+/* cl-green Track */
+input[type="checkbox"].cl-green.cl-switch:checked + div
+{
+    background-color: #00e359;
+    border: 1px solid rgba(0, 162, 63,1);
+    box-shadow: inset 0 0 0 10px rgba(0,227,89,1);
+}
+
+/* Normal Knob */
+input[type="checkbox"].cl-switch + div > div
+{
+    float: left;
+    width: 18px;
+    height: 18px;
+    border-radius: inherit;
+    background: #ffffff;
+    -webkit-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: transform, background-color, box-shadow;
+    -moz-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+    -moz-transition-duration: 0.4s;
+    -moz-transition-property: transform, background-color;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    margin-top: 1px;
+    margin-left: 1px;
+}
+
+/* Checked Knob (cl-green Style) */
+input[type="checkbox"].cl-switch:checked + div > div
+{
+    -webkit-transform: translate3d(20px, 0, 0);
+    -moz-transform: translate3d(20px, 0, 0);
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
+}
+
+
+/*说明：
+*由于控件需要，因此将cl-switch与cl-green的实际意义进行了交换
+即cl-switch为选中绿色
+*/
+
+input[type="checkbox"]
+{
+    position: absolute;
+    opacity: 0;
+}
+
+/* Normal Track */
+input[type="checkbox"].cl-switch + div
+{
+    vertical-align: middle;
+    width: 40px;
+    height: 20px;
+    border-radius: 999px;
+    -webkit-transition-duration: .4s;
+    -webkit-transition-property: background-color, box-shadow;
+    margin: 15px 1.2em 15px 2.5em;
+    /*下面是颜色控制*/
+    background-color: #00e359;
+    border: 1px solid rgba(0, 162, 63,1);
+    box-shadow: inset 0 0 0 10px rgba(0,227,89,1);
+
+}
+
+/* cl-green Track */
+/*稍作修改，默认选中，点击之后变为非选中状态*/
+input[type="checkbox"].cl-green.cl-switch:checked + div
+{
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 0 0px rgba(0,0,0,0.4);
+    border: 1px solid rgba(0,0,0,.4);
+
+}
+
+/* Normal Knob */
+input[type="checkbox"].cl-switch + div > div
+{
+    float: left;
+    width: 18px;
+    height: 18px;
+    border-radius: inherit;
+    background: #ffffff;
+    -webkit-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: transform, background-color, box-shadow;
+    -moz-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+    -moz-transition-duration: 0.4s;
+    -moz-transition-property: transform, background-color;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(96,126,163,1);
+    pointer-events: none;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+/* Checked Knob (cl-green Style) */
+input[type="checkbox"].cl-switch:checked + div > div
+{
+    -webkit-transform: translate3d(20px, 0, 0);
+    -moz-transform: translate3d(20px, 0, 0);
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgb(184, 200, 222);
+}
+

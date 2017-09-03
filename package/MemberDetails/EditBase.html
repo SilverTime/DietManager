@@ -1,0 +1,183 @@
+<div ms-controller="EditBase">
+    <button class="btn btn-default  btn-sm pull-right" ms-click="reset">重置</button>
+    <button class="btn btn-info btn-sm pull-right" ms-click="save" style="margin-right: 20px">保存</button>
+    <strong>基本信息</strong>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-3">
+            姓名：
+            <input type="text" class="form-control" ms-duplex="info.Name"/>
+        </div>
+        <div class="col-sm-3">
+            <br/>
+            <tsy:select config="$selectSex"></tsy:select>
+        </div>
+        <div class="col-sm-6">
+            联系方式：
+            <input type="text" class="form-control" ms-duplex="info.Tel"/>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-3">
+            生日：
+            <input type="date" class="form-control" ms-duplex="Birthday"  ms-on-change="compute"/>
+        </div>
+        <div class="col-sm-3">
+            服务期限至：
+            <input type="date" class="form-control" ms-duplex="EndTime"/>
+        </div>
+        <div class="col-sm-6">
+            健身目的：
+            <select name="" id="" class="form-control" ms-duplex="info.Target">
+                <option value="1">减脂</option>
+                <option value="2">增肌</option>
+                <option value="3">塑形</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <br/>
+            身高(cm)：
+            <input type="text" class="form-control" ms-duplex="HealthLog.Height"/>
+        </div>
+        <div class="col-sm-3">
+            <br/>
+            当前体重(kg)：
+            <input type="text" class="form-control" ms-duplex="HealthLog.CurrentWeight"/>
+    </div>
+        <div class="col-sm-3">
+            <br/>
+            目标体重(kg)：
+            <input type="text" class="form-control" ms-duplex="HealthLog.TargetWeight"/>
+        </div>
+        <div class="col-sm-3">
+            <br/>
+            体脂率：
+            <input type="text" class="form-control" ms-duplex="HealthLog.BFR"/>
+            <span style="position: absolute;top: 27px;right: 26px;">%</span>
+        </div>
+        <div class="col-sm-3">
+            <br/>
+            体力活动水平：
+            <a ms-click="togglePALInfo">
+            参考评价标准
+            </a>
+
+            <select class="form-control" ms-duplex="HealthLog.PAL">
+                <option ms-repeat="PALList" ms-attr-value="$key">
+                    {{$val}}     ({{$key}})
+                </option>
+            </select>
+        </div>
+
+        <div class="col-sm-3">
+            <br/>
+            腰围：
+            <input type="text" class="form-control" ms-duplex="HealthLog.Waist"/>
+        </div>
+        <div class="col-sm-3">
+            <br/>
+            臀围：
+            <input type="text" class="form-control" ms-duplex="HealthLog.Hip"/>
+        </div>
+    </div>
+    <div ms-visible="showPALInfo">
+        <br>
+        体力活动水平参考评价标准
+        <table class="table table-bordered table-responsive">
+            <thead>
+            <tr>
+                <td>
+                    活动水平
+                </td>
+                <td>
+                    评价标准
+                </td>
+                <td>
+                    活动举例
+                </td>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr>
+
+                <td>
+                    轻
+
+                </td>
+                <td>
+                    不属于“中”、“高”的任何一种情况
+
+                </td>
+                <td>
+                    办公室工作、修理电器钟表、售货员、酒店服务员、化学试验操作、讲课等
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    中
+
+                </td>
+                <td>
+                    每天至少20min高强度或者重体力活动，>=3天/周；<br>
+                    每天至少步行30min或中等强度运动/体力活动>=5天/周；<br>
+                    每天至少步行30min，7天/周；<br>
+                    每天步行和中等强度或高强度运动/重体力活动，>=5天/周，总的运动量至少达到600MET-min/周
+
+                </td>
+                <td>
+                    学生日常活动、机动车驾驶、电工安装、车床操作、金工切割等
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    重
+
+                </td>
+                <td>
+                    高强度运动/体力活动，>=3天/周，总的运动量达到1500MET-min/周；<br>
+                    每天步行和中等强度或高强度运动/重体力活动，7天/周 ，总的运动量达到3000MET-min/周
+
+                </td>
+                <td>
+                    非机械化农业劳动、炼钢、舞蹈、体育运动、装卸、采矿等
+
+                </td>
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+
+    <br/>
+    <table class="table table-bordered table-responsive">
+        <thead>
+        <tr>
+            <td>BMI</td>
+            <td>腰臀比</td>
+            <td>基础代谢</td>
+            <td>每日总能量消耗(kcal)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td ms-if="HealthCompute.BMI!='NaN'">{{HealthCompute.BMI}}</td><td ms-if="HealthCompute.BMI=='NaN'"></td>
+            <td ms-if="HealthCompute.WHR!='NaN'">{{HealthCompute.WHR}}</td><td ms-if="HealthCompute.WHR=='NaN'"></td>
+            <td ms-if="HealthCompute.BMR!='NaN'">{{HealthCompute.BMR}}</td><td ms-if="HealthCompute.BMR=='NaN'"></td>
+            <td ms-if="HealthCompute.DTEC!='NaN'">{{HealthCompute.DTEC}}</td><td ms-if="HealthCompute.DTEC=='NaN'"></td>
+            <!--<td ms-if="HealthCompute.DTEC!='NaN'&&info.Target==3">{{HealthCompute.DTEC}}</td><td ms-if="HealthCompute.DTEC=='NaN'"></td>-->
+
+
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>

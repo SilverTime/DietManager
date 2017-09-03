@@ -1,0 +1,27 @@
+<!--提示框-->
+<div class="tip" >
+
+
+    <div ms-repeat="tips">
+        <!--默认的提示框-->
+        <div ms-if="el.type==1" class="tip-info alive-loading">
+            <span class="">{{el.msg}}</span>
+            <button type="button"  class="close " ms-click="close($index)">
+                &times;
+            </button>
+
+        </div>
+
+        <!--提示错误信息的-->
+        <div ms-if="el.type==0" class="tip-err alive-loading" >
+            <span class="">{{el.msg}}</span>
+            <button type="button" class="close " ms-click="close($index)">
+                &times;
+            </button>
+
+        </div>
+    </div>
+
+
+
+</div>

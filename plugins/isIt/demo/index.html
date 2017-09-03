@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="content" ms-controller="ptest">
+        <br/>密码&nbsp
+        <input type="text" ms-duplex="pwd" />&nbsp;
+        <button ms-click="chekpwd">检查</button><br/>
+        <span>长度大于或等于6</span><br/><br/>
+
+        <br/>数字&nbsp;
+        <input type="text" ms-duplex="num" />&nbsp;
+        <button ms-click="cheknum">检查</button><br/><br/>
+
+        <br/>座机&nbsp;
+        <input type="text" ms-duplex="pho" />&nbsp;
+        <button ms-click="chekpho">检查</button><br/><br/>
+
+        <br/>手机&nbsp;
+        <input type="text" ms-duplex="mob" />&nbsp;
+        <button ms-click="chekmob">检查</button><br/><br/>
+
+        <br/>邮箱&nbsp;
+        <input type="text" ms-duplex="ema" />&nbsp;
+        <button ms-click="chekema">检查</button><br/><br/>
+
+        <br/>金钱&nbsp;
+        <input type="text" ms-duplex="mon" />&nbsp;
+        <button ms-click="chekmon">检查</button><br/>
+        <span>整数或只有2为小数的数值</span><br/><br/>
+
+        <br/>身份证&nbsp;
+        <input type="text" ms-duplex="id" />&nbsp;
+        <button ms-click="chekid">检查</button><br/></input>
+
+    </div>
+    <script src="../../../src/js/avalon.js"></script>
+    <script>
+        require(["../../plugins/isIt/isIt.js"],function(){
+            //父元素VM
+            var ptest = avalon.define({
+                $id:"ptest",
+                $opt:{},
+
+                pwd:"",
+                num:"",
+                pho:"",
+                mob:"",
+                ema:"",
+                mon:"",
+                id:"",
+
+                chekpwd:function(){
+                    isIt.pwd(ptest.pwd,'密码');
+                },
+                cheknum: function(){
+                    isIt.number(ptest.num,'数字');
+                },
+                chekpho:function(){
+                    isIt.phone(ptest.pho,'座机');
+                },
+                chekmob:function(){
+                    isIt.mobile(ptest.mob,'手机');
+                },
+                chekema:function(){
+                    isIt.email(ptest.ema,'邮箱');
+                },
+                chekmon:function(){
+                    isIt.money(ptest.mon,'金钱');
+                },
+                chekid:function(){
+                    isIt.id(ptest.id,'身份证');
+                }
+            });
+            avalon.scan();
+        });
+    </script>
+</body>
+</html>

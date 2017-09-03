@@ -1,0 +1,179 @@
+/*
+fileuploader 外在肌肤，水嫩丝滑
+生成时间：Fri Dec 09 2016   破门狂人R2-D2为您服务！
+*/
+
+.file-uploader{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    background-color: #fefeff;
+    border:1px solid #eff5fe;
+}
+.file-uploader button {
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+.file-uploader *{
+    transition: all 0.25s ease;
+}
+
+.fu-list{
+    padding: 50px;
+    height: auto;
+}
+.fu-list-null{
+    height: 0px;
+    padding:0px 50px;
+    overflow: hidden;
+}
+
+.fu-file{
+    margin-bottom: 20px;
+}
+
+
+.fu-file-icon{
+    float: left;
+    clear: left;
+    width: 45px;
+    height: 45px;
+    border-radius:8px;
+    text-align: center;
+    background-color: #5ea9fe;
+    font-size: 14px;
+    font-weight: bolder;
+    line-height: 45px;
+    color:#fff;
+    margin-right: 20px;
+    position: relative;
+}
+.del{
+    opacity: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    background-color: #ff523c;
+    border-radius: 20px;
+    top: 0px;
+    right: -10px;
+    line-height: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.del:hover{
+    opacity: 1;
+    width: 24px;
+    height: 24px;
+    top:-12px;
+    right: -12px;
+    font-size: 24px;
+    line-height: 24px;
+}
+.fu-file:hover .del{
+    opacity: 1;
+    top:-10px
+}
+
+.fu-file-text{
+    line-height: 45px;
+    color: #757575;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fu-file-text-uplading{
+    line-height: 20px;
+    color:#cbcbcb
+}
+
+
+.fu-file-size{
+    float:right;
+    color: #cbcbcb;
+}
+
+.fu-progress{
+    height: 4px;
+    background-color: #e2ecf9;
+    margin-left: 65px;
+    margin-top: 9px;
+}
+.fu-progress-done{
+    height: 100%;
+    /*width: 30%;*/
+    background-color: #00d58a;
+    box-shadow: 0px 2px 10px #00d58a;
+}
+.fu-progress-error{
+    background-color: #ff523c;
+    box-shadow: none;
+}
+.fu-progress-complete{
+    background-color: #5ea9fe;
+    box-shadow: none;
+}
+
+.fu-door{
+    padding:20px;
+    position: relative;
+    background-color: #eff5fe;
+}
+.fu-drop-zone{
+    border:4px dashed #dbe8fe;
+    border-radius: 20px;
+    color: #a4b9d1;
+    padding:40px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.webuploader-dnd-over{
+    background-color: #ffffff;
+    border-color: #0f91fe;
+    color:#0f91fe;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.webuploader-dnd-over>button,.webuploader-dnd-over>span{
+    display: none;
+}
+
+.webuploader-element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px,1px,1px,1px);
+}
+
+.fu-browse ,.webuploader-pick{
+    border:none;
+    outline: none;
+    background-color: transparent;
+    color: #42a1fe;
+    font-size: 16px;
+}
+.fu-browse:hover,.webuploader-pick-hover{
+    color: #77c2ff!important;
+}
+.fu-upload{
+
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    color:#ffffff;
+    background-color: #0f91fe;
+    border:none;
+    border-radius: 50px;
+    box-shadow:0px 2px 10px  #0f91fe;
+    font-size: 16px;
+    /*font-weight: bolder;*/
+    top:-25px;
+    right: 50px;
+    outline: none;
+}
+.fu-upload:hover{
+    box-shadow:0px 2px 20px  #0f91fe;
+}

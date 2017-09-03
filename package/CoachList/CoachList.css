@@ -1,0 +1,217 @@
+/*
+教练列表 外在肌肤，水嫩丝滑
+生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+*/
+.CoachList{
+    /*margin-top: 20px;*/
+}
+.CoachList-addBtn{
+    margin-left: 5px;
+    width: 75px;
+    height: 26px;
+    font-size: 10px!important;
+    background: linear-gradient(to right, #c9c9c9, #e0e0e0); /* 标准的语法 */
+}
+.CoachList-addBtn-change{
+    position: absolute;
+    left: 142px;
+    top: 30px;
+    width: 75px;
+    height: 34px;
+    color: #a2a39f;
+    background-color: white;
+    border-top: 2px #cbcbcb solid;
+    border-left: 1px #cbcbcb solid;
+    border-right: 1px #cbcbcb solid;
+    font-size: 11px;
+    display: inline-block;
+    padding: 6px 12px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    margin-left: 5px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    float: left;
+}
+.CoachList-addBox{
+    border: 1px darkgrey solid;
+    border-radius: 4px;
+    /*margin-top: 5px;*/
+}
+.CoachList-addBox-row{
+    padding: 8px 20px 0px 20px;
+}
+.CoachList-addBox-text{
+    float: left;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+.CoachList-input-height{
+    height: 30px;
+    float: left;
+}
+
+
+.coach-col{
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+}
+
+#coach_all{color:#333;cursor: pointer}
+#coach_use{color:#dedede;cursor: pointer}
+#coach_not{color:#dedede;cursor: pointer}
+
+.status-btn>li>a{
+    color:#dedede
+}
+
+.nowS>a{
+    color: #97d548 !important;
+}
+/*按钮CSS样式*/
+/*说明：
+*由于控件需要，因此将ch-switch与ch-green的实际意义进行了交换
+即ch-switch为选中绿色
+*/
+
+input[type="checkbox"]
+{
+    position: absolute;
+    opacity: 0;
+}
+
+/* Normal Track */
+input[type="checkbox"].ch-switch + div
+{
+    vertical-align: middle;
+    width: 40px;
+    height: 20px;
+    border-radius: 999px;
+    -webkit-transition-duration: .4s;
+    -webkit-transition-property: background-color, box-shadow;
+    margin: 15px 1.2em 15px 2.5em;
+    /*下面是颜色控制*/
+    background-color: #00e359;
+    border: 1px solid rgba(0, 162, 63,1);
+    box-shadow: inset 0 0 0 10px rgba(0,227,89,1);
+
+}
+
+/* ch-green Track */
+/*稍作修改，默认选中，点击之后变为非选中状态*/
+input[type="checkbox"].ch-green.ch-switch:checked + div
+{
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 0 0px rgba(0,0,0,0.4);
+    border: 1px solid rgba(0,0,0,.4);
+
+}
+
+/* Normal Knob */
+input[type="checkbox"].ch-switch + div > div
+{
+    float: left;
+    width: 18px;
+    height: 18px;
+    border-radius: inherit;
+    background: #ffffff;
+    -webkit-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: transform, background-color, box-shadow;
+    -moz-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+    -moz-transition-duration: 0.4s;
+    -moz-transition-property: transform, background-color;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(96,126,163,1);
+    pointer-events: none;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+/* Checked Knob (ch-green Style) */
+input[type="checkbox"].ch-switch:checked + div > div
+{
+    -webkit-transform: translate3d(20px, 0, 0);
+    -moz-transform: translate3d(20px, 0, 0);
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgb(184, 200, 222);
+}
+
+
+
+
+
+.CoachList-confirm-btn{
+    width: 80px;
+    height: 30px;
+    float: right;
+    position: absolute;
+    right: 170px;
+    bottom: 10px;
+}
+.CoachList-delete-btn{
+    width: 80px;
+    height: 30px;
+    float: right;
+    margin-top: 20px;
+    position: relative;
+    right: 50px;
+    bottom: 10px;
+}
+
+.CoachList-Sex{
+    float: left;
+    width: 72px;
+    margin-top: -16px;
+}
+.CoachList-dropdown{
+    width: 70px;
+    height: 30px;
+    float: left;
+    border-radius: 4px;
+    border-color: #cbcbcb;
+    color: #989898;
+    box-shadow:inset 0 1px 1px;
+}
+.CoachList-dropdown-club{
+    width: 230px;
+    height: 35px;
+    float: left;
+    border-radius: 4px;
+    border-color: #cbcbcb;
+    color: #989898;
+    box-shadow:inset 0 1px 1px;
+}
+.CoachList-pop-btn{
+    width: 100px;
+    height: 35px;
+    position: relative;
+    left: 260px;
+}
+
+.CoachList-status{
+    position: absolute;
+    left: -44px;
+    top: 5px;
+    width: 60px;
+}
+.CoachList-s-ing{
+    color: #2CA149;;
+}
+
+/*重写的添加用户表单样式*/
+.ac-input{
+    position: relative;
+    margin-top: 15px;
+}
+.ac-input label{
+    position: absolute;
+    display: block;
+    width: auto;
+    padding:0px 5px;
+    background-color: #ffffff;
+    top:-15px;
+    left: 10px;
+}

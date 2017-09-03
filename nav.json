@@ -1,0 +1,230 @@
+{
+  "nav": [
+    {
+      "name": "登录",
+      "en": "Login",
+      "font": true,
+      "bePartOf": "login",
+      "only": 0
+    },
+    {
+      "name": "会员列表",
+      "en": "MemberList",
+      "font": true,
+      "bePartOf": "MemberList",
+      "only": 1
+    },
+    {
+      "name": "会员资料详情",
+      "en": "MemberDetails",
+      "font": true,
+      "bePartOf": "MemberList",
+      "only": 0
+    },
+    {
+      "name": "会员食谱管理",
+      "en": "MemberDiet",
+      "font": true,
+      "bePartOf": "MemberList",
+      "only": 0
+    },
+    {
+      "name": "本周食谱",
+      "en": "MyDiet",
+      "font": true,
+      "bePartOf": "MemberList",
+      "only": 0
+    },
+    {
+      "name": "食谱列表",
+      "en": "DietList",
+      "font": true,
+      "bePartOf": "DietList",
+      "only": 1
+    },
+    {
+      "name": "编辑食谱",
+      "en": "EditDiet",
+      "font": true,
+      "bePartOf": "DietList",
+      "only": 1
+    },
+    {
+      "name": "食谱详情",
+      "en": "DietDetails",
+      "font": true,
+      "bePartOf": "DietList",
+      "only": 1
+    },
+    {
+      "name": "我的主页",
+      "en": "Home",
+      "font": true,
+      "bePartOf": "Home",
+      "only": 0
+    },
+    {
+      "name": "教练列表",
+      "en": "CoachList",
+      "font": false,
+      "bePartOf": "CoachList",
+      "only": 2
+    },
+    {
+      "name": "俱乐部列表",
+      "en": "ClubList",
+      "font": false,
+      "bePartOf": "ClubList",
+      "only": 2
+    },
+    {
+      "name": "食材列表",
+      "en": "FoodList",
+      "font": true,
+      "bePartOf": "FoodList",
+      "only": 1
+    },
+    {
+      "name": "食材管理",
+      "en": "FoodManage",
+      "font": false,
+      "bePartOf": "FoodManage",
+      "only": 2
+    },
+    {
+      "name": "食物替换表",
+      "en": "FoodReplace",
+      "font": false,
+      "bePartOf": "FoodReplace",
+      "only": 2
+    },
+    {
+      "name": "修改密码",
+      "en": "PWDEdit",
+      "font": true,
+      "bePartOf": "",
+      "only": 1
+    },
+    {
+      "name": "找回密码",
+      "en": "FindAccount",
+      "font": true,
+      "bePartOf": "",
+      "only": 0
+    }
+  ],
+  "builded": [
+    {
+      "name": "登录",
+      "en": "Login",
+      "font": true,
+      "bePartOf": "login",
+      "only": 0
+    },
+    {
+      "name": "会员列表",
+      "en": "MemberList",
+      "font": true,
+      "bePartOf": "MemberList",
+      "only": 1
+    },
+    {
+      "name": "会员资料详情",
+      "en": "MemberDetails",
+      "font": true,
+      "bePartOf": "MemberList",
+      "only": 0
+    },
+    {
+      "name": "会员食谱管理",
+      "en": "MemberDiet",
+      "font": true,
+      "bePartOf": "MemberList",
+      "only": 0
+    },
+    {
+      "name": "本周食谱",
+      "en": "MyDiet",
+      "font": true,
+      "bePartOf": "MemberList",
+      "only": 0
+    },
+    {
+      "name": "食谱列表",
+      "en": "DietList",
+      "font": true,
+      "bePartOf": "DietList",
+      "only": 1
+    },
+    {
+      "name": "编辑食谱",
+      "en": "EditDiet",
+      "font": true,
+      "bePartOf": "DietList",
+      "only": 1
+    },
+    {
+      "name": "食谱详情",
+      "en": "DietDetails",
+      "font": true,
+      "bePartOf": "DietList",
+      "only": 1
+    },
+    {
+      "name": "我的主页",
+      "en": "Home",
+      "font": true,
+      "bePartOf": "Home",
+      "only": 1
+    },
+    {
+      "name": "教练列表",
+      "en": "CoachList",
+      "font": false,
+      "bePartOf": "CoachList",
+      "only": 2
+    },
+    {
+      "name": "俱乐部列表",
+      "en": "ClubList",
+      "font": false,
+      "bePartOf": "ClubList",
+      "only": 2
+    },
+    {
+      "name": "食材列表",
+      "en": "FoodList",
+      "font": true,
+      "bePartOf": "FoodList",
+      "only": 1
+    },
+    {
+      "name": "食材管理",
+      "en": "FoodManage",
+      "font": false,
+      "bePartOf": "FoodManage",
+      "only": 2
+    },
+    {
+      "name": "食物替换表",
+      "en": "FoodReplace",
+      "font": false,
+      "bePartOf": "FoodReplace",
+      "only": 2
+    },
+    {
+      "name": "修改密码",
+      "en": "PWDEdit",
+      "font": true,
+      "bePartOf": "",
+      "only": 1
+    },
+    {
+      "name": "找回密码",
+      "en": "FindAccount",
+      "font": true,
+      "bePartOf": "",
+      "only": 0
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+/*说明：
+*由于控件需要，因此将ch-switch与ch-green的实际意义进行了交换
+即ch-switch为选中绿色
+*/
+
+input[type="checkbox"]
+{
+    position: absolute;
+    opacity: 0;
+}
+
+/* Normal Track */
+input[type="checkbox"].ch-switch + div
+{
+    vertical-align: middle;
+    width: 40px;
+    height: 20px;
+    border-radius: 999px;
+    -webkit-transition-duration: .4s;
+    -webkit-transition-property: background-color, box-shadow;
+    margin: 15px 1.2em 15px 2.5em;
+    /*下面是颜色控制*/
+    background-color: #00e359;
+    border: 1px solid rgba(0, 162, 63,1);
+    box-shadow: inset 0 0 0 10px rgba(0,227,89,1);
+
+}
+
+/* ch-green Track */
+/*稍作修改，默认选中，点击之后变为非选中状态*/
+input[type="checkbox"].ch-green.ch-switch:checked + div
+{
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 0 0px rgba(0,0,0,0.4);
+    border: 1px solid rgba(0,0,0,.4);
+
+}
+
+/* Normal Knob */
+input[type="checkbox"].ch-switch + div > div
+{
+    float: left;
+    width: 18px;
+    height: 18px;
+    border-radius: inherit;
+    background: #ffffff;
+    -webkit-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: transform, background-color, box-shadow;
+    -moz-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+    -moz-transition-duration: 0.4s;
+    -moz-transition-property: transform, background-color;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(96,126,163,1);
+    pointer-events: none;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+/* Checked Knob (ch-green Style) */
+input[type="checkbox"].ch-switch:checked + div > div
+{
+    -webkit-transform: translate3d(20px, 0, 0);
+    -moz-transform: translate3d(20px, 0, 0);
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgb(184, 200, 222);
+}
+
+
+
+.InforChange-addBox-text{
+    float: left;
+    margin-top: 5px;
+    margin-left: 20px;
+}

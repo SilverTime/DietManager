@@ -1,0 +1,42 @@
+<div ms-controller="changeClub">
+    <button ms-click="reset" class="btn btn-default  btn-sm pull-right">重置</button>
+    <button class="btn btn-info btn-sm pull-right" style="margin-right: 20px" ms-click="changeClub">保存</button>
+    <strong>俱乐部修改</strong>
+    <hr/>
+
+    <div class="row">
+        <div class="col-sm-3">
+            俱乐部名称：
+            <input ms-duplex="Name" type="text" class="form-control" placeholder="俱乐部名称" />
+        </div>
+        <div class="col-sm-3">
+            联系人：
+            <input ms-duplex="Contacter" type="text" class="form-control" placeholder="联系人姓名" />
+        </div>
+        <div class="col-sm-3">
+            电话：
+            <input ms-duplex="Tel" type="text" class="form-control" placeholder="电话号码" />
+        </div>
+        <div class="col-sm-3">
+            状态：
+            <span ms-duplex="Status" ms-if="Status==1" class="cl-status cl-s-ing">启用中</span>
+            <span ms-duplex="Status" ms-if="Status==0" class="cl-status">禁用中</span>
+            <label style="left: 40px; display: block;top: 12px;position: absolute;">
+                <input id="StatusCheckbox" ms-click="resetCheckbox" type="checkbox" class="cl-switch cl-green"/>
+                <div>
+                    <div></div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            地址：
+            <input ms-duplex="Address" type="text" class="form-control" placeholder="输入地址" />
+        </div>
+    </div>
+
+    <br>
+    <br>
+</div>

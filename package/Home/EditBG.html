@@ -1,0 +1,19 @@
+<div ms-controller="EditBG">
+    <strong>
+        设置主页背景图
+    </strong>
+    <hr>
+    <img ms-if="BackgrondImgURL!=''" ms-attr-src="BackgrondImgURL" style="max-width: 100%" alt="">
+    选择网络图片：
+    <input type="text" class="form-control" placeholder="输入图片URL地址" ms-duplex="BackgrondImgURL">
+    <br>
+
+    上传图片：
+    <tsy:fileuploader config="$EditBG_uploader"></tsy:fileuploader>
+    <span>
+        推荐分辨率：1920*340
+    </span>
+    <button class="btn btn-block btn-success" ms-click="save">
+        保存背景图片
+    </button>
+</div>

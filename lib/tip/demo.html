@@ -1,0 +1,50 @@
+<div ms-controller="tipDemo">
+
+    <!--关键代码-->
+    <div ms-widget="tip,tip,$opt"></div>
+
+    <!--以下都是用户测试用的仪表盘-->
+    <h2>提示框使用测试</h2>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios"  value="1" checked ms-duplex-string="a">
+            来一个普通的提示
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios"  value="0" ms-duplex-string="a">
+            来一个错误提示
+        </label>
+    </div>
+    要提示的内容：
+    <input type="text" class="form-control" ms-duplex="text"/>
+    存在的时间长度：
+    <input type="number" class="form-control" ms-duplex="time"/>
+    <br/>
+    <button class="btn btn-primary" ms-click="tipOn">点击弹出提示</button>
+    <button class="btn btn-default" ms-click="tipOff">点击关闭提示</button>
+</div>
+<script>
+
+    //引入组件，引入了就搞定了~
+    require(["../../ui/tip/tip.js"],function(){
+
+        //配置父元素的VM
+        var tipDemo=avalon.define({
+            $id:"tipDemo",
+            $opt:{},
+            a:1,
+            text:"233",
+            time:3000,
+            tipOn:function(){
+                tip.on(tipDemo.text,tipDemo.a,tipDemo.time)
+            },
+            tipOff:function(){
+                tip.off(tipDemo.text,tipDemo.a,tipDemo.time)
+            }
+        })
+        avalon.scan()
+    })
+
+</script>

@@ -1,0 +1,39 @@
+<div ms-controller="EditCheck">
+    <button class="btn btn-default  btn-sm pull-right" ms-click="ready()">重置</button>
+    <button class="btn btn-info btn-sm pull-right" ms-click="save" style="margin-right: 20px">保存</button>
+    <strong>身体检查：</strong>
+    <hr/>
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>
+                部位
+            </td>
+            <td>
+                临床表现
+            </td>
+            <td>
+                可能的营养素缺乏
+            </td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="checkList">
+            <td>
+                {{el.Part}}
+            </td>
+            <td>
+                {{el.ClinicalFeature}}
+            </td>
+            <td>
+                {{el.NutritionalDeficiency}}
+            </td>
+            <td>
+                <button class="btn btn-default btn-block" ms-class="btn-success:el.checked"  ms-click="check($index)">选中</button>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

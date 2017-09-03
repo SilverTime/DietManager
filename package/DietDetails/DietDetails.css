@@ -1,0 +1,110 @@
+/*
+食谱详情 外在肌肤，水嫩丝滑
+生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+*/
+.DietDetails{
+    margin-top: 20px;
+}
+.DietDetails-addBtn{
+    margin-left: 5px;
+    width: 80px;
+    height: 30px;
+    font-size: 0.8em;
+}
+.DietDetails-box-left{
+    width: 555px;
+    height: 350px;
+    border: 1px grey solid;
+    text-align: center;
+    padding-top: 10px;
+    float: left;
+}
+.DietDetails-box-right{
+    width: 555px;
+    height: 350px;
+    border: 1px grey solid;
+    text-align: center;
+    padding-top: 10px;
+    float: right;
+}
+
+.DietDetails .hr-panel{
+    margin-bottom: 25px;
+}
+
+.DD-btn-group{
+    position: relative;
+}
+.DD-btn-group i{
+    font-size: 24px;
+}
+
+.DD-btn-group>button,.DD-btn-group>a{
+    width:50%;
+    text-align: center;
+    border-radius: 0px;
+    border: none;
+    background: #fff;
+    line-height: 54px;
+    outline: none;
+    color: #1c9bd3;
+    transition: all 0.25s ease;
+}
+.DD-btn-group>button:hover,.DD-btn-group>a:hover{
+    color: #202020;
+    background-color: rgb(209, 231, 248);
+}
+
+.shiguan-box{
+    position: relative;
+    min-height: 130px;
+    padding-bottom: 16px;
+}
+.shiguan-box>i{
+    font-size: 111px;
+    color: #DFDFDF;
+    /* z-index: 8; */
+    position: absolute;
+    bottom: 0px;
+}
+
+.shiguan-fill{
+    background: red;
+    width: 42px;
+    height: 113px;
+    /* position: absolute; */
+    margin-left: 33px;
+    /* margin-bottom: -10px; */
+    border-bottom-left-radius: 33px;
+    border-bottom-right-radius: 33px;
+
+}
+
+.shiguan-fill-empyt{
+    background-color: #ffffff;
+    height: 16px;
+}
+
+
+.diet-d-buy{
+    height: 150px;
+    width: 100%;
+    font-size: 24px;
+    background: #fff;
+    border-style: dashed;
+    border-color: rgb(209, 231, 248);
+    color: rgb(209, 231, 248);
+    transition: all 0.2s ease;
+    outline: none;
+}
+.diet-d-buy i{
+    font-size: 40px;
+}
+.diet-d-buy:hover{
+    color: #202020;
+    background-color: rgb(209, 231, 248);
+}
+.diet-d-buy:active{
+    color: rgb(255, 255, 255);
+   box-shadow: 0px 2px 10px rgb(209, 231, 248);
+}

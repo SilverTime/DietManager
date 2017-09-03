@@ -1,0 +1,108 @@
+<!--
+    教练列表 核心骨架，百折不挠
+    生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="CoachList" class="CoachList container">
+    <br>
+    <div class="row">
+        <!--<div class="col-md-4">-->
+
+        <!--&lt;!&ndash;用户列表&ndash;&gt;-->
+        <!---->
+        <!--&lt;!&ndash;<button ms-if="addState!=1" class="btn btn-xs btn-success CoachList-addBtn" ms-click="add()">添加用户</button>&ndash;&gt;-->
+        <!--&lt;!&ndash;由于样式不同，此处的div不能直接更改为button&ndash;&gt;-->
+        <!--<div ms-if="addState==1" value="添加用户" class="CoachList-addBtn-change" ms-click="add()">添加用户</div>-->
+
+
+        <!---->
+
+        <!--</div>-->
+        <div class="col-md-8">
+            <div>
+                导入教练员：
+            </div>
+            <input class="btn btn-default" type="file" ms-on-change="getText" id="file" style="display: inline-block">
+
+        <span ms-if="text!=''">
+            即将导入{{inputNumber}}个教练员
+            <button ms-if="inputNumber>0" class="btn btn-success btn-sm" ms-click="importCoach">确认导入
+            </button>
+        </span>
+        </div>
+        <div class="col-md-4">
+            <br>
+
+            <input type="text" class="form-control" placeholder="输入关键词查找" aria-describedby="basic-addon2"
+                   ms-duplex="Keyword">
+
+
+        </div>
+
+    </div>
+
+    <hr/>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered" style="text-align: center;">
+                <thead>
+                <tr>
+                    <!--<td>编号</td>-->
+                    <td>登录账户</td>
+                    <td>姓名</td>
+                    <td>性别</td>
+                    <td>类型</td>
+                    <td>手机号</td>
+                    <td>邮箱</td>
+                    <td>支付宝</td>
+                    <td>所属俱乐部</td>
+                    <td>地址</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-repeat="list">
+                    <!--<td>{{el.UID}}</td>-->
+                    <td>{{el.User.Account}}</td>
+                    <td>{{el.User.Name}}</td>
+                    <td>{{sexName[el.User.Sex]}}</td>
+                    <td ms-if="el.User.Group==1">教练</td>
+                    <td ms-if="el.User.Group==2">管理员</td>
+                    <td ms-if="el.User.Group==12">教练、管理员</td>
+                    <td>{{el.Tel}}</td>
+                    <td>{{el.Email}}</td>
+                    <td>{{el.Alipay}}</td>
+                    <td>{{el.Club.Name}}</td>
+                    <td>{{el.Address}}</td>
+                    <td>
+                        <div ms-if="el.Type!='1,2'">
+                            <!--<button class="btn btn-success btn-sm" ms-click="InforChange(el.UID)">-->
+                            <!--修改信息-->
+                            <!--</button>-->
+                            <button class="btn btn-default btn-sm" ms-click="resetPassword(el.UID,el.User.Account)">
+                                重置密码
+                            </button>
+                        </div>
+
+                    </td>
+                </tr>
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+
+    <div style="margin:20px 0">
+      <span ms-if="searchNull==0">
+          <tsy:pager config="$paper"></tsy:pager>
+      </span>
+
+        <div ms-if="searchNull==1"
+             style="text-align: center;font-size: 30px;color: #8c8c8c;font-family: 楷体">
+            搜索结果为空
+        </div>
+        <hr/>
+    </div>
+</div>

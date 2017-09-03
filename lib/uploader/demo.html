@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>上传组件</title>
+    <script src="../../src/js/avalon.modern.1.5.min.js"></script>
+    <script src="../../plugins/cache/cache.js"></script>
+</head>
+<body ms-controller="starTest">
+
+<tsy:uploader config="$opt"></tsy:uploader>
+
+</body>
+<script>
+    var apiURL = 'http://picc.weixin.tansuyun.cn/index.php?i=';
+    avalon.ready(function () {
+        require(['../../lib/uploader/uploader.js'], function () {
+            var vm=avalon.define({
+                $id:"starTest",
+                $opt:{
+                    id:"uptest"
+                },
+
+            })
+            avalon.scan()
+        })
+    })
+</script>
+
+</html>

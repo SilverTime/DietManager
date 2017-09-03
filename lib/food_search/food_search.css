@@ -1,0 +1,47 @@
+/*
+food_search 外在肌肤，水嫩丝滑
+生成时间：Sat Mar 12 2016   破门狂人R2-D2为您服务！
+*/
+
+.live-search-goods{
+    position: absolute;
+    /*left: 98px;*/
+    background-color: #ffffff;
+    width: 530px;
+    z-index: 9;
+    box-shadow: 0px 2px 6px #9D9D9D;
+    font-size: 12px;
+}
+.table-search{
+    margin-bottom: 0px!important;
+}
+.table-search thead td{
+
+    border-left: 1px solid rgb(215,215,215);
+    border-bottom: 1px solid rgb(215,215,215);
+
+}
+.table-search thead{
+    border-top: 1px solid #D7D7D7!important;
+    background-color: #efefef;
+}
+.table-search thead td:first-child{
+    border-left: none!important;
+}
+.table-search td{
+    padding-top: 3px!important;
+    padding-bottom: 3px!important;
+}
+.table-search .now{
+    cursor: pointer;
+    background-color: #d2e7ee;
+}
+
+.goodsSearchWaiting{
+    margin-top: -23px!important;
+    margin-left: 10px;
+    position: absolute;
+}
+.goods-search-tip{
+    padding:10px 20px
+}

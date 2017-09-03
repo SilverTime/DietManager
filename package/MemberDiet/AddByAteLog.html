@@ -1,0 +1,43 @@
+<div ms-controller="AddByAteLog">
+    <strong>选择就餐记录</strong>
+    <br/><br/>
+
+            <table class="table table-responsive table-bordered" ms-repeat="list"
+                   style="cursor: pointer;margin-bottom: 10px" ms-click="choose(el.LogID)">
+                <thead>
+                <tr>
+
+                    <td>总计</td>
+                    <td>早餐</td>
+                    <td>午餐</td>
+                    <td>晚餐</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        推荐能量：{{TargetEnergy}}kcal<br/>
+                        实际能量：<strong><big>{{Number(el.TotalEnergy).toFixed(2)}}</big></strong>kcal<br/>
+                        差距：{{(TargetEnergy-el.TotalEnergy).toFixed(2)}}<br/>
+                    </td>
+                    <td>
+                        <div ms-repeat-al="el.Details[1]" class="text-success">
+                            {{al.Food.Name}}×<strong style="font-size: 18px">{{Number(al.Weight)}}</strong>g
+                        </div>
+                    </td>
+                    <td>
+                        <div ms-repeat-al="el.Details[2]" class="text-danger">
+                            {{al.Food.Name}}×<strong style="font-size: 18px">{{Number(al.Weight)}}</strong>g
+                        </div>
+                    </td>
+                    <td>
+                        <div ms-repeat-al="el.Details[3]" class="text-info">
+                            {{al.Food.Name}}×<strong style="font-size: 18px">{{Number(al.Weight)}}</strong>g
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+    <button class="btn btn-block btn-default" ms-click="getAteLogByUID" ms-visible="T>list.length">加载更多</button>
+</div>

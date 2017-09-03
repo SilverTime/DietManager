@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>开关按钮实例</title>
+    <script src="../../src/js/avalon.modern.1.5.min.js"></script>
+</head>
+<body ms-controller="demo">
+
+<!--{{value}}-->
+
+<tsy:switch config="$opt"></tsy:switch>
+
+
+<script>
+    avalon.ready(function () {
+        require(['../../lib/switch/switch'], function () {
+            var vm = avalon.define({
+                $id: 'demo',
+                ready: function () {
+                    avalon.scan()
+                },
+                value:"",
+                $opt: {
+                    nowVal:'left',
+                    left:{
+                        label:"左边",
+                        value:"left"
+                    },
+                    right: {
+                        label:"右边",
+                        value:"right"
+                    },
+                    callback: function (value) {
+                        vm.value=value
+                    }
+                },
+            })
+
+            window[vm.$id] = vm
+            vm.ready()
+        })
+    })
+</script>
+</body>
+</html>

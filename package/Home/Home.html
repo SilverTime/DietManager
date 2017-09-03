@@ -1,0 +1,417 @@
+<!--
+    个人中心 核心骨架，百折不挠
+    生成时间：Tue Nov 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="Home" style=" position: relative; ">
+    <!--背景图-->
+    <div class="home-bg" ms-css-background-image="url({{Coach.BackgrondImgURL}})"></div>
+    <div class="container" style="height: 130px;text-align: center;padding-top: 40px">
+        <button class="btn-edit-bg" ms-click="editBG" ms-visible="myself">
+            <i class="icon iconfont icon-xiangji"></i>
+            &nbsp;&nbsp;编辑背景图片
+        </button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <!--资料卡-->
+                <div class="hr-panel">
+                    <div class="hr-panel-body" style="padding: 0px;background-color: rgba(255,255,255,0.85);">
+                        <button class="btn btn-primary" ms-click="editCoach" ms-visible="myself"
+                                style="position: absolute;top:-10px;right: 30px;z-index: 1;">编辑
+                        </button>
+                        <div class="row">
+                            <div class="col-sm-2"
+                                 style="overflow: hidden;height: 166px;">
+                                <!--教练员头像-->
+                                <div class="coach-head" ms-css-background-image="url({{Coach.HeadImgURL}})">
+                                    <button class="btn-edit-head" ms-click="editHead"
+                                            style="width: 100%;position: absolute;bottom:0;" ms-visible="myself">
+                                        编辑头像
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <h3 style="margin-top: 10px">
+                                    {{Coach.User.Name}}
+                                    <small>教练</small>
+                                </h3>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div style="line-height: 1.1">
+                                            所属俱乐部：{{Coach.Club.Name}}<br>
+                                            现居住地：{{Coach.Address}}<br>
+                                            任教时间：{{Coach.StartTime}}<br>
+                                            入会时间：{{Coach.User.CTime*1000|date('yyyy-MM-dd')}}<br>
+
+                                            <br>
+                                            <span ms-if="myself">
+                                                联系电话：{{Coach.Tel}}<br>
+                                            </span>
+
+                                            电子邮箱：{{Coach.Email}}<br>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        介绍：{{Coach.Introduce}}
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="hr-panel-footer coach-card-footer">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <i class="icon iconfont icon-qianzaixueyuan"></i>
+                                累计学员 <strong>{{Coach.MemberAmount}}</strong> 位
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="icon iconfont icon-shipu"></i>
+                                创建食谱 <strong>{{Coach.DietAmount}}</strong> 份
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="icon iconfont icon-temai"></i>
+                                累积售出 <strong>{{Coach.SaleAmount}}</strong> 份
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!--<div class="col-sm-3">-->
+                <!--<div class="hr-panel" ms-if="myself">-->
+                    <!--<div class="hr-panel-body" style="padding:12px">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-sm-12 home-money">-->
+                                <!--<i class="icon iconfont icon-zhanghuyue"-->
+                                   <!--style="margin-left: 0px;display: inline-block;margin-top: -14px"></i>-->
+                                <!--可用余额 <strong>{{Coach.User.Balance.Balance}}</strong> ￥-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-12 alipay-account">-->
+                                <!--<i class="icon iconfont icon-bianji pull-right" ms-visible="myself"-->
+                                   <!--style="cursor: pointer" title="编辑" ms-click="editAlipay"></i>-->
+                                <!--支付宝：{{Coach.Alipay}}-->
+
+                            <!--</div>-->
+
+                            <!--<div class="col-sm-12" style="margin: 12px 0px">-->
+                                <!--<button class="btn btn-success btn-sm btn-block">-->
+                                    <!--账户充值-->
+                                <!--</button>-->
+
+                            <!--</div>-->
+                            <!--<div class="col-sm-6">-->
+                                <!--<button class="btn btn-default btn-sm btn-block">-->
+                                    <!--查看账单-->
+                                <!--</button>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-6">-->
+                                <!--<button class="btn btn-default btn-sm btn-block">-->
+                                    <!--提现-->
+                                <!--</button>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+
+        <!--分页-->
+        <div class="home-tab-nav">
+            <a ms-attr-href="#!/Home/{{UID}}&&member&&1&&&&0_1" ms-class="nowTab:nowTab==0" ms-visible="myself">我的会员</a>
+            <a ms-attr-href="#!/Home/{{UID}}&&myDiet&&1&&&&" ms-class="nowTab:nowTab==1" ms-if="myself">我的食谱</a>
+            <a ms-attr-href="#!/Home/{{UID}}&&myDiet&&1&&&&" ms-class="nowTab:nowTab==1" ms-if="!myself">他的食谱</a>
+            <a ms-attr-href="#!/Home/{{UID}}&&buyedDiet&&1&&&&" ms-class="nowTab:nowTab==2" ms-visible="myself">已购食谱</a>
+        </div>
+
+
+        <!--分页内容-会员-->
+        <div ms-if="nowTab==0">
+            <div >
+                <!-- 头部-->
+                <div  class="row">
+                    <!--<div class="col-md-4">-->
+                    <!--<h2 >-->
+                    <!--会员列表-->
+                    <!--<button class="btn btn-xs btn-success" ms-click="addMember()">添加会员</button>-->
+                    <!--</h2>-->
+
+                    <!--</div>-->
+
+                    <div class="col-sm-2 ">
+                        <br>
+                        <button class="btn  btn-success btn-block" ms-click="addMember()">
+                            <i class=" icon-plus">&nbsp;</i>
+                            添加会员
+                        </button>
+                    </div>
+                    <div class="col-sm-2 col-sm-offset-5">
+                        <br>
+                        <ul class="status-btn pull-right" style="color:#dedede;line-height: 34px">
+                            <li style="display: inline;" ms-click="toggleStatus([0,1])" ms-class="nowS:statusStr=='1_0'||statusStr=='0_1'"><a >全部</a></li>
+                            <li style="display: inline;padding-left: 20px" ms-click="toggleStatus([1])" ms-class="nowS:statusStr=='1'"><a >上课中</a></li>
+                            <li style="display: inline;padding-left: 20px" ms-click="toggleStatus([0])" ms-class="nowS:statusStr=='0'"><a >已停课</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <br>
+
+                        <input ms-duplex="MKeywords" id="ml_ipt"  type="text" class="form-control" placeholder="输入关键词查找"
+                               aria-describedby="key-search">
+
+
+                    </div>
+                </div>
+                <hr>
+                <!-- 会员列表的渲染-->
+                <br>
+                <div class="row">
+                    <div class="col-md-4" style="margin: 0;" ms-repeat="list">
+                        <!-- 会员信息-->
+                        <div class=" ml-list">
+                <span class="ml-name">
+                    <span >
+                        {{el.Name}}
+                    </span>
+                    <small ms-if="el.Sex==1">
+                        (先生)
+                    </small>
+                     <small ms-if="el.Sex==0">
+                         (女士)
+                     </small>
+                </span>
+
+                            <span ms-if="el.Status==1" class="ml-status-default ml-status-ing">上课中</span>
+                            <span ms-if="el.Status==0" class="ml-status-default ml-status-stop">已停课</span>
+                            <table class="ml-table">
+                                <tr>
+                                    <td style="font-weight: 600;">当前体重：{{Number(el.CurrentWeight).toFixed(2)}}kg</td>
+                                    <td style="font-weight: 600;">目标体重：{{Number(el.TargetWeight).toFixed(2)}}kg</td>
+                                </tr>
+                                <tr>
+                                    <td>出生日期：{{el.Birthday*1000|date("yyyy-MM-dd")}}</td>
+                                    <td>到期时间：{{el.EndTime*1000|date("yyyy-MM-dd")}}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">电话：{{el.Tel}}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <p style="width:282px; overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                                            所属俱乐部：{{el.Coach.ClubName}}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="padding-top: 10px;text-align: right;">
+                                <button class="pull-left btn btn-default btn-xs" ms-click="delMember(el.UID)">删除</button>
+                                <a class="btn   ml-btn-detail" ms-attr-href="#!/MemberDetails/{{el.UID}}">评估报告</a>
+                                <a class="btn   ml-btn-detail" ms-attr-href="#!/MemberDiet/{{el.UID}}">食谱管理</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin:20px 0">
+      <span ms-duplex="searchNull" ms-if="searchNull==0">
+          <tsy:pager config="$paper"></tsy:pager>
+      </span>
+                </div>
+            </div>
+        </div>
+
+        <!--分页内容-食谱-->
+        <div ms-if="nowTab==1||nowTab==2">
+            <div class="row">
+                <div class="col-md-2">
+                    <br>
+                    <a href="#!/EditDiet/0" class="btn btn-success btn-block">创建食谱</a>
+                </div>
+                <div class="col-md-6">
+                    <br>
+                    <input type="text" class="form-control" placeholder="输入关键词或能量总和" aria-describedby="basic-addon2"
+                           ms-duplex="w.Keyword">
+                </div>
+                <div class="col-md-4">
+                    <br>
+                    <div class="pull-right" style="padding-top:8px">
+                        <tsy:select config="$selectDL"></tsy:select>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="hr-panel" ms-repeat="Dlist" style="margin-bottom: 20px">
+                <div class="hr-panel-body" style="padding:10px">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="hr-block">
+                                <div class="hr-panel-title">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>{{targetName[el.Target-1]}}食谱&nbsp;</strong>
+
+
+                                            <span style="color:#e14045;font-size: 18px">{{Number(el.TotalSale)}}</span>
+                                            售出
+                                        </div>
+                                        <div class="col-sm-4 text-center">
+                                            作者：
+                                            <a ms-attr-href="#!/Home/{{el.CUser.User.UID}}">
+                                                {{el.CUser.User.Name}}
+                                            </a>
+                                            <small ms-if="el.CUID==cache.go('UID')">（我自己）</small>
+
+
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            {{el.CTime*1000|date("yyyy-MM-dd")}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hr-panel-body" style="padding:10px;;height: 80px;overflow: auto;">
+                                    <strong>{{el.Title}}</strong><br>
+                                    {{el.Introduce}}
+                                    <span ms-if="el.Introduce==''||el.Introduce==null"
+                                          style="color:#dddddd">暂时没有介绍……</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="hr-block">
+                                <div class="hr-panel-title">
+                                    能量统计(单位：kcal)
+                                </div>
+                                <div class="hr-panel-body" style="padding:10px">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            目标能量：{{Number(el.REI).toFixed(2)}}<br/>
+                                            实际能量：{{Number(el.Energy).toFixed(2)}}<br/>
+                                            差距：{{Number(el.REI-el.Energy).toFixed(2)}}<br/>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            早餐：{{Number(el.BreakfastEnergy).toFixed(2)}}<br>
+                                            午餐：{{Number(el.LunchEnergy).toFixed(2)}}<br>
+                                            晚餐：{{Number(el.DinnerEnergy).toFixed(2)}}<br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div ms-if="el.Has||el.CUID==cache.go('UID')" class="row">
+                        <div class="col-sm-4">
+                            <div class="hr-block">
+                                <div class="hr-panel-title">
+                                    早餐
+                                </div>
+                                <div class="hr-panel-body diet-list-meal">
+                                    <div ms-repeat-al="el.Details">
+                                        <div ms-if="al.MealID==1" style="clear: both">
+                                            <div class="food-type" ms-class="food-type-{{al.Food.TypeID}}"></div>
+                                            {{al.Food.Name}}
+                                    <span class='pull-right'>
+                                        ×
+                                    <strong style="font-size: 18px">{{Number(al.Weight)}}</strong>
+                                    g {{mealSignName[al.MealSign]}} &nbsp;&nbsp;&nbsp;
+                                    </span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="hr-block">
+                                <div class="hr-panel-title">
+                                    午餐
+                                </div>
+                                <div class="hr-panel-body diet-list-meal">
+                                    <div ms-repeat-al="el.Details">
+                                        <div ms-if="al.MealID==2" style="clear: both">
+                                            <div class="food-type" ms-class="food-type-{{al.Food.TypeID}}"></div>
+                                            {{al.Food.Name}}
+                                    <span class='pull-right'>
+                                        ×
+                                    <strong style="font-size: 18px">{{Number(al.Weight)}}</strong>
+                                    g {{mealSignName[al.MealSign]}} &nbsp;&nbsp;&nbsp;
+                                    </span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="hr-block">
+                                <div class="hr-panel-title">
+                                    晚餐
+                                </div>
+                                <div class="hr-panel-body diet-list-meal">
+                                    <div ms-repeat-al="el.Details">
+                                        <div ms-if="al.MealID==3" style="clear: both">
+                                            <div class="food-type" ms-class="food-type-{{al.Food.TypeID}}"></div>
+                                            {{al.Food.Name}}
+                                    <span class='pull-right'>
+                                        ×
+                                    <strong style="font-size: 18px">{{Number(al.Weight)}}</strong>
+                                    g {{mealSignName[al.MealSign]}} &nbsp;&nbsp;&nbsp;
+                                    </span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <!--操作按钮-->
+                    <div>
+
+                        <button class="btn btn-info " ms-if="!el.Has&&el.CUID!=cache.go('UID')"
+                                ms-click="buy(el.DietID,$index)"
+                                style="width: 120px">
+                            获取
+                        </button>
+                <span style="color:#b2b2b2" ms-if="!el.Has&&el.CUID!=cache.go('UID')">
+                    获取之后可查看完整的食谱信息，并能使用食谱
+                </span>
+                        <a ms-attr-href="#!/EditDiet/1&&{{el.DietID}}"
+                           class="btn btn-info " style="width: 120px"
+                           ms-if="el.CUID==cache.go('UID')">
+                            编辑
+                        </a>
+                        <a ms-attr-href="#!/EditDiet/2&&{{el.DietID}}"
+                           ms-if="el.Has||el.CUID==cache.go('UID')"
+                           class="btn btn-default " style="width: 120px">
+                            复制
+                        </a>
+                        <a ms-attr-href="#!/DietDetails/{{el.DietID}}" class="btn btn-default  pull-right"
+                           style="width: 120px">
+                            详情
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <tsy:pager config="$DPager"></tsy:pager>
+
+        </div>
+    </div>
+
+</div>

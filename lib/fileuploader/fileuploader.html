@@ -1,0 +1,51 @@
+<!--
+    fileuploader 核心骨架，百折不挠
+    生成时间：Fri Dec 09 2016   破门狂人R2-D2为您服务！
+-->
+<div class="file-uploader">
+    <!--文件队列区-->
+    <div class="fu-list" ms-class="fu-list-null:list.length==0">
+        <!--等待上传的文件-->
+        <div class="fu-file" ms-repeat="list">
+            <div class="fu-file-icon">
+                {{el.ext|uppercase}}
+                <i class="del" ms-if="el.state=='inited'||el.state=='error'" ms-click="removeFile($index)">×</i>
+            </div>
+            <div class="fu-file-text" ms-class="fu-file-text-uplading:el.state!='inited'">
+                <span class="fu-file-size" ms-visible="el.state=='inited'">{{Number(el.size/1024).toFixed(0)}} kb</span>
+                <span class="fu-file-size" ms-visible="el.state=='progress'">上传中……</span>
+                <span class="fu-file-size" ms-visible="el.state=='error'" style="color:#ff523c">失败！</span>
+                <span class="fu-file-size" ms-visible="el.state=='complete'"  style="color:#5ea9fe">成功！</span>
+                {{el.name}}
+            </div>
+            <div class="fu-progress" ms-visible="el.state=='progress'||el.state=='error'||el.state=='complete'">
+                <div class="fu-progress-done" ms-css-width="{{el.progress*100}}%" ms-class="fu-progress-{{el.state}}">
+
+                </div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+
+
+    </div>
+    <div ms-if="!uploaderReady" style="text-align: center">
+        <img src="./lib/fileuploader/loading.gif" alt="" width="100" height="100">
+        <span style="line-height: 100px;color: #a4b9d1;font-size: 16px;"></span>加载上传组件……
+    </div>
+
+    <!--文件入口-->
+    <div class="fu-door" ms-visible="uploaderReady">
+
+        <div class="fu-drop-zone" ms-attr-id="{{id}}Dnd"
+             ms-visible="list.length<fileNumLimit">
+            拖到这里  <span>或者</span>
+            <button class="fu-browse" ms-attr-id="{{id}}Picker">选择文件</button>
+        </div>
+        <span style="color:#a4b9d1" ms-visible="list.length>=fileNumLimit">
+            最多只能选择{{fileNumLimit}}个
+        </span>
+        <button class="fu-upload" ms-click="upload" ms-if="list.length>0">
+            上传
+        </button>
+    </div>
+</div>

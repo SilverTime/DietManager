@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head ms-controller="head">
+    <title id="title">私教营养助手--让营养食谱成为私教课程的标配</title>
+    <meta content="“碳蛋知”是首款专门为运动人群进行营养配餐的专业配餐工具。其营养库中包含有大量科学性的营养套餐，同时系统具备智能化的营养套餐计算公式，简化了基础知识的部分，配合中国营养学会食谱库，帮助您更加专业的配餐，是您身边的运动营养服务专家。" name="Description">
+    <meta content="碳蛋知 配餐 营养食谱 运动与营养 健身教练 营养师 孕妇食谱 月子食谱 减肥食谱 儿童食谱 营养课程 减肥 健身 食物能量 营养评估 饮食计划 健身俱乐部 营养餐 食疗" name="Keywords">
+    <meta charset="UTF-8">
+    <!--坑爹的IE兼容-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <!--坑爹的将360默认为极速模式打开-->
+    <meta name="renderer" content="webkit">
+    <!--移动优先-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+
+    <!--//不缓存-->
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+
+    <!--avalon-->
+    <script src="./src/js/avalon.modern.1.5.min.js"></script>
+
+    <!--浏览器版本判断-->
+    <script src="./plugins/browser/browser.js"></script>
+    <script>
+        (function (){
+            try{
+                console.log(browser)
+            }
+            catch(err){}
+
+            if(browser.webkit){
+                return
+            }
+            if(browser.ie){
+                if(browser.version<10){
+//                    跳转版本错误提示页面
+                    window.location.href='./err.html'
+                }
+            }
+        })()
+
+    </script>
+    <!--图标引入-->
+    <!--bootstrap引入-->
+    <link href="./src/css/layout.css" rel="stylesheet">
+    <!--已合并到layout中-->
+    <link href="./src/css/bootstrap-all.css" rel="stylesheet" type="text/css"/>
+    <!--引入btn-->
+    <!--<link href="./src/css/button.css" rel="stylesheet" type="text/css"/>-->
+    <!--fontAwesone 引入-->
+    <link href="./src/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <!--本地CSS-->
+    <!--<link href="./src/css/mooshroom.css" rel="stylesheet">-->
+    <link href="./src/css/local.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/iconfont.css">
+    <style>
+        [ms-controller] {
+            visibility: hidden
+        }
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?7c05b20411a6725372ef6b99db29db3f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+</head>
+<body style="overflow-y: scroll">
+<div ms-controller="index">
+    <!-- topNav-->
+    <nav ms-if="uid>0" class="navbar navbar-default" style="margin-bottom:0;background: linear-gradient(#ffffff, #fafafa);">
+        <div class="container">
+            <div>
+                <ul class="nav nav-pills ">
+                    <li>
+                    <span class="navbar-brand" style="color:#00ad3d">
+                        私教营养助手
+                        <!--<small>Nutri-Pro</small>-->
+                    </span>
+                    </li>
+                    <li ms-repeat="nav" ms-class="now:nowTop==el.en">
+                        <a style="padding:10px 20px;font-size: 1.5em" ms-attr-href="el.href">
+                            {{el.name}}
+                        </a>
+                    </li>
+                    <li class="pull-right">
+                        <a ms-if="g==2&&G==3" ms-click="toggleSide(0)"
+                           style="padding:10px ;font-size: 14px;line-height: 30px;cursor: pointer;display: inline-block">返回前台</a>
+                        <a ms-if="g==1&&G==3" ms-click="toggleSide(1)"
+                           style="padding:10px ;font-size: 14px;line-height: 30px;cursor: pointer;display: inline-block">返回后台</a>
+                    </li>
+                    <li class="pull-right">
+                        <a style="font-size: 14px;line-height: 30px;display: inline-block"
+                           ms-click="toggleND(2)">
+                            <i class="icon icon-cog">&nbsp;&nbsp;</i>{{un}}</a>
+                        <ul class="dropdown-menu" style="display: block"
+                            ms-visible="showNameDropdown"
+                            ms-on-mouseleave="toggleND(0)"
+                            ms-on-mouseenter="toggleND(1)">
+                            <li><a ms-attr-href="#!/PWDEdit/{{uid}}">修改密码</a></li>
+                        </ul>
+
+                        <a ms-click="logout"
+                           style="padding:10px ;font-size: 14px;line-height: 30px;cursor: pointer;display: inline-block">登出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <a class="join" ms-if="showLoginBtn" href="#!/Login/0">
+        <i class="icon-off"></i>
+        登录
+    </a>
+
+    <div id="content" ms-css-height="contentHeight" ms-css-opacity="contentOpacity">
+        {{html|html}}
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <hr>
+        </div>
+    </div>
+
+
+    <!--<tsy:ws config="$optc"></tsy:ws>-->
+    <tsy:progressbar config="$optd"></tsy:progressbar>
+    <tsy:tip config="$opta"></tsy:tip>
+    <tsy:pop config="$optpop"></tsy:pop>
+    <tsy:pop config="$optpop2"></tsy:pop>
+    <!--<tsy:modal config="$optb" id="modal"></tsy:modal>-->
+    <!--<tsy:totop config="$optTop"></tsy:totop>-->
+</div>
+
+<!--<script src="plugins/door/door.js"></script>-->
+<script src="plugins/cache/cache.js"></script>
+<!--<sccipr src="./plugins/door/door.js"></sccipr>-->
+<script src="plugins/call/call.mobile.v2.js"></script>
+<script src="index.js"></script>
+<script src="plugins/strtotime/strtotime.js"></script>
+<!--<script src="plugins/ZeroClipboard/ZeroClipboard.js"></script>-->
+
+<div style="display: none">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1260673707'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260673707%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+</body>
+
+</html>

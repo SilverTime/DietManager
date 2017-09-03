@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>分页组件实例</title>
+    <script src="../../src/js/avalon.modern.1.5.min.js"></script>
+</head>
+<body ms-controller="pagerDemo">
+
+第{{page}}页
+<tsy:pager config="$opt"></tsy:pager>
+
+
+
+<script>
+    avalon.ready(function () {
+        require(['../../lib/pager/pager'], function () {
+            var vm=avalon.define({
+                $id:'pagerDemo',
+                ready: function () {
+                    avalon.scan()
+                },
+                page:"",
+                $opt:{
+                    id:"pagerTest",
+                    P:1,
+                    N:5,
+                    T:150,
+                    showPage:6,//显示多少页
+                    getList: function (p) {
+                        vm.page=p
+                    }
+                },
+            })
+
+            window[vm.$id]=vm
+            vm.ready()
+        })
+    })
+</script>
+</body>
+</html>

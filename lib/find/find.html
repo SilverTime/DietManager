@@ -1,0 +1,43 @@
+<!--
+    findCommunity 核心骨架，百折不挠
+    生成时间：Mon Aug 15 2016   破门狂人R2-D2为您服务！
+-->
+<div class="live-search">
+    <input type="text" class="form-control"
+           ms-duplex="Keywords"
+           ms-on-focus="attention(this)"
+           ms-on-input="search(0)"
+           ms-on-blur="ease(1)"
+           ms-on-mouseleave="ease(2)"
+           ms-on-mouseenter="dontEase"
+           ms-attr-placeholder="placeholder">
+    <!--- -->
+
+    <i class="icon-spinner icon-spin icon-2x "
+       ms-visible="state==1"></i>
+    <div class="live-search-list" ms-visible="state>0"
+         ms-on-mouseleave="ease(2)"
+         ms-on-mouseenter="dontEase">
+        <!--分页-->
+        <div class="l-s-p" >
+
+
+             <span>
+            <i class="icon-caret-left  "
+               ms-if="P>1"
+               ms-click="search(-1)"></i>
+            <i class="icon-caret-right "
+               ms-if="P<(Math.ceil(T/N))"
+               ms-click="search(1)"></i>
+            </span>
+            第{{P}} /{{Math.ceil(T/N)}}页
+
+        </div>
+        <div ms-visible="err">
+            {{err}}
+        </div>
+
+        <!--列表-->
+        {{listTmp|html}}
+    </div>
+</div>

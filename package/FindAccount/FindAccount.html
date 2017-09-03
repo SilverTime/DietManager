@@ -1,0 +1,44 @@
+<!--
+    找回密码 核心骨架，百折不挠
+    生成时间：Fri Nov 25 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="FindAccount" class="container" style="padding:5% 0px">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="hr-panel" >
+            <div class="hr-panel-title">
+                通过邮箱找回密码
+            </div>
+            <div class="hr-panel-body">
+
+                邮箱地址：
+                <input type="email" class="form-control" ms-duplex="Email" style="margin-bottom: 5px" >
+                邮箱验证码：
+                <div class="row">
+                    <div class="col-xs-8">
+                        <input type="text" class="form-control" ms-duplex="Code"  style="margin-bottom: 5px">
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-default btn-block" ms-click="sendVerify" ms-if="wait==0">获取验证码</button>
+                        <button class="btn btn-default btn-block" ms-if="wait>0" disabled>{{wait}}秒后重新获取</button>
+                    </div>
+                </div>
+
+                新密码：
+                <input type="password" class="form-control" ms-duplex="PWD">
+            </div>
+            <div class="hr-panel-footer" style="padding:10px">
+
+                <a href="#!/Login/0" class="btn btn-link">返回登录</a>
+
+                <button class="btn btn-success pull-right" ms-click="resetPWD()">
+                    &nbsp;&nbsp;&nbsp;确认找回&nbsp;&nbsp;&nbsp;
+                </button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <br>
+</div>

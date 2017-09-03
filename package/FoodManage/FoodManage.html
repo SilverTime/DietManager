@@ -1,0 +1,159 @@
+<!--
+    食材列表 核心骨架，百折不挠
+    生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="FoodManage" class="fl-container container">
+    <!-- 头部-->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>食材成分管理
+                <button class="btn btn-xs btn-success fl-add" ms-click="add()">添加食材</button>
+            </h2>
+        </div>
+
+        <div class="col-md-4">
+            <br>
+
+
+            <input ms-duplex="Keyword" id="fl_ipt" type="text" class="form-control" placeholder="输入关键词查找"
+                   aria-describedby="key-search">
+
+
+        </div>
+        <div class="col-sm-3 col-md-offset-1 box-row hor-ends" style="margin-top: 26px">
+            <div class="food-type select-food-type"
+                 ms-class="food-type-{{el.TypeID}}:foodType===el.TypeID"
+                 ms-class-2="now-food:foodType===el.TypeID"
+                 ms-repeat="foodTypes" ms-click="setFoodType(el.TypeID)">
+                                <span ms-if="foodType!==el.TypeID">
+                                     {{el.icon}}
+                                </span>
+
+            </div>
+        </div>
+    </div>
+    <!--添加食材-->
+
+    <hr/>
+    <div class="row">
+        <div class="col-xs-8">
+            <!-- 列表部分-->
+            <table class="table table-responsive table-bordered table-striped" style="text-align: center">
+                <thead>
+                <tr>
+                    <td>操作</td>
+                    <td style="min-width: 120px;">名称</td>
+                    <td>可食部分(g)</td>
+                    <td>单位能量(kcal/100g)</td>
+                    <td>单位水分</td>
+                    <td>蛋白质含量(g/100g)</td>
+                    <td>脂肪含量(g/100g)</td>
+                    <td>碳水化合物含量(g/100g)</td>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ms-repeat="list" class="fl-tr" ms-class="fl-tr-active:$index==nowFood" ms-click="lookFood($index)">
+                    <td>
+                        <button type="button" class="btn btn-xs btn-default" ms-click="edit($index)">编辑</button>
+                    </td>
+                    <td>
+                        <div class="food-type" ms-class="food-type-{{el.TypeID}}"></div>
+                        {{el.Name}}
+                    </td>
+                    <td>100</td>
+                    <td>{{Number(el.Energy*100).toFixed(2)}}</td>
+                    <td>{{Number(el.Water*100).toFixed(2)}}</td>
+                    <td>{{Number(el.Protein*100).toFixed(2)}}</td>
+                    <td>{{Number(el.Fat*100).toFixed(2)}}</td>
+                    <td>{{Number(el.CHO*100).toFixed(2)}}</td>
+
+                </tr>
+                </tbody>
+
+
+            </table>
+            <div style="margin:20px 0">
+                  <span ms-visible="list[0].FoodID>0">
+                      <tsy:pager config="$paper"></tsy:pager>
+                  </span>
+
+                <!--<div ms-visible="list[0].FoodID==''"-->
+                     <!--style="text-align: center;font-size: 30px;color: #8c8c8c;">-->
+                    <!--没有找到相关的食材……-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="col-xs-4" style="position: relative" ms-visible="list[0].FoodID>0">
+            <div class="hr-block" ms-css-margin-top="foodToolMT"
+                 style="transition:margin-top 0.6s cubic-bezier(0, 1.12, 1, 1.06);">
+                <div class="hr-panel-title">
+                    <div class="food-type" ms-class="food-type-{{list[nowFood].TypeID}}"></div>
+                    {{list[nowFood].Name}}
+                    <span class="pull-right">其他营养素</span>
+                </div>
+                <div class="hr-panel-body">
+                    <table class="table table-bordered table-responsive">
+                        <tr>
+                            <td>膳食纤维含量</td>
+                            <td>{{Number(list[nowFood].DF*100).toFixed(2)}} <span class="pull-right">g/100g</span></td>
+                        </tr>
+                        <tr>
+                            <td>维生素A</td>
+                            <td>{{Number(list[nowFood].VA*100).toFixed(2)}} <span class="pull-right">μgRAE/100g</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>维生素B1</td>
+                            <td>{{Number(list[nowFood].VB1*100).toFixed(2)}} <span class="pull-right">mg/100g</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>维生素B2</td>
+                            <td>{{Number(list[nowFood].VB2*100).toFixed(2)}} <span class="pull-right">mg/100g</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>尼克酸（烟酸）</td>
+                            <td>{{Number(list[nowFood].Niacin*100).toFixed(2)}} <span
+                                    class="pull-right">mgNE/100g</span></td>
+                        </tr>
+                        <tr>
+                            <td>维生素E</td>
+                            <td>{{Number(list[nowFood].VE*100).toFixed(2)}} <span class="pull-right">mg/100g</span></td>
+
+                        </tr>
+                        <tr>
+                            <td>钠</td>
+                            <td>{{Number(list[nowFood].Na*100).toFixed(2)}} <span class="pull-right">mg/100g</span></td>
+
+                        </tr>
+                        <tr>
+                            <td>钙</td>
+                            <td>{{Number(list[nowFood].Ca*100).toFixed(2)}} <span class="pull-right">mg/100g</span></td>
+
+                        </tr>
+                        <tr>
+                            <td>铁</td>
+                            <td>{{Number(list[nowFood].Fe*100).toFixed(2)}} <span class="pull-right">mg/100g</span></td>
+
+                        </tr>
+                        <tr>
+                            <td>维生素C</td>
+                            <td>{{Number(list[nowFood].VC*100).toFixed(2)}} <span class="pull-right">mg/100g</span></td>
+
+                        </tr>
+                        <tr>
+                            <td>胆固醇</td>
+                            <td>{{Number(list[nowFood].CH*100).toFixed(2)}} <span class="pull-right">mg/100g</span></td>
+                        </tr>
+
+
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<!--微信端-->
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+
+<head ms-controller="head">
+    <title id="title">运动营养评估与配餐系统</title>
+    <meta content="碳素云 慧若 运动 营养" name="Description">
+    <meta content="碳素云 慧若 运动 营养" name="Keywords">
+    <meta charset="UTF-8">
+    <!--坑爹的IE兼容-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <!--坑爹的将360默认为极速模式打开-->
+    <meta name="renderer" content="webkit">
+    <!--移动优先-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!--avalon-->
+    <script src="./src/js/avalon.modern.1.5.min.js"></script>
+    <!--图标引入-->
+    <!--bootstrap引入-->
+    <!--<link href="./src/css/layout.css" rel="stylesheet">-->
+    <!--已合并到layout中-->
+    <link href="./src/css/bootstrap-all.css" rel="stylesheet" type="text/css"/>
+    <!--引入btn-->
+    <!--<link href="./src/css/button.css" rel="stylesheet" type="text/css"/>-->
+    <!--fontAwesone 引入-->
+    <link href="./src/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <!--本地CSS-->
+    <!--<link href="./src/css/mooshroom.css" rel="stylesheet">-->
+    <link href="./src/css/local.css" rel="stylesheet">
+    <style>
+        [ms-controller] {
+            visibility: hidden
+        }
+    </style>
+
+</head>
+<body style="min-height: 1200px">
+<div ms-controller="index">
+    <!-- topNav-->
+    <nav class="navbar navbar-default" style="margin-bottom:0;">
+        <div class="container">
+            <div >
+                <ul class="nav nav-pills">
+                    <li>
+                    <span class="navbar-brand">
+                        运动营养评估与配餐系统
+                    </span>
+                    </li>
+                    <li ms-repeat="nav" ms-class="now:nowTop==el.en" >
+                        <a  style="padding:10px 20px;font-size: 1.5em" ms-attr-href="el.href">
+                            {{el.name}}
+                        </a>
+                    </li>
+                    <li class="pull-right">
+                        <span style="font-size: 14px;line-height: 30px">{{un}}</span>
+                        <a ms-click="logout" style="padding:10px ;font-size: 14px;line-height: 30px">登出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        {{html|html}}
+    </div>
+
+    <button ms-click="openPop">开启</button>
+
+
+    <!--<tsy:ws config="$optc"></tsy:ws>-->
+    <tsy:progressbar config="$optd"></tsy:progressbar>
+    <tsy:tip config="$opta"></tsy:tip>
+    <tsy:pop config="$optpop"></tsy:pop>
+    <tsy:fs config="$optFoodSearch"></tsy:fs>
+    <!--<tsy:modal config="$optb" id="modal"></tsy:modal>-->
+    <!--<tsy:totop config="$optTop"></tsy:totop>-->
+</div>
+
+<script src="plugins/door/door.js"></script>
+<script src="plugins/cache/cache.js"></script>
+<!--<sccipr src="./plugins/door/door.js"></sccipr>-->
+<script src="plugins/call/call.mobile.v2.js"></script>
+<script src="index.js"></script>
+
+</body>
+
+</html>

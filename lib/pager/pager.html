@@ -1,0 +1,18 @@
+
+<div class="tsy-pager">
+    <div ms-visible="P>1" ms-click="bi(P/1-1)" class="tsy-pager-pre">
+        上一页
+    </div>
+
+    <div ms-repeat="pagerList" ms-click="bi(el)" class="tsy-pager-list" ms-class="tsy-pager-now:P==el">
+        {{el}}
+    </div>
+
+    <div ms-visible="P<allPage" ms-click="bi(P/1+1)" class="tsy-pager-pre">
+        下一页
+    </div>
+    <div class="tsy-pager-t">
+        共{{T}}条数据,共{{allPage}}页
+    </div>
+</div>
+<div style="clear: both"></div>

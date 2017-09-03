@@ -1,0 +1,20 @@
+.progressbar{
+    width:100%;
+    /*border: 1px solid #fff;*/
+    /*border-radius: 4.5px;*/
+    height:3px;
+    background: rgba(220, 220, 220, 0);
+    position: fixed;
+    top:0px;
+    z-index: 99999999999999;
+}
+.barprog{
+    transition:all 0.1s;
+    height:100%;
+    border-right: 3px solid #e2f3ff;
+    background: -webkit-linear-gradient(left, #7ec3df, #92e5ff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #7ec3df, #92e5ff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #7ec3df, #92e5ff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #7ec3df, #92e5ff); /* 标准的语法 */
+    border-radius: 4px;
+}

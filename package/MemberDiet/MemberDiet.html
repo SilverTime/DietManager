@@ -1,0 +1,120 @@
+<!--
+    会员食谱管理 核心骨架，百折不挠.MemberDiet
+    生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="MemberDiet" class=" MemberDiet container">
+    <h3 class="pull-right">
+        <span class="hidden-print">
+            一周食谱
+        </span>
+        <span class="visible-print">
+           {{DietWeek[pi].Date*1000|date("yyyy-MM-dd")}}
+            {{weekName[pi]}} 食谱
+        </span>
+    </h3>
+    <h3 class="pull-left ">
+        {{member.Name}}({{sexName[member.Sex]}})
+        <small>电话：{{member.Tel}}</small>
+    </h3>
+
+    <div class="visible-print" style="clear: both;padding:50px 70px 0px 70px ">
+        {{printHTML|html}}
+    </div>
+
+    <table class="table table-bordered table-responsive table-ate-log hidden-print">
+
+        <tbody>
+        <tr>
+            <td style="width: 31px;">
+                <div class="ate-log-title">
+
+                </div>
+                <div class="ate-log-body">
+                    食谱
+                </div>
+                <div class="ate-log-footer">
+                    <div>
+                        总计
+                    </div>
+                    <div>
+                        烹饪建议
+                    </div>
+
+                </div>
+
+            </td>
+            <td ms-repeat="DietWeek" style="min-width: 128px">
+                <div class="ate-log-title ">
+                    {{weekName[$index]}}
+                    <button class="btn btn-success hidden-print btn-xs pull-right"
+                            ms-click="print($index)">
+                        打印
+                    </button>
+                    <br/>
+                    {{el.Date*1000|date("yyyy-MM-dd")}}
+                </div>
+                <div class="ate-log-body" ms-visible="!el.null">
+                    <div ms-repeat-al="el.Details" class="md-meal" ms-class="{{mealClass[$key-1]}}">
+                        <div class="md-meal-title">{{mealName[$key-1]}}</div>
+                        <div ms-repeat-cl="$val">
+                            {{cl.Food.Name}}×<strong style="font-size: 18px">{{Number(cl.Weight)}}</strong>g （{{mealSignName[cl.MealSign]}}）
+                        </div>
+                    </div>
+
+                    <button class="btn btn-default btn-block hidden-print"
+                            ms-click="AddDiet(el.Date*1000,$index)">重新选择</button>
+                </div>
+                <div class="ate-log-body ate-log-add hidden-print" ms-click="AddDiet(el.Date*1000,$index)"
+                     ms-visible="el.null">
+                    <span>+</span><br/>
+                    添加食谱
+                </div>
+                <!--<div class="ate-log-body ate-log-add visible-print"-->
+                     <!--ms-visible="el.null">-->
+                    <!--暂无食谱-->
+                <!--</div>-->
+                <div class="ate-log-footer">
+                    <div>
+                        推荐:<span>{{member.goodEnergy}}<small>Kcal</small></span><br/>
+                        实际:<span>{{Number(el.Energy).toFixed(2)}}<small>kcal</small></span><br/>
+                        差距:<span>{{(member.goodEnergy-el.Energy).toFixed(2)}}<small>kcal</small></span>
+                    </div>
+                    <div  class="text-center" style="cursor: pointer">
+                        <div ms-if="!el.CookingTip>0&&el.LogID>0" ms-click="addCookingTip(weekName[$index],el.LogID,el.CookingTip)" class="ate-sug hidden-print">
+                            <span style="font-weight: bold;font-size: 30px;">+</span><br/>
+                            添加烹饪建议
+                        </div>
+                        <div ms-if="el.CookingTip!=''&&el.CookingTip!=undefined" ms-click="addCookingTip(weekName[$index],el.LogID,el.CookingTip)" class="ate-sug" >
+                            {{el.CookingTip}}
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </td>
+
+
+        </tr>
+        </tbody>
+
+    </table>
+    <div class="hidden-print">
+        <br/>
+        <div class="pull-left " >
+            <button class="btn btn-success" ms-click="ShareDiet(member.UID)">分享食谱给会员</button>
+        </div>
+        <div class="pull-right ">
+            <button class="btn btn-default " ms-click="getDiet(week-1)">上一周</button>
+            &nbsp;&nbsp;
+            <button class="btn btn-default " ms-click="getDiet(week+1)">下一周</button>
+        </div>
+
+        <br/>
+        <br/>
+        <br/>
+    </div>
+
+
+</div>

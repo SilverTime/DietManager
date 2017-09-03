@@ -1,0 +1,108 @@
+/*
+个人中心 外在肌肤，水嫩丝滑
+生成时间：Tue Nov 08 2016   破门狂人R2-D2为您服务！
+*/
+.Home {
+
+}
+
+.home-bg {
+    position: absolute;
+    width: 100%;
+    height: 340px;
+    background-color: #fff;
+    z-index: -1;
+    background-image: url(../../src/images/HomeBG.jpg);
+    background-size:  100% auto;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.coach-head{
+    background-image: url(../../src/images/head.png);
+    height: 100%;
+    position: relative;
+    background-size: auto 100%;
+    background-position: top;
+    background-repeat: no-repeat
+}
+
+button {
+    outline: none;
+}
+
+.btn-edit-bg {
+    padding: 10px 18px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    background-color: transparent;
+    color: #000000;
+    font-size: 14px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.btn-edit-head {
+    padding: 10px 18px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-size: 14px;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+}
+
+.btn-edit-bg:hover, .btn-edit-head:hover {
+    opacity: 1;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+}
+
+.btn-edit-bg:active, .btn-edit-head:active {
+    opacity: 0.2;
+}
+
+
+
+.coach-card-footer ,.home-money{
+    /*text-align: center;*/
+    font-size: 18px;
+    line-height: 72px;
+    color: #333333;
+    vertical-align: middle;
+}
+
+.coach-card-footer i ,.home-money i{
+    margin-left: 20px;
+    font-size: 50px;
+    color: #a8b6b6;
+    vertical-align: middle;
+}
+
+
+
+.alipay-account{
+    text-overflow: ellipsis;
+}
+
+.alipay-account i:hover{
+    color: #5cb75c;
+}
+
+.home-tab-nav{
+    margin-top: 25px
+}
+.home-tab-nav a{
+    color: #2e2e2e;
+    margin-right: 35px;
+    font-size: 16px;
+}
+.home-tab-nav a:hover{
+    color: #5cb75c;
+    font-weight: bold;
+}
+.home-tab-nav .nowTab{
+    color: #5cb75c;
+    font-size: 24px;
+    font-weight: bold;
+}

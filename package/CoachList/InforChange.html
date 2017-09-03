@@ -1,0 +1,101 @@
+<div ms-controller="InforChange" style="padding:10px  ">
+    <strong style="font-size: 1.2em">信息修改</strong>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="ac-input">
+                <label >姓名：</label>
+                <input ms-duplex="Name" type="text"  class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-2 ">
+            <div class="ac-input" style="line-height: 30px;">
+                <span class="">性别：</span>
+                <tsy:select config="$selectSex"></tsy:select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="ac-input">
+                <span style="position: relative">
+            <strong style="float: left; margin-top: 5px;margin-left: 20px;width: 97px;">状态：</strong>
+        <span  ms-if="Status==1" class="CoachList-status CoachList-s-ing">启用中</span>
+        <span  ms-if="Status==0" class="CoachList-status">禁用中</span>
+        <label style="left: -22px;display:block;top: -10px;position:absolute;background-color: transparent">
+            <input id="StatusCheckbox" ms-click="resetCheckbox" type="checkbox" class="ch-switch ch-green"/>
+
+            <div>
+                <div></div>
+            </div>
+        </label>
+       </span>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="ac-input">
+                <label >类型：</label>
+                <select name="type" ms-duplex="Type"
+                        class="form-control" >
+                    <option value="0" >请选择</option>
+                    <option value="1" >教练</option>
+                    <option value="2" >管理员</option>
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="ac-input">
+                <label >手机号：</label>
+                <input ms-duplex="Tel" type="text"  class="form-control">
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="ac-input">
+                <label >使用日期至：</label>
+                <input ms-duplex="Deadline" type="date"  class="form-control "/>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="ac-input">
+                <label>所属俱乐部：</label>
+                <select id="clubIndex" class="form-control" ms-duplex="ClubID">
+                    <option value="0">请选择权限</option>
+                    <option ms-repeat="list" ms-attr-value="el.ClubID">{{el.Name}}</option>
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+    <br/>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="ac-input">
+                <label >地址：</label>
+                <input ms-duplex="Address" type="text"  class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="ac-input">
+                <button type="button" class="btn btn-primary btn-block " ms-click="changeInfo">确定</button>
+            </div>
+
+        </div>
+        <div class="col-sm-2">
+            <div class="ac-input">
+                <button type="button" class="btn btn-default btn-block" ms-click="closePop">返回</button>
+            </div>
+
+        </div>
+    </div>
+    <br/>
+
+
+</div>

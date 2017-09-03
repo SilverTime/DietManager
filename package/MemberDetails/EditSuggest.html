@@ -1,0 +1,34 @@
+<div ms-controller="EditSuggest" class="EditSuggest">
+    <button class="btn btn-default  btn-sm pull-right" ms-click="reset">重置</button>
+    <button class="btn btn-info btn-sm pull-right" ms-click="save" style="margin-right: 20px">保存</button>
+    <strong>教练建议</strong>
+    <hr/>
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>序号</td>
+            <td>问题</td>
+            <td>建议</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="problems">
+            <td>
+                <button class="btn btn-xs btn-danger" ms-click="delRow($index)">删除</button>
+                {{$index+1}}
+            </td>
+            <td>
+                <input type="text" class="table-input" ms-duplex="el.Problem"/>
+            </td>
+            <td>
+                <input type="text" class="table-input" ms-duplex="el.Suggestion"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button class="btn btn-default btn-add-row btn-block" ms-click="addRow">添加建议</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,150 @@
+<div ms-controller="EditFood" class="">
+    <div class="row FoodList-addBox-row">
+        <div class="col-sm-4">
+            <div class="fc-input">
+                <label>名称：</label>
+                <input type="text" ms-duplex="Name" class="form-control"/>
+                <span style="position: absolute;right:-7px ;top: -12px;color: #c8302c;font-size: 22px">*</span>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="fc-input">
+                <label>类别：</label>
+                <select id="food_type" class="form-control" ms-duplex="TypeID">
+                    <option id="typeOp1" value="0">请选择类别</option>
+                    <option ms-repeat="foodTypes" ms-attr-value="el.TypeID">
+                        {{el.Name}}
+                    </option>
+                </select>
+                <span style="position: absolute;right:-7px ;top: -12px;color: #c8302c;font-size: 22px">*</span>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="fc-input">
+                <label>单位能量：</label>
+                <input type="text" ms-duplex="Energy" class="form-control" placeholder="单位/g"/>
+                <span style="position: absolute;right:-7px ;top: -12px;color: #c8302c;font-size: 22px">*</span>
+
+            </div>
+        </div>
+    </div>
+    <div class="row FoodList-addBox-row">
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>单位水分：</label>
+                <input type="text" ms-duplex="Water" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>蛋白质含量：</label>
+                <input type="text" ms-duplex="Protein" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>脂肪含量：</label>
+                <input type="text" ms-duplex="Fat" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>碳水化合物含量：</label>
+                <input type="text" ms-duplex="CHO" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>膳食纤维含量：</label>
+                <input type="text" ms-duplex="DF" class="form-control"/>
+            </div>
+        </div>
+
+
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>维生素A：</label>
+                <input type="text" ms-duplex="VA" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="row FoodList-addBox-row">
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>维生素B1：</label>
+                <input type="text" ms-duplex="VB1" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>维生素B2：</label>
+                <input type="text" ms-duplex="VB2" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>尼克酸（烟酸）：</label>
+                <input type="text" ms-duplex="Niacin" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>维生素E：</label>
+                <input type="text" ms-duplex="VE" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>钠：</label>
+                <input type="text" ms-duplex="Na" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>钙：</label>
+                <input type="text" ms-duplex="Ca" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>铁：</label>
+                <input type="text" ms-duplex="Fe" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>维生素C：</label>
+                <input type="text" ms-duplex="VC" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>胆固醇：</label>
+                <input type="text" ms-duplex="CH" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <label>使用次数</label>
+                <input type="text" class="form-control" ms-duplex="Sort">
+            </div>
+        </div>
+
+
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <button type="button" class="btn btn-link" style="width: 100%;" ms-click="delFood">&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="fc-input">
+                <button type="button" class="btn btn-success" style="width: 100%;" ms-click="addFood">&nbsp;&nbsp;&nbsp;确认&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </div>
+    <br/>
+</div>

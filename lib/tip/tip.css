@@ -1,0 +1,36 @@
+/******************************
+**           mooshroom          **
+ **                         **
+******************************/
+.tip {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    z-index:999999999;
+
+
+
+}
+.tip>div>div{
+    margin-bottom: 10px;
+    padding:3px 12px ;
+    background-color: rgba(255, 255, 255, 0.83);
+    /*border: rgba(217, 217, 217, 0.44) 1px solid;*/
+    border-radius: 5px;
+
+}
+.tip .close{
+    border: none;
+    background:none;
+    padding:0px 4px;
+    margin-left: 13px;
+    /*color:#e74c3c;*/
+}
+.tip .tip-info{
+    border: rgb(66, 139, 202) 2px solid;
+    color:rgb(66, 139, 202)
+}
+.tip .tip-err{
+    border:#e74c3c 2px solid;
+    color:#e74c3c
+}

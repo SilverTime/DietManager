@@ -1,0 +1,351 @@
+﻿body {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    /*background-color: #f1f1f1;*/
+    transition-property: all;
+    transition-duration: 0s;
+    transition-timing-function: ease-out;
+
+}
+
+div {
+    transition: all 0.1s;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover, a:active, a:link {
+    text-decoration: none;
+}
+
+.login-btn {
+    background: #f04c22;
+    background: linear-gradient(to right, #fa7351, #f04c22);
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    outline: none;
+}
+
+.login-btn:active {
+    box-shadow: 0px 0px 14px #ef4c22;
+}
+
+.nav a {
+    color: #6a6a6a;
+    /*margin-top: 20px;*/
+    border-radius: 0px !important;
+}
+
+.nav-pills a:hover {
+    background-color: rgba(0, 174, 61, 0.38) !important;
+
+}
+
+.btn:active {
+    outline: none;
+}
+
+nav .now > a {
+    color: #ffffff;
+    background-color: #00ae3d !important;
+}
+
+table > thead {
+    background-color: rgb(209, 231, 248);
+}
+
+table > tfoot {
+    background-color: rgb(241, 241, 241);
+}
+
+table > thead > tr > td {
+
+}
+
+.table {
+    margin-bottom: 0px;
+}
+
+input {
+    display: inline-block
+}
+
+.hr-panel {
+    border: 1px solid #fff;
+    box-shadow: 0px 2px 10px rgb(151, 151, 151);
+    animation: showPanel 0.7s;
+    animation-fill-mode:none;
+    -webkit-animation-fill-mode:none; /* Safari 和 Chrome */
+}
+@keyframes showPanel {
+    from{
+        margin-top: 100px;
+        opacity: 0;
+    }
+    to{
+        margin-top:0px;
+        opacity: 1;
+         }
+}
+
+.hr-block {
+    border: 1px solid #e3e3e3;
+}
+
+.hr-panel-title {
+    padding: 10px;
+    background-color: #f6f6f6;
+    border-bottom: 1px dashed #e3e3e3;
+}
+
+.hr-panel-body {
+    background-color: #fff;
+    padding:10px
+}
+
+.hr-panel-footer {
+    background: -webkit-linear-gradient(#f6f6f6, #f1f1f1); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#f6f6f6, #f1f1f1); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#f6f6f6, #f1f1f1); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#f6f6f6, #f1f1f1); /* 标准的语法 */
+    border-top: 1px dashed #e3e3e3;
+}
+
+.food-type {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    /*color: #ffffff;*/
+    border-radius: 3px;
+    margin-right: 1px;
+    font-weight: bold;
+    /*background-color: #c2c2c2;*/
+}
+.select-food-type {
+    cursor: pointer;
+    color: #AAAAAA;
+    border: 1px solid ;
+}
+
+[class*="food-type-"]{
+    color: #ffffff;
+    border:none;
+}
+
+.want-food-type{
+    color: #ffffff;
+    background-color: #c2c2c2;
+    border:none
+}
+
+.select-food-type:hover {
+    /*box-shadow: 0px 2px 10px #ddd;*/
+    margin-top: -4px;
+}
+
+.select-food-type:active {
+    box-shadow: 0px 1px 1px #606060;
+    margin-top: 0px;
+}
+
+.food-type-1 {
+
+    background-color: #f3c280;
+
+}
+
+.food-type-1:after {
+    content: "谷"
+}
+
+.food-type-2 {
+
+    background-color: #b14e34;
+
+}
+
+.food-type-2:after {
+    content: "豆"
+}
+
+.food-type-3 {
+    background-color: #86db48;
+
+}
+
+.food-type-3:after {
+    content: "蔬"
+}
+
+.food-type-4 {
+    background-color: #f4a001;
+
+}
+
+.food-type-4:after {
+    content: "果"
+}
+
+.food-type-5 {
+    background-color: #de4d36;
+
+}
+
+.food-type-5:after {
+    content: "肉"
+}
+
+.food-type-6 {
+    background-color: #66aee8;
+
+}
+
+.food-type-6:after {
+    content: "奶"
+}
+
+.food-type-7 {
+    background-color: #f8d03e;
+
+}
+
+.food-type-7:after {
+    content: "蛋"
+}
+
+.food-type-8 {
+    background-color: #f97f52;
+
+}
+
+.food-type-8:after {
+    content: "鱼";
+}
+
+.food-type-9 {
+    background-color: #870e03;
+
+}
+
+.food-type-9:after {
+    content: "油"
+}
+
+.food-type-10 {
+    background-color: #838383;
+
+}
+
+.food-type-10:after {
+    content: "盐"
+}
+
+.food-type-11 {
+    background-color: #ababab;
+
+}
+
+.food-type-11:after {
+    content: "另"
+}
+
+.food-box{
+    position: relative;
+    border-radius: 5px;
+    border:1px solid #dddddd;
+    padding: 5px;
+    margin: 5px 0;
+
+}
+.food-box>.del{
+    display: none;
+}
+.food-box:hover>.del{
+    display: block;
+    color: #F44336;
+    position: absolute;
+    top: 1px;
+    right: 3px;
+    cursor: pointer;
+}
+.food-box>.del:hover{
+    text-shadow: 0px 1px 1px #9f9f9f;
+}
+
+
+.hr-line{
+    margin: 10px 0px;
+    border-style: dashed;
+}
+
+
+#content{
+  transition:all 0.25s ease;
+    overflow: hidden;
+}
+
+
+/*用户头像*/
+.user-head{
+    width:60px;
+    height: 60px;
+    position: relative;
+    background-size: auto 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+}
+
+.now-food{
+    margin-top: -3px;
+    box-shadow: 0px 2px 3px #606060;
+}
+
+
+
+.join{
+    position: absolute;
+    right: 0px;
+    margin: 20px;
+    padding: 5px 20px;
+    border: 1px solid;
+    color: #fff;
+    cursor: pointer;
+     background-color: #5cb85c;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    z-index: 9;
+}
+.join:hover{
+    margin-top: 15px;
+    color:#fff;
+    box-shadow: 0px 2px 2px #545454;
+    text-shadow: 0px 2px 2px #565657;
+}
+.join:active{
+    margin-top: 20px;
+    box-shadow: none;
+    color:#fff;
+    text-shadow: 0px 2px 2px #565657;
+}
+
+.join:link,.join:visited{
+    color:#fff
+}
+
+
+
+
+
+
+
+

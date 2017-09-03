@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动态查找组件组件</title>
+    <!--<link rel="stylesheet" href="./whatInput.css"/>-->
+    <link href="../../src/css/bootstrap-all.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../src/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../../src/js/avalon.modern.1.5.min.js"></script>
+    <script src="../../plugins/call/call.mobile.v2.js"></script>
+    <script src="../../plugins/cache/cache.js"></script>
+</head>
+<body class="container">
+<div ms-controller="test" class="row">
+    <br>
+
+    <!--通过ms-data-id来传入参数，无需在vm中写$opt-->
+    <div class="col-sm-4">
+        查找区域
+        <tsy:find config="$opt1"></tsy:find>
+
+
+    </div>
+
+    <div class="col-sm-4">
+        查找收件人
+        <tsy:find config="$opt2">
+
+        </tsy:find>
+    </div>
+    <div class="col-sm-4">
+        查找用户
+        <tsy:find config="$opt3">
+
+        </tsy:find>
+    </div>
+
+    <div class="col-sm-4">
+        查找快递公司
+        <tsy:find config="$opt4">
+
+        </tsy:find>
+    </div>
+
+    <div class="col-sm-4">
+        查找门店
+        <tsy:find config="$opt5">
+
+        </tsy:find>
+    </div>
+    <div class="col-sm-4">
+        查找包裹类型
+        <tsy:find config="$opt6">
+
+        </tsy:find>
+    </div>
+
+
+</div>
+<div id="doc-show" class="alive-hover markdown-preview live-sroll" style="display: block;"><h1 id="find-">find组件使用说明</h1>
+    <hr>
+    <p>mooshroom@tansuyun.cn 2016.08.17</p>
+    <h2 id="-">调用方式</h2>
+    <ol>
+        <li>引入find.js</li>
+        <li>在需要构建组件的地方插入标签：<pre class="alive-hover"><code class="prettyprint lang-html">&lt;tsy:find config="$opt1"&gt;&lt;/tsy:find&gt;
+        </code></pre>
+        </li>
+        <li>传入配置</li>
+    </ol>
+    <h2 id="-">配置</h2>
+    <p>配置项有2个必传参数：</p>
+    <ol>
+        <li>callback  选中列表项后的回调函数</li>
+        <li>target     要进行动态查询的对象名称</li>
+    </ol>
+    <p>例如：</p>
+<pre class="alive-hover"><code class="prettyprint lang-javascript">$opt1: {
+    callback: function (res) {
+    alert(res.Title)
+    },
+    target:"Community"
+    },
+</code></pre>
+    <p>如果是区域搜索，则传入target为Community，注意首字母大写，如果是收件人查询，则传入Receiver。</p>
+    <h2 id="-">列表模版</h2>
+    <p>对不同的对象进行搜索，因为对象字段的不同，需要编写不同的列表模版，将编写好的模版列表以target的值同样的名称保存与find文件夹内。</p>
+    <p>例如：</p>
+    <ol>
+        <li><p>Community.html</p>
+<pre class="alive-hover"><code class="prettyprint lang-html">&lt;!--列表--&gt;
+    &lt;div class="l-s-i" ms-repeat="list"
+    ms-class="now-active:active==$index"
+    ms-click="select($index)" ms-on-hover="hover($index)"&gt;
+    {{el.Title}}
+    &lt;/div&gt;
+    &lt;div&gt;
+    &lt;a style="cursor: pointer" ms-click="add"&gt;没有找到？新加一个&lt;/a&gt;
+    &lt;/div&gt;
+</code></pre>
+        </li>
+        <li><p>Receiver.html</p>
+<pre class="alive-hover"><code class="prettyprint lang-html">&lt;table class="table" style="margin-bottom: 0px"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+    &lt;td&gt;
+    电话号码
+    &lt;/td&gt;
+    &lt;td&gt;
+    名称
+    &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr class="l-s-i"
+    ms-repeat-el="list" ms-class="now-active:active==$index"
+    ms-click="select($index)" ms-on-hover="hover($index)"&gt;
+    &lt;td&gt;
+    {{el.Phone}}
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;span ms-repeat-el="el.Names"&gt;
+    &lt;span ms-if="$index&gt;0"&gt;、&lt;/span&gt;
+    {{al.Name}}
+    &lt;/span&gt;
+    &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+</code></pre>
+        </li>
+    </ol>
+    <p>现已编写好区域搜索的和收件人搜索的列表模版，其他的模版编写参照这两个来写</p>
+</div>
+
+<script>
+    // var apiURL = './index.php?i=';
+    var apiURL = 'http://gzxz.dev.tansuyun.cn/index.php?i=' //开发版服务端
+    //var apiURL = 'http://www.huiruo.cn/index.php?i='  //生产版
+
+    avalon.ready(function () {
+        require(['../../lib/find/find'], function () {
+            var vm = avalon.define({
+                $id: "test",
+                ready: function () {
+
+                },
+                aaa: 'aaa',
+                $opt1: {
+                    callback: function (res) {   //回调函数
+                        alert(res.Title)
+                    },
+                    target: "Community",          //要进行动态查询的对象名称
+                    keyName:'Title',
+                    placeholder:"区域"
+                },
+                $opt2: {
+                    callback: function (res) {
+                        alert(res.Phone)
+                    },
+                    target: "Receiver",
+                    keyName:'Phone',
+                    placeholder:"收件人"
+                },
+                $opt3: {
+                    callback: function (res) {
+                        alert(res.Title)
+                    },
+                    target: "User",
+                    keyName:'UN',
+                    placeholder:"用户"
+                },
+                $opt4: {
+                    callback: function (res) {
+                        alert(res.Title)
+                    },
+                    target: "ExpressCompany",
+                    keyName:'Title',
+                    placeholder:"快递公司"
+                },
+                $opt5: {
+                    callback: function (res) {
+                        alert(res.Title)
+                    },
+                    target: "Store",
+                    keyName:'Title',
+                    placeholder:"门店"
+                },
+                $opt6: {
+                    callback: function (res) {
+                        alert(res.Title)
+                    },
+                    target: "PackType",
+                    keyName:'Title',
+                    placeholder:"包裹类型"
+                },
+
+
+            })
+            avalon.scan()
+        })
+
+    })
+</script>
+
+
+</body>
+</html>

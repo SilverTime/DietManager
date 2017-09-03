@@ -1,0 +1,85 @@
+ <!--
+    我的食谱 核心骨架，百折不挠
+    生成时间：Mon Mar 21 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="MyDiet" class="container">
+    <br>
+    <button class="btn-default  btn pull-left" ms-click="getDiet(week-1)"><i class="icon-circle-arrow-left"></i>
+    </button>
+    <button class="btn-default  btn pull-right" ms-click="getDiet(week+1)"><i class="icon-circle-arrow-right"></i>
+    </button>
+    <h2 class="text-center" style="margin-top: 0px">
+        {{member.Account}}
+        <small>本周食谱</small>
+    </h2>
+
+    <div class="row">
+        <div class="col-xs-4">
+            教练：<strong>{{member.Coach.User.Name}}</strong><br>
+            目的：<strong ms-if="member.Target==1">减脂</strong>
+            <strong ms-if="member.Target==2">增肌</strong>
+            <strong ms-if="member.Target==3">塑形</strong>
+
+        </div>
+        <div class="col-xs-8">
+
+            电话：<strong>{{member.Coach.Tel}}</strong><br/>
+            俱乐部：<strong>{{member.Coach.User.Club.Name}}</strong>
+        </div>
+    </div>
+    <br/>
+    <div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li style="margin-bottom: -2px;" ms-class="active:now==$index" ms-repeat="weekName">
+                <a ms-click="tabTo($index)" style=" padding: 5px 10px;color:#888888">{{el}}</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" ms-repeat="DietWeek" ms-visible="now==$index">
+                <h4 class="text-center">{{el.Date*1000|date("yyyy年MM月dd日")}}</h4>
+                <br/>
+                <div ms-if="el.Details">
+                    <div ms-repeat-al="el.Details" class="md-meal" ms-class="{{mealClass[$key-1]}}">
+                        <div class="md-meal-title">{{mealName[$key-1]}}</div>
+                        <div ms-repeat-cl="$val" style="margin-left: 20px">
+                            {{cl.Food.Name}}×<strong style="font-size: 18px">{{Number(cl.Weight)}}</strong>g
+                            （{{mealSignName[cl.MealSign]}}）
+                        </div>
+                    </div>
+                    <div class="md-meal">
+                        <div class="md-meal-title">
+                            总计
+                        </div>
+                        <div style="margin-left: 20px">
+                            推荐能量：<span><strong>{{member.goodEnergy}}</strong><small>Kcal</small></span><br/>
+                            实际能量：<span><strong>{{el.Energy}}</strong><small>kcal</small></span><br/>
+                            差距:<span><strong>{{el.Energy-member.goodEnergy}}</strong><small>kcal</small></span>
+                        </div>
+
+                    </div>
+                    <div class="md-meal">
+                        <div class="md-meal-title">
+                            烹饪建议
+                        </div>
+                        <div style="margin-left: 20px">
+                            {{el.CookingTip}}
+                        </div>
+
+                    </div>
+                </div>
+                <div ms-if="!el.Details">
+                    <h1 class="text-center">
+                        <small>暂无食谱</small>
+                    </h1>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+<!--
+    修改密码 核心骨架，百折不挠
+    生成时间：Fri Jun 24 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="PWDEdit" class="row">
+    <br>
+    <br>
+    <div class="col-sm-4 col-sm-offset-4">
+        <h2>
+           修改密码
+        </h2>
+        <h2>
+            <small>
+                输入原来的密码
+            </small>
+        </h2>
+        <input type="password" class="form-control" placeholder="输入原来的密码（验证账户安全）" ms-duplex="Code">
+        <h2>
+            <small>
+                输入新密码
+            </small>
+        </h2>
+        <input type="password" class="form-control" placeholder="输入新的密码（一定要记住）" ms-duplex="pwd">
+        <br>
+        <input type="password" class="form-control" placeholder="再输入一次新的密码（以免输错）" ms-duplex="repwd">
+
+        <div class="row">
+            <br>
+            <div class="col-sm-6">
+                <button class="btn btn-success btn-block" ms-click="save">确认修改</button>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn btn-default btn-block" onclick="history.go(-1)">取消</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

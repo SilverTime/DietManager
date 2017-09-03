@@ -1,0 +1,2764 @@
+{
+  "obj": [
+    {
+      "Name": "会员表",
+      "Code": "member",
+      "Comment": false,
+      "I": "",
+      "Columns": [
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "姓名",
+          "Code": "UN",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "性别",
+          "Code": "Sex",
+          "Comment": "",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "当前体重",
+          "Code": "CurrentWeight",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "状态",
+          "Code": "Status",
+          "Comment": "",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "电话",
+          "Code": "Tel",
+          "Comment": "",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "所属教练",
+          "Code": "CoachID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "添加时间",
+          "Code": "AddTime",
+          "Comment": "",
+          "DataType": "int(10)",
+          "Length": [
+            "10"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "出生日期",
+          "Code": "Birthday",
+          "Comment": "",
+          "DataType": "int(8)",
+          "Length": [
+            "8"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "到期日期",
+          "Code": "Deadline",
+          "Comment": "",
+          "DataType": "int(8)",
+          "Length": [
+            "8"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "目标体重",
+          "Code": "TargetWeight",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "健身目的",
+          "Code": "Tatget",
+          "Comment": "",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "俱乐部字典表",
+      "Code": "club_dic",
+      "Comment": false,
+      "I": "ClubID",
+      "Columns": [
+        {
+          "Name": "俱乐部编号",
+          "Code": "ClubID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "俱乐部名称",
+          "Code": "Name",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "俱乐部地址",
+          "Code": "Address",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "俱乐部电话",
+          "Code": "Tel",
+          "Comment": "",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "联系人",
+          "Code": "Contacter",
+          "Comment": "",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "状态",
+          "Code": "Status",
+          "Comment": "",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "教练表",
+      "Code": "coach",
+      "Comment": false,
+      "I": "",
+      "Columns": [
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "姓名",
+          "Code": "Name",
+          "Comment": "",
+          "DataType": "char(50)",
+          "Length": [
+            "50"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "俱乐部编号",
+          "Code": "ClubID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "性别",
+          "Code": "Sex",
+          "Comment": "",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "类型",
+          "Code": "Type",
+          "Comment": "",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "状态",
+          "Code": "Status",
+          "Comment": "",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "电话",
+          "Code": "Tel",
+          "Comment": "",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "使用期限",
+          "Code": "Deadline",
+          "Comment": "",
+          "DataType": "int(8)",
+          "Length": [
+            "8"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "地址",
+          "Code": "Address",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "就餐记录详情",
+      "Code": "ate_detail_log",
+      "Comment": false,
+      "I": "LogDetailID",
+      "Columns": [
+        {
+          "Name": "记录编号",
+          "Code": "LogID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "详情编号",
+          "Code": "LogDetailID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "餐次编号",
+          "Code": "MealID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食物编号",
+          "Code": "FoodID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "质量",
+          "Code": "Weight",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "能量含量",
+          "Code": "Energy",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "碳水化合物",
+          "Code": "CHO",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材单位",
+          "Code": "Unit",
+          "Comment": "",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "g",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "会员就餐记录",
+      "Code": "ate_log",
+      "Comment": "添加人编号",
+      "I": "LogID",
+      "Columns": [
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "记录编号",
+          "Code": "LogID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "日期",
+          "Code": "Date",
+          "Comment": "",
+          "DataType": "int(8)",
+          "Length": [
+            "8"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "餐次编号",
+          "Code": "MealID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "添加日期",
+          "Code": "CTime",
+          "Comment": "",
+          "DataType": "int(10)",
+          "Length": [
+            "10"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "添加人",
+          "Code": "CUID",
+          "Comment": "添加人编号",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "目标能量",
+          "Code": "TargetEnerge",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "实际能量",
+          "Code": "ActualEnerge",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "差值",
+          "Code": "DIF",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "蛋白质",
+          "Code": "Protein",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "脂肪",
+          "Code": "Fat",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "碳水化合物",
+          "Code": "CHO",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "膳食纤维",
+          "Code": "DF",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "检查项字典",
+      "Code": "checkup_dic",
+      "Comment": false,
+      "I": "CheckupID",
+      "Columns": [
+        {
+          "Name": "检查项编号",
+          "Code": "CheckupID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "部位",
+          "Code": "Part",
+          "Comment": "",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "临床表现",
+          "Code": "ClinicalFeature",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "可能的营养素缺乏",
+          "Code": "NutritionalDeficiency",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "会员生活习惯",
+      "Code": "habit",
+      "Comment": false,
+      "I": "UID",
+      "Columns": [
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "基本历史",
+          "Code": "History",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "生活习惯",
+          "Code": "Living",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "膳食问卷分",
+          "Code": "Survey",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "会员身体检查项",
+      "Code": "member_body_check",
+      "Comment": false,
+      "I": "LogID",
+      "Columns": [
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "记录编号",
+          "Code": "LogID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "检查项编号",
+          "Code": "CheckID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "问题和建议",
+      "Code": "problem_suggestion",
+      "Comment": "添加人编号",
+      "I": "PSID",
+      "Columns": [
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "问题建议编号",
+          "Code": "PSID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "问题",
+          "Code": "Problem",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "建议",
+          "Code": "Suggestion",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "添加日期",
+          "Code": "CTime",
+          "Comment": "",
+          "DataType": "int(10)",
+          "Length": [
+            "10"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "添加人",
+          "Code": "CUID",
+          "Comment": "添加人编号",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "食物库",
+      "Code": "food_dic",
+      "Comment": false,
+      "I": "FoodID",
+      "Columns": [
+        {
+          "Name": "食物编号",
+          "Code": "FoodID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "名称",
+          "Code": "Name",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "单位能量",
+          "Code": "Energy",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材单位",
+          "Code": "Unit",
+          "Comment": "",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "g",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "单位水分",
+          "Code": "Water",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "蛋白质",
+          "Code": "Protein",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "脂肪",
+          "Code": "Fat",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "膳食纤维",
+          "Code": "DF",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "碳水化合物",
+          "Code": "CHO",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "视黄醇当量",
+          "Code": "VA",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "硫胺素(VB1)",
+          "Code": "VB1",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "核黄素(VB2)",
+          "Code": "VB2",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "尼克酸",
+          "Code": "Niacin",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "维生素E",
+          "Code": "VE",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "钠",
+          "Code": "Na",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "钙",
+          "Code": "Ca",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "铁",
+          "Code": "Fe",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "类别编号",
+          "Code": "TypeID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "抗坏血酸(VC)",
+          "Code": "VC",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "胆固醇",
+          "Code": "CH",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "可食部分",
+          "Code": "Eatable",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "食谱库",
+      "Code": "diet",
+      "Comment": "减脂、增肌、塑性",
+      "I": "DietID",
+      "Columns": [
+        {
+          "Name": "食谱编号",
+          "Code": "DietID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食谱目的",
+          "Code": "Target",
+          "Comment": "减脂、增肌、塑性",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "能量含量",
+          "Code": "Energy",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食谱状态",
+          "Code": "Status",
+          "Comment": "",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "添加日期",
+          "Code": "CTime",
+          "Comment": "",
+          "DataType": "int(10)",
+          "Length": [
+            "10"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "添加人",
+          "Code": "CUID",
+          "Comment": "添加人编号",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "碳水化合物",
+          "Code": "CHO",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "膳食纤维",
+          "Code": "DF",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "脂肪",
+          "Code": "Fat",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "蛋白质",
+          "Code": "Protein",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "推荐能量摄入",
+          "Code": "REI",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "营养素供能比",
+          "Code": "NE",
+          "Comment": "以逗号分隔的碳水化合物：蛋白质：脂肪",
+          "DataType": "char(50)",
+          "Length": [
+            "50"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "餐次编号",
+          "Code": "MealID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "食谱详情",
+      "Code": "diet_details",
+      "Comment": "各个食材中确定具体的餐次，默认为正餐，可选 加餐，训练前",
+      "I": "DetailID",
+      "Columns": [
+        {
+          "Name": "详情编号",
+          "Code": "DetailID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食谱编号",
+          "Code": "DietID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "餐次编号",
+          "Code": "MealID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材编号",
+          "Code": "FoodID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材质量",
+          "Code": "Weight",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "餐次标记",
+          "Code": "MealSign",
+          "Comment": "各个食材中确定具体的餐次，默认为正餐，可选 加餐，训练前",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "能量含量",
+          "Code": "Energy",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "碳水化合物",
+          "Code": "CHO",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "膳食纤维",
+          "Code": "DF",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "脂肪",
+          "Code": "Fat",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "蛋白质",
+          "Code": "Protein",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材单位",
+          "Code": "Unit",
+          "Comment": "",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "g",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "餐次字典表",
+      "Code": "meal_dic",
+      "Comment": "餐次列表：\n早餐\/午餐\/晚餐",
+      "I": "MealID",
+      "Columns": [
+        {
+          "Name": "餐次编号",
+          "Code": "MealID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "餐次名称",
+          "Code": "Name",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "食材类别",
+      "Code": "food_type",
+      "Comment": false,
+      "I": "TypeID",
+      "Columns": [
+        {
+          "Name": "类别编号",
+          "Code": "TypeID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "类别名称",
+          "Code": "Name",
+          "Comment": "",
+          "DataType": "char(250)",
+          "Length": [
+            "250"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "体质",
+      "Code": "health_log",
+      "Comment": false,
+      "I": "",
+      "Columns": [
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "日期",
+          "Code": "Date",
+          "Comment": "",
+          "DataType": "int(8)",
+          "Length": [
+            "8"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "体重",
+          "Code": "Weight",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "BMI",
+          "Code": "BMI",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "基础代谢",
+          "Code": "BML",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "体力活动水平",
+          "Code": "PAL",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "每日总能量消耗",
+          "Code": "DTEC",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "腰围",
+          "Code": "Waist",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "臀围",
+          "Code": "Hip",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "体脂率",
+          "Code": "BFR",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "腰臀比",
+          "Code": "WHR",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "身高",
+          "Code": "Height",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "会员食谱",
+      "Code": "member_diet",
+      "Comment": "减脂、增肌、塑性",
+      "I": "LogID",
+      "Columns": [
+        {
+          "Name": "记录编号",
+          "Code": "LogID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "日期",
+          "Code": "Date",
+          "Comment": "",
+          "DataType": "int(8)",
+          "Length": [
+            "8"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食谱编号",
+          "Code": "DietID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食谱目的",
+          "Code": "Target",
+          "Comment": "减脂、增肌、塑性",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "能量含量",
+          "Code": "Energy",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食谱状态",
+          "Code": "Status",
+          "Comment": "",
+          "DataType": "tinyint(2)",
+          "Length": [
+            "2"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "添加日期",
+          "Code": "CTime",
+          "Comment": "",
+          "DataType": "int(10)",
+          "Length": [
+            "10"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "添加人",
+          "Code": "CUID",
+          "Comment": "添加人编号",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "碳水化合物",
+          "Code": "CHO",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "膳食纤维",
+          "Code": "DF",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "脂肪",
+          "Code": "Fat",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "蛋白质",
+          "Code": "Protein",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "推荐能量摄入",
+          "Code": "REI",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "营养素供能比",
+          "Code": "NE",
+          "Comment": "以逗号分隔的碳水化合物：蛋白质：脂肪",
+          "DataType": "char(50)",
+          "Length": [
+            "50"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "餐次编号",
+          "Code": "MealID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "会员食谱详情",
+      "Code": "member_diet_details",
+      "Comment": "各个食材中确定具体的餐次，默认为正餐，可选 加餐，训练前",
+      "I": "DetailID",
+      "Columns": [
+        {
+          "Name": "详情编号",
+          "Code": "DetailID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "记录编号",
+          "Code": "LogID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "餐次编号",
+          "Code": "MealID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材编号",
+          "Code": "ID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材质量",
+          "Code": "Weight",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "餐次标记",
+          "Code": "MealSign",
+          "Comment": "各个食材中确定具体的餐次，默认为正餐，可选 加餐，训练前",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "能量含量",
+          "Code": "Energy",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "碳水化合物",
+          "Code": "CHO",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "膳食纤维",
+          "Code": "DF",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "脂肪",
+          "Code": "Fat",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "蛋白质",
+          "Code": "Protein",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材单位",
+          "Code": "Unit",
+          "Comment": "",
+          "DataType": "char(20)",
+          "Length": [
+            "20"
+          ],
+          "Must": true,
+          "Default": "g",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "食物分类合计",
+      "Code": "food_group_sum",
+      "Comment": false,
+      "I": "FGSID",
+      "Columns": [
+        {
+          "Name": "分类合计编号",
+          "Code": "FGSID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材类别编号",
+          "Code": "FoodID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食谱编号",
+          "Code": "DietID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "每日平均摄入量",
+          "Code": "DailyWeight",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    },
+    {
+      "Name": "会员食物分类合计",
+      "Code": "member_food_group_sum",
+      "Comment": false,
+      "I": "FGSID",
+      "Columns": [
+        {
+          "Name": "分类合计编号",
+          "Code": "FGSID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "食材类别编号",
+          "Code": "FoodID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "记录编号",
+          "Code": "LogID",
+          "Comment": "",
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        },
+        {
+          "Name": "每日平均摄入量",
+          "Code": "DailyWeight",
+          "Comment": "",
+          "DataType": "double(15,4)",
+          "Length": [
+            "15"
+          ],
+          "Must": true,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": ""
+        }
+      ]
+    }
+  ]
+}

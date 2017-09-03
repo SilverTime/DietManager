@@ -1,0 +1,42 @@
+/*
+食物替换表 外在肌肤，水嫩丝滑
+生成时间：Thu Nov 17 2016   破门狂人R2-D2为您服务！
+*/
+.FoodReplace{
+
+}
+.fr-add-change{
+    position: absolute;
+    left: 227px;
+    top: 30px;
+    width: 86px;
+    height: 34px;
+    color: #a2a39f;
+    background-color: white;
+    border-top: 2px #cbcbcb solid;
+    border-left: 1px #cbcbcb solid;
+    border-right: 1px #cbcbcb solid;
+    font-size: 11px;
+    display: inline-block;
+    padding: 6px 12px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    margin-left: 5px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    float: left;
+}
+.fr-addBox{
+    border: 1px darkgrey solid;
+    border-radius: 4px;
+    /*margin-top: 5px;*/
+}
+.fr-addBox-row{
+    padding: 8px 20px 0px 20px;
+}
+.fr-addBox-text{
+    float: left;
+    margin-top: 5px;
+    margin-left: 20px;
+}

@@ -1,0 +1,119 @@
+<!--
+会员列表 核心骨架，百折不挠
+生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="ClubList" class="container ">
+    <!-- 添加俱乐部的head部分-->
+    <div id="cl-header" class="row">
+        <div class="col-md-4" style="position: relative;">
+            <h2>
+                俱乐部列表
+                <button class="btn btn-success btn-xs "  ms-click="addClub" ms-if="btnStatus==0">
+                    添加俱乐部
+                </button>
+                <button class="btn cl-btn-add" ms-click="addClub" ms-if="btnStatus==1" >
+                    添加俱乐部
+                </button>
+            </h2>
+        </div>
+        <!-- 空元素-->
+        <div class="col-md-4">
+            <br>
+
+                <input ms-duplex="Keyword" maxlength="30" type="text" class="form-control" placeholder="输入关键词查找"
+                       aria-describedby="key-search">
+
+
+        </div>
+        <div class="col-md-4" style="padding-top: 10px">
+            <br>
+            <ul class="status-btn pull-right" style="color:#dedede">
+                <li style="display: inline;" ms-click="toggleStatus([0,1])" ms-class="nowS:statusStr=='1_0'||statusStr=='0_1'"><a >全部</a></li>
+                <li style="display: inline;padding-left: 20px" ms-click="toggleStatus([1])" ms-class="nowS:statusStr=='1'"><a >上课中</a></li>
+                <li style="display: inline;padding-left: 20px" ms-click="toggleStatus([0])" ms-class="nowS:statusStr=='0'"><a >已停课</a></li>
+            </ul>
+        </div>
+
+
+        <!-- 添加俱乐部-->
+        <div class="cl-addDiv" ms-if="btnStatus==1">
+            <span class="cl-col" style="width:15%">
+                <label>名称：</label>
+                <input ms-duplex="Name" type="text" class="form-control cl-nameInput" placeholder="俱乐部名称"/>
+            </span>
+           <span class="cl-col" style="width:22%">
+            <label>地址：</label>
+            <input ms-duplex="Address" type="text" class="form-control cl-addressInput" placeholder="地址"/>
+           </span>
+
+            <span class="cl-col" style="width:12%;position: relative;padding-left: 0;">
+                <label>状态：</label>
+                <span ms-duplex="s" ms-if="s==1" style="color:#2CA149;font-weight: bold">启用中</span>
+                <span ms-duplex="s" ms-if="s==0" style="color: #8c8c8c;">禁用中</span>
+                    <!-- 复选框样式-->
+                <label style="position:absolute;top:3px;left:60px;">
+                    <input ms-click="checkStatus" id="statusCheckbox" type="checkbox" class="cl-switch cl-green"/>
+
+                    <div>
+                        <div></div>
+                    </div>
+                </label>
+            </span>
+
+            <span class="cl-col" style="width:14%">
+                <label>联系人：</label>
+                <input ms-duplex="Contacter" type="text" class="form-control cl-linkmanInput" placeholder="姓名"/>
+            </span>
+            <span class="cl-col" style="width:20%">
+                <label>电话：</label>
+                <input ms-duplex="Tel" type="text" class="form-control cl-phoneInput" placeholder="电话号码"/>
+            </span>
+            <span class="cl-col" style="width:17%">
+                <button class="btn btn-sm btn-success cl-btn-detail" ms-click="ensureInfo">确定</button>
+                <button class="btn btn-sm btn-default cl-btn-detail" ms-click="deleteAdd">删除</button>
+            </span>
+        </div>
+    </div>
+    <hr>
+
+
+    <!-- 对俱乐部列表的渲染-->
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-4"  ms-repeat="list">
+            <!-- 会员信息-->
+            <div class=" cl-list">
+                <span class="cl-name" style="max-width:240px;margin:0 6px;text-align: center;
+                 overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">{{el.Name}}</span>
+                <!--下面 0、1 均是字符型，“==”转换格式后比较的-->
+                <span class="cl-status-default cl-status-ing" ms-if="el.Status==1">启用</span>
+                <span class="cl-status-default cl-status-stop" ms-if="el.Status==0">已禁用</span>
+                <table class="cl-table">
+                    <tr>
+                        <td colspan="2" style="font-weight: 600">地址：{{el.Address}}</td>
+                    </tr>
+                    <tr>
+                        <td class="cl-td">联系人：{{el.Contacter}}</td>
+                        <td>电话：{{el.Tel}}</td>
+                    </tr>
+                </table>
+                <div style="padding-top: 10px;text-align: right;padding-right: 3px">
+                    <button class="btn btn-sm btn-success cl-btn-detail" ms-click="editClubFun(el.ClubID)">编辑</button>
+                    <button class="btn btn-sm btn-default cl-btn-detail" ms-click="deleteClub(el.ClubID)">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin:20px 0">
+      <span ms-duplex="searchNull" ms-if="searchNull==0">
+          <tsy:pager config="$paper"></tsy:pager>
+      </span>
+
+        <div ms-duplex="searchNull" ms-if="searchNull==1"
+             style="text-align: center;font-size: 30px;color: #8c8c8c;font-family: 楷体">
+            搜索结果为空
+        </div>
+        <hr/>
+    </div>
+</div>

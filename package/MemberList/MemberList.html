@@ -1,0 +1,94 @@
+<!--
+    会员列表 核心骨架，百折不挠
+    生成时间：Thu Mar 10 2016   破门狂人R2-D2为您服务！
+-->
+<div >
+    <!-- 头部-->
+    <div  class="row">
+        <!--<div class="col-md-4">-->
+            <!--<h2 >-->
+                <!--会员列表-->
+                <!--<button class="btn btn-xs btn-success" ms-click="addMember()">添加会员</button>-->
+            <!--</h2>-->
+
+        <!--</div>-->
+
+        <div class="col-sm-2 ">
+            <br>
+            <button class="btn  btn-success btn-block" ms-click="addMember()">
+                <i class=" icon-plus">&nbsp;</i>
+                添加会员
+            </button>
+        </div>
+        <div class="col-sm-2 col-sm-offset-5">
+            <br>
+            <ul class="status-btn pull-right" style="color:#dedede;line-height: 34px">
+                <li style="display: inline;" ms-click="toggleStatus([0,1])" ms-class="nowS:statusStr=='1_0'||statusStr=='0_1'"><a >全部</a></li>
+                <li style="display: inline;padding-left: 20px" ms-click="toggleStatus([1])" ms-class="nowS:statusStr=='1'"><a >上课中</a></li>
+                <li style="display: inline;padding-left: 20px" ms-click="toggleStatus([0])" ms-class="nowS:statusStr=='0'"><a >已停课</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3">
+            <br>
+
+                <input ms-duplex="MKeywords" id="ml_ipt"  type="text" class="form-control" placeholder="输入关键词查找"
+                       aria-describedby="key-search">
+
+
+        </div>
+    </div>
+    <hr>
+    <!-- 会员列表的渲染-->
+    <br>
+    <div class="row">
+        <div class="col-md-4" style="margin: 0;" ms-repeat="list">
+            <!-- 会员信息-->
+            <div class=" ml-list">
+                <span class="ml-name">
+                    <span >
+                        {{el.Name}}
+                    </span>
+                    <small ms-if="el.Sex==1">
+                        (先生)
+                    </small>
+                     <small ms-if="el.Sex==0">
+                         (女士)
+                     </small>
+                </span>
+
+                <span ms-if="el.Status==1" class="ml-status-default ml-status-ing">上课中</span>
+                <span ms-if="el.Status==0" class="ml-status-default ml-status-stop">已停课</span>
+                <table class="ml-table">
+                    <tr>
+                        <td style="font-weight: 600;">当前体重：{{Number(el.CurrentWeight).toFixed(2)}}kg</td>
+                        <td style="font-weight: 600;">目标体重：{{Number(el.TargetWeight).toFixed(2)}}kg</td>
+                    </tr>
+                    <tr>
+                        <td>出生日期：{{el.Birthday*1000|date("yyyy-MM-dd")}}</td>
+                        <td>到期时间：{{el.EndTime*1000|date("yyyy-MM-dd")}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">电话：{{el.Tel}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p style="width:282px; overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">
+                             所属俱乐部：{{el.Coach.ClubName}}
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <div style="padding-top: 10px;text-align: right;">
+                    <button class="pull-left btn btn-default btn-xs" ms-click="delMember(el.UID)">删除</button>
+                    <a class="btn   ml-btn-detail" ms-attr-href="#!/MemberDetails/{{el.UID}}">评估报告</a>
+                    <a class="btn   ml-btn-detail" ms-attr-href="#!/MemberDiet/{{el.UID}}">食谱管理</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin:20px 0">
+      <span ms-duplex="searchNull" ms-if="searchNull==0">
+          <tsy:pager config="$paper"></tsy:pager>
+      </span>
+    </div>
+</div>
